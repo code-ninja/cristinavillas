@@ -20,6 +20,9 @@ module.exports = {
   /*
   ** Build configuration
   */
+  serverMiddleware: [
+          '~/api/index.js',
+      ],
   build: {
     /*
     ** Run ESLint on save
@@ -36,4 +39,3 @@ module.exports = {
     }
   }
 }
-
