@@ -13,6 +13,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "ghost": "2.*",
+    "nuxt": "^1.0.0",
     "autoprefixer": "^9.1.5",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
