@@ -33,7 +33,17 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
-  }
+    },
+    postcss: [
+      require('autoprefixer')(),
+      require('css-mqpacker')(),
+      require('postcss-size')(),
+      require('postcss-position')(),
+      require('postcss-pxtorem')({ propList: ['*'] }),
+    ]
+  },
+  css: [
+    // SCSS file in the project
+    'assets/css/style.scss'
+  ]
 }
-
