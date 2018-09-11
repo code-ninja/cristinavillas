@@ -37,8 +37,7 @@ module.exports = {
     postcss: [
       require('autoprefixer')(),
       require('css-mqpacker')(),
-      require('postcss-size')(),
-      require('postcss-position')(),
+      require('postcss-short')(),
       require('postcss-pxtorem')({ propList: ['*'] }),
     ]
   },
