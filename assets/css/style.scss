@@ -1,25 +1,67 @@
 @import "bootstrap-custom";
 
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+ol,
+ul {
+  list-style: none;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+footer,
+section {
+  padding: 120px 0;
+}
+
+.title {
+  font: {
+    family: 'Montserrat';
+    weight: light;
+  };
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.cv-logo {
+  width: 96px;
+}
+
 .hero {
   background: gray;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
 
-  .content {
-    h1 {
-      font: {
-        family: 'Montserrat';
-        weight: light;
-      };
-      letter-spacing: 6px;
-      text-transform: uppercase;
-
-      // Large Up
-      @include media-breakpoint-up(lg) {
-        font-size: 40px/54px;
-      }
+  h1 {
+    // Large Up
+    @include media-breakpoint-up(lg) {
+      font-size: 40px/54px;
     }
   }
+
+  .cv-logo {
+    width: 186px;
+    margin-top: 80px;
+  }
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
 }
