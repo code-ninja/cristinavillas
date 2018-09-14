@@ -5,6 +5,8 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
+@import "cv-variables.scss";
+
 footer {
   background: #2e302b;
   color: scale-color(#fff, $lightness: -40%);
@@ -23,7 +25,7 @@ footer {
     color: scale-color(#fff, $lightness: -40%);
 
     &:hover {
-      color: #fff;
+      color: $brand-yellow;
     }
   }
 
@@ -33,11 +35,6 @@ footer {
 
     svg {
       width: 132px;
-
-      // Extra small down
-      @include media-breakpoint-down(xs) {
-        width: 100px;
-      }
     }
 
     // Extra small down
@@ -111,14 +108,9 @@ footer {
     display: inline-block;
     background-repeat: no-repeat;
     background-size: 100%;
-    size: 14px;
+    size: 16px;
     opacity: 0.5;
     transition: opacity 0.2s ease-in;
-
-    // Extra small down
-    @include media-breakpoint-down(sm) {
-      transform: scale(1.1428571429); //16px
-    }
   }
 
   .social-fb {

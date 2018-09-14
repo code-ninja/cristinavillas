@@ -1,0 +1,30 @@
+// ==========================================================================
+// Hero
+// ==========================================================================
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  h1 {
+    // Large Up
+    @include media-breakpoint-up(lg) {
+      font-size: 40px/54px;
+    }
+  }
+
+  .cv-logo {
+    width: 120px;
+    margin: 40px 0;
+
+    // Large Up
+    @include media-breakpoint-up(lg) {
+      width: 186px;
+    }
+  }
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+}

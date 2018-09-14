@@ -12,7 +12,7 @@
 </svg></div>
           <div class="text-center">
             <h1 class="title">Your Amazing Gateway in the Sky</h1>
-            <nuxt-link to="#" class="btn btn-primary">Book Now</nuxt-link>
+            <nuxt-link to="#" class="btn btn-cta">Book Now</nuxt-link>
           </div>
         </div>
       </div>
