@@ -1,25 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400');
+@import "cv-variables.scss";
 @import "bootstrap-custom";
 
 // ==========================================================================
 // Cristina Villa Styles
 // ==========================================================================
 @import "base";
-
-.title {
-  font: {
-    family: 'Montserrat';
-    weight: 300;
-  };
-  letter-spacing: 6px;
-  text-transform: uppercase;
-}
-
-.subtitle {
-  letter-spacing: 1px;
-  line-height: 1.8;
-}
+@import "hero";
 
 .cv-logo {
   width: 96px;
@@ -38,29 +26,6 @@
   text-align: center;
 }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-
-  h1 {
-    // Large Up
-    @include media-breakpoint-up(lg) {
-      font-size: 40px/54px;
-    }
-  }
-
-  .cv-logo {
-    width: 186px;
-    margin-top: 80px;
-  }
-}
-
-.hero-content {
-  display: flex;
-  align-items: center;
-}
-
 .btn {
   font-size: 12px;
   letter-spacing: 2px;
@@ -69,7 +34,7 @@
 }
 
 .home-facilities {
-  padding-top: 52px;
+  padding-top: 24px;
 }
 
 .home-packages {
@@ -77,8 +42,103 @@
 }
 
 .packages-card {
-  margin: 0 8px;
-  padding-bottom: 24.999975%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  // Extra small only
+  @include media-breakpoint-only(xs) {
+    height: 124px;
+    margin-bottom: 24px;
+  }
+
+  // Small only
+  @include media-breakpoint-only(sm) {
+    height: 195px;
+  }
+
+  // Medium only
+  @include media-breakpoint-only(md) {
+    height: 274px;
+  }
+
+  // Large up
+  @include media-breakpoint-up(lg) {
+    margin: 0 8px;
+    height: 300px;
+  }
+
+  // Extra Large up
+  @include media-breakpoint-up(xl) {
+    height: 368px;
+  }
 }
 
-.packages-bg {}
+.packages-bg {
+  background: red;
+
+  img {
+    transform: translate(-50%, -50%);
+    max-width: none;
+    position: absolute;
+    left: 50%;
+
+    // Extra small
+    @include media-breakpoint-only(xs) {
+      top: 40%;
+      width: 100%;
+    }
+    // Medium up
+    @include media-breakpoint-up(sm) {
+      height: 100%;
+      top: 50%;
+      width: auto;
+    }
+  }
+
+  &:before {
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+    content: '';
+    display: block;
+    position: absolute 0;
+    z-index: 1;
+  }
+}
+
+.packages-content {
+  color: #fff;
+  position: absolute auto 0 0;
+  z-index: 1;
+  padding-bottom: 24px;
+
+  // Extra small
+  @include media-breakpoint-only(xs) {
+    padding: 16px;
+  }
+  // Small only
+  @include media-breakpoint-only(sm) {
+    padding: 16px 0;
+  }
+
+}
+
+.package-name {
+  font: {
+    family: 'Montserrat';
+    weight: 300;
+  };
+  letter-spacing: 3px;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: auto;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    font-size: 12px;
+  }
+
+  // Small up
+  @include media-breakpoint-up(sm) {
+    width: 80%;
+  }
+}
