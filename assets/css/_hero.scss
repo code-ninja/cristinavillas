@@ -5,7 +5,13 @@
   background: url("~assets/img/cv-home-hero.jpg") center/cover no-repeat;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  position: relative;
+  justify-content: space-between;
+
+  // Small only
+  @include media-breakpoint-only(sm) {
+    justify-content: center;
+  }
 
   &:before {
     content: '';
@@ -30,16 +36,27 @@
 
   .cv-logo {
     width: 120px;
-    // margin: 40px 0;
+    position: relative;
+    margin-top: 80px;
 
-    // Large Up
-    @include media-breakpoint-up(lg) {
+    // Small only
+    @include media-breakpoint-only(sm) {
+      width: 160px;
+      margin: 0 0 32px;
+    }
+
+    // Medium Up
+    @include media-breakpoint-up(md) {
       width: 186px;
     }
   }
 }
 
 .hero-content {
-  display: flex;
-  align-items: center;
+  margin-bottom: 132px;
+
+  // Small only
+  @include media-breakpoint-only(sm) {
+    margin-bottom: 0;
+  }
 }
