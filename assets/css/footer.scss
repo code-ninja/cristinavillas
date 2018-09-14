@@ -14,6 +14,11 @@ footer {
   }
   letter-spacing: 1px;
 
+  // Extra small down
+  @include media-breakpoint-down(xs) {
+    text-align: center;
+  }
+
   a {
     color: scale-color(#fff, $lightness: -40%);
 
@@ -28,6 +33,16 @@ footer {
 
     svg {
       width: 132px;
+
+      // Extra small down
+      @include media-breakpoint-down(xs) {
+        width: 100px;
+      }
+    }
+
+    // Extra small down
+    @include media-breakpoint-down(xs) {
+      margin: 0 auto 52px;
     }
   }
 }
@@ -68,19 +83,27 @@ footer {
   }
 }
 
-.footer-content {
-  margin-bottom: 40px;
-}
-
 .footer-social {
-  display: flex;
 
-  li {
-    padding: 4px 16px 0 0;
+  // Extra small down
+  @include media-breakpoint-down(xs) {
+    justify-content: center;
+  }
 
-    // Extra small down
-    @include media-breakpoint-down(xs) {
-      padding-right: 16px;
+  ul {
+    display: flex;
+
+    li {
+      padding: 4px 16px 0 0;
+
+      // Extra small down
+      @include media-breakpoint-down(sm) {
+        padding-right: 24px;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
   }
 
@@ -94,7 +117,7 @@ footer {
 
     // Extra small down
     @include media-breakpoint-down(sm) {
-      transform: scale(0.8);
+      transform: scale(1.1428571429); //16px
     }
   }
 

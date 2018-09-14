@@ -3,7 +3,7 @@
   <footer>
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="col-lg-4">
+        <div class="col-sm-6 col-md-4">
           <div class="cv-logo">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 64">
 <g fill-rule="evenodd">
@@ -13,7 +13,7 @@
             <div class="cv-strapline">Mountain Resort &amp; Hotel</div>
           </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-md-block">
           <nav class="footer-nav-links">
             <ul>
               <li>
@@ -37,9 +37,9 @@
             </ul>
           </nav>
         </div>
-        <div class="col-sm-6 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0">
           <h6 class="footer-list-title mb-4">Address</h6>
-          <div class="footer-content">
+          <div class="footer-content mb-5">
             <address>
             Sta Cruz Taktak Road,<br/>
             Antipolo, Rizal, 1870<br/>
@@ -47,19 +47,20 @@
           </address>
           </div>
           <h6 class="footer-list-title mb-4">Contact</h6>
-          <div class="footer-content">
+          <div class="footer-content mb-sm-5 mb-md-0">
             <ul class="footer-links">
               <li><a href="tel:(02)6974521">Tel: (02) 6974521</a></li>
               <li><a href="tel:09178664932">Mobile: 0917-8664932</a></li>
               <li>Fax: 697-5188</li>
+              <li><a href="mailto:cristinavillashotel@gmail.com">Email: cristinavillashotel@gmail.com</a></li>
             </ul>
           </div>
-          <p><a href="mailto:cristinavillashotel@gmail.com">cristinavillashotel@gmail.com</a></p>
+          <p></p>
         </div>
-        <div class="col-lg-2">
+        <div class="col-md-4 col-lg-2 offset-sm-6 offset-md-0">
           <h6 class="footer-list-title mb-4">Follow Us</h6>
-          <div class="footer-social-wrapper d-flex">
-            <ul class="footer-social">
+          <div class="footer-social d-flex">
+            <ul>
               <li>
                 <nuxt-link to="#" alt="Facebook" class="social-fb"></nuxt-link>
               </li>
