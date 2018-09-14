@@ -1,5 +1,5 @@
 <template>
-<main class="hero" role="main">
+<main class="hero bg-secondary" role="main">
   <div class="hero-content">
     <div class="container">
       <div class="row">
