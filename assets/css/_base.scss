@@ -1,0 +1,184 @@
+// ==========================================================================
+// Base
+// ==========================================================================
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+ol,
+ul {
+  list-style: none;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+footer,
+section {
+  padding: 72px 0;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    padding: 52px 0;
+  }
+
+  // Extra Large up
+  @include media-breakpoint-up(xl) {
+    padding: 120px 0;
+  }
+}
+
+.container {
+  // Small down
+  @include media-breakpoint-down(sm) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+.title {
+  font: {
+    family: 'Montserrat';
+    weight: 300;
+  };
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+section {
+  .title {
+    padding-bottom: 24px;
+
+    // Small down
+    @include media-breakpoint-down(sm) {
+      font-size: 24px/36px;
+      text-align: center;
+    }
+  }
+
+  .subtitle {
+    letter-spacing: 1px;
+    line-height: 1.8;
+
+    // Small down
+    @include media-breakpoint-down(sm) {
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  appearance: none;
+  outline: 0;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.btn {
+  &:active,
+  &:hover {
+    color: $white;
+  }
+
+  // Responsive small button
+  @include media-breakpoint-between(xs,sm) {
+    @include button-size($input-btn-padding-y, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius);
+  }
+}
+
+.btn-sm {
+  // Responsive small button
+  @include media-breakpoint-between(xs,sm) {
+    @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius);
+  }
+}
+
+// Button - CTA
+// ==========================================================================
+.btn-cta {
+  background: $brand-yellow;
+  color: #000;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+// Button - Black
+// ==========================================================================
+.btn-black {
+  background: #000;
+  color: #fff;
+
+  &:hover {
+    color: $brand-yellow;
+  }
+}
+
+header {
+  color: #fff;
+  padding: 24px;
+  position: absolute 0 0 auto;
+  z-index: $zindex-sticky;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    padding: 24px 0;
+  }
+}
+
+.header-location-contact {
+  font-size: 11px;
+  color: rgba(#fff, 0.8);
+
+  .title {
+    color: rgba(#fff, 1);
+    letter-spacing: 2px;
+    font: {
+      size: 10px;
+      weight: 500;
+    }
+  }
+
+  .col-auto {
+    margin-right: 18px;
+
+    &:last-child {
+      margin: 0;
+    };
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.menu-toggle {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+  };
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  svg {
+    margin-right: 10px;
+    size: 18px;
+  }
+}

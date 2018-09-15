@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500');
+@import "cv-variables.scss";
+@import "bootstrap-custom";
+
+// ==========================================================================
+// Cristina Villa Styles
+// ==========================================================================
+@import "base";
+@import "hero";
+@import "slider";
+@import "~swiper/dist/css/swiper.min";
+
+.cv-logo {
+  width: 96px;
+}
+
+.cv-strapline {
+  border-top: 1px solid scale-color(#fff, $lightness: -75%);
+  font: {
+    family: 'Montserrat';
+    size: 10px;
+    weight: 200;
+  };
+  letter-spacing: 1px;
+  margin-top: 16px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.btn {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+}
+
+.home-facilities {
+  padding-top: 80px;
+
+  // Small up
+  @include media-breakpoint-down(sm) {
+    padding-top: 40px;
+  }
+}
+
+.home-packages {
+  background: scale-color(#FFFAED, $lightness: 50%);
+}
+
+.packages-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  // Extra small only
+  @include media-breakpoint-only(xs) {
+    height: 124px;
+    margin-bottom: 24px;
+  }
+
+  // Small only
+  @include media-breakpoint-only(sm) {
+    height: 195px;
+  }
+
+  // Medium only
+  @include media-breakpoint-only(md) {
+    height: 274px;
+  }
+
+  // Large up
+  @include media-breakpoint-up(lg) {
+    margin: 0 8px;
+    height: 300px;
+  }
+
+  // Extra Large up
+  @include media-breakpoint-up(xl) {
+    height: 368px;
+  }
+}
+
+.packages-bg {
+  background: red;
+
+  img {
+    transform: translate(-50%, -50%);
+    max-width: none;
+    position: absolute;
+    left: 50%;
+
+    // Extra small
+    @include media-breakpoint-only(xs) {
+      top: 40%;
+      width: 100%;
+    }
+    // Medium up
+    @include media-breakpoint-up(sm) {
+      height: 100%;
+      top: 50%;
+      width: auto;
+    }
+  }
+
+  &:before {
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+    content: '';
+    display: block;
+    position: absolute 0;
+    z-index: 1;
+  }
+}
+
+.packages-content {
+  color: #fff;
+  position: absolute auto 0 0;
+  z-index: 1;
+  padding-bottom: 24px;
+
+  // Extra small
+  @include media-breakpoint-only(xs) {
+    padding: 16px;
+  }
+  // Small only
+  @include media-breakpoint-only(sm) {
+    padding: 16px 0;
+  }
+
+}
+
+.package-name {
+  font: {
+    family: 'Montserrat';
+    size: 12px;
+    weight: 300;
+  };
+  letter-spacing: 3px;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: auto;
+
+  // Small up
+  @include media-breakpoint-up(sm) {
+    width: 80%;
+  }
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+  min-height: 423px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 80px;
+
+  // Small up
+  @include media-breakpoint-down(sm) {
+    margin-top: 52px;
+    min-height: 212px;
+  }
+
+  // Medium only
+  @include media-breakpoint-only(md) {
+    min-height: 312px;
+  }
+}
+
+.slider-wrapper {
+  display: flex;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 percentage(85/1280);
+
+}
+
+.slider-content {
+  margin-right: 48px;
+
+  // Small up
+  @include media-breakpoint-down(sm) {
+    margin-right: 24px;
+  }
+
+  img {
+    width: auto;
+    max-height: 423px;
+
+    // Small down
+    @include media-breakpoint-down(sm) {
+      max-height: 212px;
+    }
+
+    // Medium only
+    @include media-breakpoint-only(md) {
+      max-height: 312px;
+    }
+  }
+}
+
+.slider-caption {
+  margin-top: 8px;
+  font: {
+    family: 'Montserrat';
+    size: 10px;
+  }
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

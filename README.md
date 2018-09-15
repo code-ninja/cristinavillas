@@ -1,20 +1,42 @@
-# cristinavillas
+## Download
 
-> Nuxt.js project
+This project includes submodules, to clone with submodules use the following command:
 
-## Build Setup
+```bash
 
-``` bash
-# install dependencies
-$ yarn
+git clone --recurse-submodules git@github.com:code-ninja/cristinavillas.git <target-folder>
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+```
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+## Configuration
 
-# generate static project
-$ yarn generate
+1. Create config file in root folder using config.SAMPLE.json as pattern, save as config.development.json for development settings and config.production.json for production
+  - See https://docs.ghost.org/docs/config for details
+2. Create content folder in root, create data folder under content.
+
+## Installation
+
+1. Install using yarn, and then run migration script
+
+```bash
+
+yarn
+yarn migrate
+
+```
+
+2. Run in dev mode using
+
+```bash
+
+yarn dev
+
+```
+
+3. Run in production using
+
+```bash
+
+yarn start
+
 ```
