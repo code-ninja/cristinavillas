@@ -52,6 +52,11 @@
       margin: 0 0 32px;
     }
 
+    // Small only
+    @include media-breakpoint-only(md) {
+      margin-top: 160px;
+    }
+
     // Medium Up
     @include media-breakpoint-up(md) {
       width: 186px;
