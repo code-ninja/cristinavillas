@@ -17,8 +17,8 @@
             </div>
 
             <!--Facilities-->
-            <div class="home-facilities">
-              <div class="row justify-content-md-center">
+            <div class="home-facilities text-center text-md-left">
+              <div class="row justify-content-center">
                 <div class="col-lg-4">
                   <h2 class="title">Facilities</h2>
                 </div>
@@ -29,15 +29,29 @@
                   <nuxt-link to="#" class="btn btn-outline-secondary">View All</nuxt-link>
                 </div>
               </div>
-            </div>
-            <!--End of Facilities-->
 
+            </div>
+          </div>
+
+          <!--End of Facilities-->
+        </div>
+      </div>
+      <div class="slider-container">
+        <div class="slider-wrapper">
+          <div class="slider-content">
+            <img src="~assets/img/cv-facilities-1.jpg" alt="Function Room">
+            <div class="slider-caption">Function Room</div>
+          </div>
+          <div class="slider-content">
+            <img src="~assets/img/cv-facilities-2.jpg" alt="Gymnasium">
+            <div class="slider-caption">Gymnasium</div>
+          </div>
+          <div class="slider-content">
+            <img src="~assets/img/cv-facilities-3.jpg" alt="Garden Suite">
+            <div class="slider-caption">Garden Suite</div>
           </div>
         </div>
-
-
       </div>
-
   </section>
 
   <!--Packages-->
