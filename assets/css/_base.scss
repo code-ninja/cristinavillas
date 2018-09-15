@@ -116,3 +116,69 @@ button {
     color: inherit;
   }
 }
+
+// Button - Black
+// ==========================================================================
+.btn-black {
+  background: #000;
+  color: #fff;
+
+  &:hover {
+    color: $brand-yellow;
+  }
+}
+
+header {
+  color: #fff;
+  padding: 24px;
+  position: absolute 0 0 auto;
+  z-index: $zindex-sticky;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    padding: 24px 0;
+  }
+}
+
+.header-location-contact {
+  font-size: 11px;
+  color: rgba(#fff, 0.8);
+
+  .title {
+    color: rgba(#fff, 1);
+    letter-spacing: 2px;
+    font: {
+      size: 10px;
+      weight: 500;
+    }
+  }
+
+  .col-auto {
+    margin-right: 18px;
+
+    &:last-child {
+      margin: 0;
+    };
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.menu-toggle {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+  };
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  svg {
+    margin-right: 10px;
+    size: 18px;
+  }
+}
