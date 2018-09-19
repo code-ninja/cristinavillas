@@ -37,7 +37,8 @@ export default {
   methods: {
     fetch() {
 
-      console.log(this.posts)
+      console.log(1)
+      console.log(process.env.GHOST_ID)
 
     }
   }

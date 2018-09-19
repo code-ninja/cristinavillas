@@ -12,7 +12,7 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
           <div class="text-center">
             <h1 class="title">Your Amazing Gateway in the Sky</h1>
-            <nuxt-link to="#" class="btn btn-cta">Book Now</nuxt-link>
+            <a href="#" class="btn btn-cta" @click.prevent="triggerBook">{{ btnText }}</a>
           </div>
         </div>
       </div>
@@ -20,3 +20,23 @@
   </div>
 </main>
 </template>
+
+<script>
+
+export default {
+  computed: {
+      btnText() {
+        //return 'Hello'
+        return this.$store.getters.getClick ? 'Booked' : 'Book Now'
+      }
+  },
+  methods: {
+    triggerBook() {
+      console.log(this.$store)
+      this.$store.commit('toggleClicked')
+    }
+  }
+}
+
+
+</script>
