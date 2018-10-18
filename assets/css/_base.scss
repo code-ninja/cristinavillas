@@ -143,6 +143,10 @@ header {
   .row {
     align-items: center;
   }
+
+  a {
+    color: inherit;
+  }
 }
 
 .header-location-contact {
@@ -167,10 +171,6 @@ header {
     &:last-child {
       margin: 0;
     };
-  }
-
-  a {
-    color: inherit;
   }
 }
 
