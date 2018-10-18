@@ -13,6 +13,21 @@
 
   .menu-nav-links li {
     font-size: 22px;
+
+    // Small only
+    @include media-breakpoint-only(xs) {
+      font-size: 16px;
+      padding: 12px 0;
+    }
+  }
+
+  // Small only
+  @include media-breakpoint-only(xs) {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    bottom: 0;
+    text-align: center;
+
   }
 }
 
@@ -72,6 +87,7 @@
       padding: 0 0 20px;
     }
   }
+
 }
 
 .menu-nav-social {

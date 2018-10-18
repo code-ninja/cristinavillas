@@ -7,7 +7,7 @@
         <div class="col">
           <button class="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="#FFF" fill-rule="evenodd" d="M8.282 7.575l6.01-6.01.708.707-6.01 6.01 6.01 6.01-.707.708-6.01-6.01L2.272 15l-.708-.707 6.01-6.01-6.01-6.01.707-.708 6.01 6.01z"/></svg>Close</button>
         </div>
-        <div class="col-auto d-none d-md-block">
+        <div class="col-auto">
           <div class="header-location-contact">
             <div class="row">
               <div class="col-auto">
@@ -21,7 +21,7 @@
   </header>
   <div class="container">
     <div class="row justify-content-md-center">
-      <div class="col-sm-6 col-md-4 mb-5 mb-sm-0">
+      <div class="col-sm-6 col-lg-5 mb-5 mb-sm-0">
         <nav class="menu-nav-links">
           <ul>
             <li>
@@ -45,7 +45,7 @@
           </ul>
         </nav>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-sm-block">
         <h6 class="menu-nav-list-title mb-4">Address</h6>
         <div class="menu-nav-content mb-5">
           <address>
@@ -65,7 +65,7 @@
         </div>
         <p></p>
       </div>
-      <div class="col-md-4 col-lg-2 offset-sm-6 offset-md-0">
+      <div class="col-md-4 col-lg-2 offset-sm-6 offset-lg-0">
         <h6 class="menu-nav-list-title mb-4">Follow Us</h6>
         <div class="menu-nav-social d-flex">
           <ul>
