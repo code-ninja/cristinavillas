@@ -133,16 +133,24 @@ header {
   padding: 24px;
   position: absolute 0 0 auto;
   z-index: $zindex-sticky;
+  letter-spacing: 2px;
 
   // Small down
   @include media-breakpoint-down(sm) {
     padding: 24px 0;
   }
+
+  .row {
+    align-items: center;
+  }
 }
 
 .header-location-contact {
-  font-size: 11px;
-  color: rgba(#fff, 0.8);
+  font: {
+    family: 'Montserrat';
+    size: 12px;
+  };
+  // color: rgba(#fff, 0.8);
 
   .title {
     color: rgba(#fff, 1);
@@ -172,7 +180,7 @@ header {
   align-items: center;
   font: {
     family: 'Montserrat';
-    size: 16px;
+    size: 14px;
   };
   letter-spacing: 3px;
   text-transform: uppercase;
