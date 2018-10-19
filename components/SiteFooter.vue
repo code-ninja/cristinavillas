@@ -1,6 +1,5 @@
 <template>
-<div>
-  <footer>
+<footer>
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-sm-6 col-md-4">
@@ -75,6 +74,5 @@
       </div>
     </div>
   </footer>
-</div>
 </template>
 <style src="~/assets/css/footer.scss" lang="scss"></style>
