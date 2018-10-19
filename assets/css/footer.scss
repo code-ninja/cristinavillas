@@ -10,6 +10,7 @@
 footer {
   background: #2e302b;
   color: scale-color(#fff, $lightness: -40%);
+  font-size: 12px;
 
   // Extra small down
   @include media-breakpoint-down(xs) {

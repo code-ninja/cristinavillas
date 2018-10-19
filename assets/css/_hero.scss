@@ -46,13 +46,18 @@
     position: relative;
     margin-top: 80px;
 
+    // Extra small only
+    @include media-breakpoint-only(xs) {
+      margin-top: 120px;
+    }
+
     // Small only
     @include media-breakpoint-only(sm) {
       width: 160px;
       margin: 0 0 32px;
     }
 
-    // Small only
+    // Medium only
     @include media-breakpoint-only(md) {
       margin-top: 160px;
     }

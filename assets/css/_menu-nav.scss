@@ -6,8 +6,8 @@
   color: scale-color(#fff, $lightness: -40%);
   display: flex;
   align-items: center;
-  height: 100vh;
-  width: 100%;
+  font-size: 12px;
+  size: 100% 100vh;
   position: absolute 0;
   z-index: $zindex-fixed;
 

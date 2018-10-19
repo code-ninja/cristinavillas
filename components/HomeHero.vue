@@ -12,7 +12,6 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
           <div class="text-center">
             <h1 class="title">Your Amazing Gateway in the Sky</h1>
-            <nuxt-link to="#" class="btn btn-cta">Book Now</nuxt-link>
           </div>
         </div>
       </div>
