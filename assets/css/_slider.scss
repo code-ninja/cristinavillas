@@ -1,0 +1,138 @@
+// ==========================================================================
+// Slider
+// ==========================================================================
+.slider-container {
+  width: 100%;
+  height: 100%;
+  min-height: 423px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 80px;
+
+  // Small up
+  @include media-breakpoint-down(sm) {
+    margin-top: 52px;
+    min-height: 212px;
+  }
+
+  // Medium only
+  @include media-breakpoint-only(md) {
+    min-height: 312px;
+  }
+}
+
+.slider-wrapper {
+  display: flex;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 percentage(85/1280);
+}
+
+.slider-content {
+  position: relative;
+  margin-right: 48px;
+
+  // Small up
+  @include media-breakpoint-down(sm) {
+    margin-right: 24px;
+  }
+
+  img {
+    width: auto;
+    max-height: 423px;
+
+    // Small down
+    @include media-breakpoint-down(sm) {
+      max-height: 212px;
+    }
+
+    // Medium only
+    @include media-breakpoint-only(md) {
+      max-height: 312px;
+    }
+  }
+}
+
+.slider-caption {
+  margin-top: 8px;
+  font: {
+    family: 'Montserrat';
+    size: 10px;
+  }
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+// ==========================================================================
+// Rooms - Slider
+// ==========================================================================
+.slider-rooms {
+  .slider-content {
+    margin-bottom: 100px;
+
+    img {
+      max-height: 430px;
+
+      // Small down
+      @include media-breakpoint-down(sm) {
+        max-height: 280px;
+      }
+    }
+  }
+}
+
+.room-details {
+  background: #fff;
+  position: absolute auto 0 -50px 0;
+  margin: 0 32px;
+  padding: 24px 32px 0;
+  font-size: 13px;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    margin: 0 24px 0 0;
+    padding: 16px 20px 0;
+  }
+}
+
+.room-name {
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+    weight: 300;
+  };
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}
+
+.room-specs {
+  border-top: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  padding-top: 24px;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    padding-top: 16px;
+  }
+}
+
+.room-price {
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+    weight: 500;
+  };
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}

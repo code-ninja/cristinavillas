@@ -1,5 +1,5 @@
 <template>
-<main class="hero flex-column" role="main">
+<main class="hero home flex-column" role="main">
   <div class="cv-logo mx-auto">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 64">
   <g fill-rule="evenodd">
