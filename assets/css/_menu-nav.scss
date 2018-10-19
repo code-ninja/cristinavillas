@@ -9,26 +9,31 @@
   font-size: 12px;
   size: 100% 100vh;
   position: absolute 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   z-index: $zindex-fixed;
 
   .menu-nav-links li {
     font-size: 22px;
 
     // Small only
-    @include media-breakpoint-only(xs) {
+    @include media-breakpoint-down(sm) {
       font-size: 16px;
       padding: 12px 0;
     }
   }
 
-  // Small only
+  // Extra small only
   @include media-breakpoint-only(xs) {
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
     bottom: 0;
     text-align: center;
-
   }
+
+  // Small only
+  @include media-breakpoint-only(sm) {
+    align-items: flex-start;
+  }
+
 }
 
 .menu-links {
