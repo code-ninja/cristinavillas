@@ -83,6 +83,16 @@
     background-image: url("~assets/img/cv-rooms-hero.jpg");
   }
 
+  // Facilities hero background
+  &.accomodations {
+    background-image: url("~assets/img/cv-facilities-hero.jpg");
+  }
+
+  // FAQ hero background
+  &.faqs {
+    background-image: url("~assets/img/cv-faq-hero.jpg");
+  }
+
 }
 
 .hero-content {
