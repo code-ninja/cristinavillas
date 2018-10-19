@@ -31,6 +31,10 @@ section {
   @include media-breakpoint-up(xl) {
     padding: 120px 0;
   }
+
+  &.collapse {
+    padding: 0;
+  }
 }
 
 .container {

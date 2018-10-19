@@ -101,7 +101,7 @@
       <div class="row no-gutters justify-content-md-center">
         <div class="col-lg-10">
           <div class="embed-responsive embed-responsive-16by9 my-5">
-            <div class="embed-responsive-item"><img src="~assets/img/cv-home-1.jpg"></div>
+            <div class="embed-responsive-item"><img src="~assets/img/cv-front-building.jpg"></div>
             </div>
 
             <!--Facilities-->
@@ -143,7 +143,7 @@
   </section>
 
   <!--Packages-->
-  <section class="home-packages">
+  <section class="bg-light-yellow">
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10 col-lg-6 text-center">
