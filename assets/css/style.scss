@@ -145,3 +145,27 @@
     width: 80%;
   }
 }
+
+.faq-list {
+  ul {
+    line-height: inherit;
+  }
+
+  li {
+    border-bottom: 1px solid rgba(0,0,0,0.075);
+    padding: 24px 0;
+    margin: 16px 0;
+
+    &:last-child {
+      border: 0;
+    }
+
+    h4 {
+      font: {
+        family: 'Montserrat';
+        size: 18px;
+        weight: 500;
+      };
+    }
+  }
+}
