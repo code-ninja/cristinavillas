@@ -44,7 +44,7 @@
   }
 }
 
-.home-packages {
+.bg-light-yellow {
   background: scale-color(#FFFAED, $lightness: 50%);
 }
 
@@ -146,6 +146,7 @@
   }
 }
 
+// FAQ
 .faq-list {
   ul {
     line-height: inherit;
@@ -168,4 +169,22 @@
       };
     }
   }
+}
+
+// Contact
+.contact-card {
+  background: #fff;
+  padding: 48px;
+  position: absolute;
+  color: #000;
+
+  a {
+    color: #000;
+  }
+}
+
+.contact-map-location {
+  background: url("~assets/img/cv-location-map.jpg") 100%/100% no-repeat;
+  height: 533px;
+  margin-top: 200px;
 }

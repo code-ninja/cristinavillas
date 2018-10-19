@@ -84,13 +84,18 @@
   }
 
   // Facilities hero background
-  &.accomodations {
+  &.facilities {
     background-image: url("~assets/img/cv-facilities-hero.jpg");
   }
 
   // FAQ hero background
   &.faqs {
     background-image: url("~assets/img/cv-faq-hero.jpg");
+  }
+
+  // Contact hero background
+  &.contact {
+    background-image: url("~assets/img/cv-front-building.jpg");
   }
 
 }

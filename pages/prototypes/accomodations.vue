@@ -108,7 +108,7 @@
   </section>
 
   <!--Packages-->
-  <section class="home-packages">
+  <section class="bg-light-yellow">
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10 col-lg-6 text-center">
