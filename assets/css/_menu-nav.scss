@@ -23,17 +23,11 @@
     }
   }
 
-  // Extra small only
-  @include media-breakpoint-only(xs) {
+  // Small down
+  @include media-breakpoint-down(sm) {
     bottom: 0;
     text-align: center;
   }
-
-  // Small only
-  @include media-breakpoint-only(sm) {
-    align-items: flex-start;
-  }
-
 }
 
 .menu-links {
