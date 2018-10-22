@@ -24,7 +24,7 @@
     </header>
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="col-sm-6 col-lg-5 my-5 my-sm-0">
+        <div class="col-md-6 col-lg-5 my-5 my-sm-0">
           <nav class="menu-nav-links">
             <ul>
               <li>
@@ -48,7 +48,7 @@
             </ul>
           </nav>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-md-block">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-lg-block">
           <h6 class="menu-nav-list-title mb-4">Address</h6>
           <div class="menu-nav-content mb-5">
             <address>
@@ -68,7 +68,7 @@
           </div>
           <p></p>
         </div>
-        <div class="col-md-4 col-lg-2 offset-sm-6 offset-lg-0 d-none d-md-block">
+        <div class="col-md-4 col-lg-2 offset-sm-6 offset-lg-0 d-none d-lg-block">
           <h6 class="menu-nav-list-title mb-4">Follow Us</h6>
           <div class="menu-nav-social d-flex">
             <ul>
@@ -87,7 +87,7 @@
       </div>
     </div>
   </div>
-  
+
 <home-hero />
   <section>
     <div class="container">
@@ -114,7 +114,7 @@
                   <p class="subtitle">These words are here to provide the reader with a basic impression of how actual text will appear in its final presentation.</p>
                 </div>
                 <div class="col-sm-auto ml-md-auto">
-                  <nuxt-link to="#" class="btn btn-black">View All</nuxt-link>
+                  <nuxt-link to="facilities" class="btn btn-black">View All</nuxt-link>
                 </div>
               </div>
 
