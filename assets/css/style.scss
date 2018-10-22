@@ -246,12 +246,31 @@
 
   a {
     padding: 4px 0;
-    margin: 0 26px;
+    margin: 0 16px;
+
+    // Medium up
+    @include media-breakpoint-up(md) {
+      margin: 0 26px;
+    }
   }
 
   .active {
     border-bottom: 1px solid #000;
     color: #000;
   }
+}
 
+.masonry-gallery {
+  margin-top: 24px;
+
+  // Medium up
+  @include media-breakpoint-up(md) {
+    margin-top: 64px;
+  }
+
+  .image-item {
+    background: #000;
+    cursor: pointer;
+    margin-bottom: 16px;
+  }
 }

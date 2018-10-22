@@ -21,7 +21,8 @@
     "postcss-pxtorem": "^4.0.1",
     "postcss-short": "^4.1.0",
     "sass-loader": "^7.1.0",
-    "swiper": "^4.4.1"
+    "swiper": "^4.4.1",
+    "vue-masonry-css": "^1.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
