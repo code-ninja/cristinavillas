@@ -1,15 +1,15 @@
 <template>
 <div>
 <contact-hero />
-  <section class="bg-light-yellow collapse">
-    <div class="container">
-      <div class="row ">
-        <div class="col-lg-6">
+  <section class="contact bg-light-yellow collapse">
+    <div class="container p-0">
+      <div class="row no-gutters">
+        <div class="col-sm-8 col-lg-6">
           <div class="contact-card">
             <h2 class="title">Get in touch</h2>
-            <address>Sta Cruz Taktak Road, Antipolo, Rizal, 1870<br>Philippines</address>
-            <div>Request for proposals, group and bookings</div>
-            <ul class="menu-links mt-3">
+            <address class="mb-4">Sta Cruz Taktak Road, Antipolo, <br>Rizal, 1870 Philippines</address>
+            <div class="title title-6 pr-sm-5">Request for proposals, group and bookings</div>
+            <ul class="menu-links">
               <li><a href="tel:(02)6974521">Tel: (02) 6974521</a></li>
               <li><a href="tel:09178664932">Mobile: 0917-8664932</a></li>
               <li>Fax: 697-5188</li>
