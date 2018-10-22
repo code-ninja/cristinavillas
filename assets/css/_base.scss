@@ -149,7 +149,7 @@ button {
 header {
   color: #fff;
   padding: 24px 0;
-  position: absolute 0 0 auto;
+  position: fixed 0 0 auto;
   z-index: $zindex-sticky;
   letter-spacing: 2px;
 

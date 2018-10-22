@@ -15,7 +15,7 @@
   <div class="masonry-gallery">
     <masonry
     :cols="{default: 4, 1000: 3, 700: 2}"
-    :gutter="{default: '16px'}"
+    :gutter="{default: '16px', 400: '10px'}"
     >
       <div class="image-item"><img src="~assets/img/cv-facilities-gallery-1.jpg"></div>
       <div class="image-item"><img src="~assets/img/cv-front-building.jpg"></div>

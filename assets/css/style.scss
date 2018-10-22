@@ -271,6 +271,11 @@
   .image-item {
     background: #000;
     cursor: pointer;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+
+    // Medium up
+    @include media-breakpoint-up(md) {
+      margin-bottom: 16px;
+    }
   }
 }
