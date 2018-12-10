@@ -9,13 +9,5 @@ npm-debug.log
 
 # Nuxt generate
 dist
-.env
 
-*.log
-config.*.json
-!config.SAMPLE.json
-.DS_Store
-content/data/*.db
-content/data/*.json
-content/images/
 .DS_Store
