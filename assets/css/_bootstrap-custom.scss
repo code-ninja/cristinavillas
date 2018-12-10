@@ -22,6 +22,7 @@ $container-max-widths: (
 // Links
 //
 // Style anchor elements.
+$link-color: inherit;
 $link-hover-color: inherit;
 $link-hover-decoration: none;
 
@@ -40,8 +41,10 @@ $line-height-base: 1.8;
 // Buttons + Forms
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
-$input-btn-padding-y: 0.4285714286rem; //6px
-$input-btn-padding-x: 1.4285714286rem; //20px;
+$input-btn-padding-y: 0.6251rem; //10px
+$input-btn-padding-x: 1.125rem; //18px;
+$input-btn-line-height: 1;
+
 $input-btn-focus-width: 0;
 
 // Input Padding - Small

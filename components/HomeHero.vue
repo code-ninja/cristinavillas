@@ -1,5 +1,5 @@
 <template>
-<main class="hero flex-column" role="main">
+<main class="hero home flex-column" role="main">
   <div class="cv-logo mx-auto">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 64">
   <g fill-rule="evenodd">
@@ -12,7 +12,6 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
           <div class="text-center">
             <h1 class="title">Your Amazing Gateway in the Sky</h1>
-            <nuxt-link to="#" class="btn btn-cta">Book Now</nuxt-link>
           </div>
         </div>
       </div>

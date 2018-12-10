@@ -10,23 +10,11 @@
 footer {
   background: #2e302b;
   color: scale-color(#fff, $lightness: -40%);
-  font: {
-    size: 12px;
-    weight: 300;
-  }
-  letter-spacing: 1px;
+  font-size: 12px;
 
   // Extra small down
   @include media-breakpoint-down(xs) {
     text-align: center;
-  }
-
-  a {
-    color: scale-color(#fff, $lightness: -40%);
-
-    &:hover {
-      color: $brand-yellow;
-    }
   }
 
   .cv-logo {
@@ -42,90 +30,22 @@ footer {
       margin: 0 auto 52px;
     }
   }
-}
 
-.footer-list-title,
-.footer-nav-links li {
-  font: {
-    family: 'Montserrat';
-    size: 12px;
-    weight: 300;
-  };
-  text-transform: uppercase;
-  letter-spacing: 4px;
-}
-
-.footer-list-title {
-  color: #fff;
-}
-
-.footer-nav-links {
-  a {
-    display: block;
-    color: #fff;
-  }
-
-  li {
-    padding: 12px 0;
-
-    &:first-child {
-      padding: 0 0 12px;
-    }
-  }
-}
-
-.footer-links {
-  li {
-    padding: 2px 0;
-  }
-}
-
-.footer-social {
-
-  // Extra small down
-  @include media-breakpoint-down(xs) {
-    justify-content: center;
-  }
-
-  ul {
-    display: flex;
+  .menu-nav-links {
+    color: scale-color(#fff, $lightness: -40%);
 
     li {
-      padding: 4px 16px 0 0;
+      padding: 12px 0;
 
-      // Extra small down
-      @include media-breakpoint-down(sm) {
-        padding-right: 24px;
+      a {
+        color: scale-color(#fff, $lightness: -40%);
       }
 
-      &:last-child {
-        padding-right: 0;
+      &:first-child {
+        padding: 0 0 6px;
       }
     }
+
   }
 
-  a {
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    size: 16px;
-    opacity: 0.5;
-    transition: opacity 0.2s ease-in;
-  }
-
-  .social-fb {
-    margin-left: -4px;
-  }
-}
-
-.social-fb {
-  background-image: url("~assets/img/icon-fb.svg");
-}
-
-.social-ig {
-  background-image: url("~assets/img/icon-ig.svg");
-}
-
-.social-tw {
-  background-image: url("~assets/img/icon-tw.svg");
 }

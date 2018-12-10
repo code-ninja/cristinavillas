@@ -31,6 +31,10 @@ section {
   @include media-breakpoint-up(xl) {
     padding: 120px 0;
   }
+
+  &.collapse {
+    padding: 0;
+  }
 }
 
 .container {
@@ -48,6 +52,20 @@ section {
   };
   letter-spacing: 6px;
   text-transform: uppercase;
+
+  &.title-6 {
+    font: {
+      size: 14px;
+      weight: 500;
+    };
+    letter-spacing: 2px;
+
+    // Small down
+    @include media-breakpoint-down(sm) {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
 }
 
 section {
@@ -57,7 +75,6 @@ section {
     // Small down
     @include media-breakpoint-down(sm) {
       font-size: 24px/36px;
-      text-align: center;
     }
   }
 
@@ -88,14 +105,19 @@ button {
 }
 
 .btn {
-  &:active,
-  &:hover {
-    color: $white;
-  }
+  font: {
+    family: 'Montserrat';
+  };
 
   // Responsive small button
   @include media-breakpoint-between(xs,sm) {
-    @include button-size($input-btn-padding-y, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius);
+    @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius);
+  }
+
+  &.btn-cta {
+    &:hover {
+      color: #000;
+    }
   }
 }
 
@@ -111,10 +133,6 @@ button {
 .btn-cta {
   background: $brand-yellow;
   color: #000;
-
-  &:hover {
-    color: inherit;
-  }
 }
 
 // Button - Black
@@ -130,19 +148,31 @@ button {
 
 header {
   color: #fff;
-  padding: 24px;
-  position: absolute 0 0 auto;
+  padding: 24px 0;
+  position: fixed 0 0 auto;
   z-index: $zindex-sticky;
+  letter-spacing: 2px;
 
   // Small down
   @include media-breakpoint-down(sm) {
     padding: 24px 0;
   }
+
+  .row {
+    align-items: center;
+  }
+
+  a {
+    color: inherit;
+  }
 }
 
 .header-location-contact {
-  font-size: 11px;
-  color: rgba(#fff, 0.8);
+  font: {
+    family: 'Montserrat';
+    size: 12px;
+  };
+  // color: rgba(#fff, 0.8);
 
   .title {
     color: rgba(#fff, 1);
@@ -160,10 +190,6 @@ header {
       margin: 0;
     };
   }
-
-  a {
-    color: inherit;
-  }
 }
 
 .menu-toggle {
@@ -172,7 +198,7 @@ header {
   align-items: center;
   font: {
     family: 'Montserrat';
-    size: 16px;
+    size: 14px;
   };
   letter-spacing: 3px;
   text-transform: uppercase;
