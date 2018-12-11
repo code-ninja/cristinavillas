@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import FacilitiesHero from '~/components/FacilitiesHero.vue'
+import FacilitiesHero from '~/components/Hero.vue'
 
 export default {
   components: {

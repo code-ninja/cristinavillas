@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import ContactHero from '~/components/ContactHero.vue'
+import ContactHero from '~/components/Hero.vue'
 
 export default {
   components: {

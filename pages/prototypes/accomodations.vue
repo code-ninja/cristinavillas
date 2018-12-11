@@ -166,7 +166,7 @@
 </template>
 
 <script>
-import AccomodationsHero from '~/components/AccomodationsHero.vue'
+import AccomodationsHero from '~/components/Hero.vue'
 
 export default {
   components: {

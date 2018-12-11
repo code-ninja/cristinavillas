@@ -1,5 +1,5 @@
 <template>
-<main class="hero contact flex-column" role="main">
+<main class="hero flex-column" :class="[ bg ]" role="main">
   <div class="cv-logo mx-auto">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 64">
   <g fill-rule="evenodd">
@@ -11,7 +11,7 @@
       <div class="row justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
           <div class="text-center">
-            <h1 class="title">Location &amp; Contact</h1>
+            <h1 class="title">{{ title }}</h1>
           </div>
         </div>
       </div>
@@ -19,3 +19,11 @@
   </div>
 </main>
 </template>
+
+<script>
+
+export default {
+  props: ['title','bg']
+}
+
+</script>

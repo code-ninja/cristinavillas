@@ -1,6 +1,6 @@
 <template>
 <div>
-<faq-hero />
+<faq-hero title="Frequently Asked Questions" bg="faqs" />
   <section>
     <div class="container">
       <div class="row justify-content-md-center">
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import FaqHero from '~/components/FaqHero.vue'
+import FaqHero from '~/components/Hero.vue'
 
 export default {
   components: {
