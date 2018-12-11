@@ -1,6 +1,6 @@
 <template>
 <div>
-<facilities-hero />
+<facilities-hero title="Facilities" bg="facilities" />
 <section>
   <div class="container">
     <div class="row justify-content-md-center">

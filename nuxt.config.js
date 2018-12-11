@@ -24,7 +24,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -34,12 +34,16 @@ module.exports = {
         })
       }
     },
-    postcss: [
-      require('autoprefixer')(),
-      require('css-mqpacker')(),
-      require('postcss-short')(),
-      require('postcss-pxtorem')({ propList: ['*'] }),
-    ]
+    postcss: {
+      plugins: {
+        'autoprefixer': {},
+        'css-mqpacker': {},
+        'postcss-short': {},
+        'postcss-pxtorem': {
+          propList: ['*']
+        }
+      }
+    }
   },
   css: [
     // SCSS file in the project
