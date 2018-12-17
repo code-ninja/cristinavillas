@@ -14,9 +14,6 @@ export default {
   mounted() {
     this.recreateSwiper()
   },
-  updated() {
-    this.recreateSwiper()
-  },
   destroyed() {
     if (this.swiper) this.swiper.destroy()
   },
@@ -28,6 +25,7 @@ export default {
   },
   methods: {
     recreateSwiper() {
+
       if (this.swiper) this.swiper.destroy()
 
       this.swiper = new Swiper(this.$el, {

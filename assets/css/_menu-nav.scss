@@ -41,7 +41,7 @@
 
   .menu-nav-links {
     position: absolute;
-    z-index: 2;
+    z-index: $zindex-sticky;
 
     li {
       font-size: 22px;

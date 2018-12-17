@@ -150,7 +150,7 @@ header {
   color: #fff;
   padding: 24px 0;
   position: fixed 0 0 auto;
-  z-index: 1;
+  z-index: $zindex-sticky;
   letter-spacing: 2px;
 
   // Small down
