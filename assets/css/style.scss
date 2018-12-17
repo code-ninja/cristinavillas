@@ -45,7 +45,7 @@
 }
 
 .bg-light-yellow {
-  background: scale-color(#FFFAED, $lightness: 50%);
+  background: scale-color(#FFFAED, $lightness: 1%);
 }
 
 .packages-card {
@@ -254,7 +254,7 @@
     }
   }
 
-  .active {
+  .nuxt-link-exact-active {
     border-bottom: 1px solid #000;
     color: #000;
   }

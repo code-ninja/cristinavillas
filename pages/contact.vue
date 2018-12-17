@@ -1,6 +1,7 @@
 <template>
 <div>
-<contact-hero />
+  <hero title="Contact Us" bg="contact" />
+
   <section class="contact bg-light-yellow collapse">
     <div class="container p-0">
       <div class="row no-gutters">
@@ -18,20 +19,19 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
     <div class="contact-map-location"></div>
-</section>
-
+  </section>
 
 </div>
 </template>
 
 <script>
-import ContactHero from '~/components/Hero.vue'
+import Hero from '~/components/Hero.vue'
 
 export default {
   components: {
-    ContactHero
+    Hero
   }
 }
 </script>

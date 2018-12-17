@@ -1,12 +1,20 @@
 // ==========================================================================
 // Menu Nav
 // ==========================================================================
+.nav-fixed {
+  header {
+    background: #000;
+    transition: 0.5s ease-in;
+  }
+}
+
 .menu-nav {
   background: #000;
   color: scale-color(#fff, $lightness: -40%);
+  transition: 0.15s ease-in;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  //font-size: 12px;
   size: 100% 100vh;
   position: fixed;
   overflow-y: scroll;
@@ -20,18 +28,30 @@
     flex-grow: 1;
   }
 
+  button.menu-toggle {
+    svg {
+      transform: rotate(180deg)
+    }
+  }
+
   // Medium up
   @include media-breakpoint-up(md) {
     flex-grow: 1;
   }
 
-  .menu-nav-links li {
-    font-size: 22px;
+  .menu-nav-links {
+    position: absolute;
+    z-index: 2;
 
-    // Small only
-    @include media-breakpoint-down(sm) {
-      font-size: 16px;
-      padding: 12px 0;
+    li {
+      font-size: 22px;
+
+      // Small only
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+        padding: 12px 0;
+      }
+
     }
 
   }

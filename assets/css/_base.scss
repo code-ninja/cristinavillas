@@ -150,7 +150,7 @@ header {
   color: #fff;
   padding: 24px 0;
   position: fixed 0 0 auto;
-  z-index: $zindex-sticky;
+  z-index: 1;
   letter-spacing: 2px;
 
   // Small down
@@ -204,6 +204,7 @@ header {
   text-transform: uppercase;
 
   svg {
+    transition: 0.25s ease-in;
     margin-right: 10px;
     size: 18px;
   }

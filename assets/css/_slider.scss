@@ -1,13 +1,9 @@
 // ==========================================================================
 // Slider
 // ==========================================================================
-.slider-container {
+.swiper-container {
   width: 100%;
   height: 100%;
-  min-height: 423px;
-  overflow: hidden;
-  position: relative;
-  margin-top: 80px;
 
   // Small up
   @include media-breakpoint-down(sm) {
@@ -21,25 +17,20 @@
   }
 }
 
-.slider-wrapper {
-  display: flex;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  padding: 0 percentage(85/1280);
+.swiper-wrapper {
+  // display: flex;
+  // overflow-y: scroll;
+  // -webkit-overflow-scrolling: touch;
+  //padding: 0 percentage(85/1280);
 }
 
-.slider-content {
+.swiper-slide {
   position: relative;
-  margin-right: 48px;
-
-  // Small up
-  @include media-breakpoint-down(sm) {
-    margin-right: 24px;
-  }
-
+  width: auto !important;
+  align-items: center;
   img {
-    width: auto;
-    max-height: 423px;
+   width: auto;
+   height: 423px;
 
     // Small down
     @include media-breakpoint-down(sm) {
@@ -67,7 +58,7 @@
 // Rooms - Slider
 // ==========================================================================
 .slider-rooms {
-  .slider-content {
+  .swiper-slide {
     margin-bottom: 100px;
 
     img {
@@ -83,9 +74,9 @@
 
 .room-details {
   background: #fff;
-  position: absolute auto 0 -50px 0;
+  position: absolute auto 0 0 0;
   margin: 0 32px;
-  padding: 24px 32px 0;
+  padding: 24px 32px;
   font-size: 13px;
 
   // Small down

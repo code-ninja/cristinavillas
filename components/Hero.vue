@@ -12,8 +12,21 @@
       </div>
     </div>
   </div>
+  <div id="top"></div>
 </main>
 </template>
+
+<style>
+
+#top {
+  position: absolute;
+  bottom: 73px;
+  left: 0;
+  height: 10px;
+  width: 10px;
+}
+
+</style>
 
 <script>
 import Logo from '~/components/Logo.vue'

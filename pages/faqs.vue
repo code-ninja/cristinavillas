@@ -1,6 +1,7 @@
 <template>
 <div>
-<faq-hero title="Frequently Asked Questions" bg="faqs" />
+  <hero title="Frequently Asked Questions" bg="faqs" />
+
   <section>
     <div class="container">
       <div class="row justify-content-md-center">
@@ -10,7 +11,8 @@
             <ul>
               <li>
                 <h4>How can I book to Cristina Villa Mountain Resort &amp; Hotel?</h4>
-                <p>Cristina Villa Mountain Resort & Hotel offer various booking options. Besides our service center, which is available from Monday to Friday 8am - 6pm under (02) 697 - 4521 to 22, you can contact anytime our hotels directly via telephone, email or fax.</p>
+                <p>Cristina Villa Mountain Resort & Hotel offer various booking options. Besides our service center, which is available from Monday to Friday 8am - 6pm under (02) 697 - 4521 to 22, you can contact anytime our hotels directly via
+                  telephone, email or fax.</p>
               </li>
               <li>
                 <h4>How many people can stay in a room?</h4>
@@ -44,19 +46,19 @@
           </div>
         </div>
       </div>
-      </div>
-</section>
 
+    </div>
+  </section>
 
 </div>
 </template>
 
 <script>
-import FaqHero from '~/components/Hero.vue'
+import Hero from '~/components/Hero.vue'
 
 export default {
   components: {
-    FaqHero
+    Hero
   }
 }
 </script>
