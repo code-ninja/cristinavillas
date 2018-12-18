@@ -30,6 +30,7 @@ export default {
 
       this.swiper = new Swiper(this.$el, {
         slidesPerView: 'auto',
+        parallax: true,
         spaceBetween: 30,
         centeredSlides: true
       })

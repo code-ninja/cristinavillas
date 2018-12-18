@@ -96,6 +96,8 @@ module.exports = {
       })
     }
   },
+  // plugins: [
+  // ],
   css: [
     // SCSS file in the project
     'assets/css/style.scss'

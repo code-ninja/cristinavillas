@@ -25,6 +25,7 @@
     "postcss-pxtorem": "^4.0.1",
     "postcss-short": "^5.0.0",
     "sass-loader": "^7.1.0",
+    "strapi-sdk-javascript": "^0.3.1",
     "swiper": "^4.4.1"
   },
   "devDependencies": {

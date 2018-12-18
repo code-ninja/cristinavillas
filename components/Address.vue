@@ -2,11 +2,7 @@
   <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0">
     <h6 class="menu-nav-list-title mb-4">Address</h6>
     <div class="menu-nav-content mb-5">
-      <address>
-      Sta Cruz Taktak Road,<br/>
-      Antipolo, Rizal, 1870<br/>
-      Philippines
-    </address>
+      <address v-html="address" />
     </div>
     <h6 class="menu-nav-list-title mb-4">Contact</h6>
     <div class="menu-nav-content mb-sm-5 mb-md-0">
@@ -20,3 +16,16 @@
     <p></p>
   </div>
 </template>
+
+<script>
+
+export default {
+  computed: {
+    address() {
+      let adr = this.$store.getters.getSettingByName('address') || ''
+      return adr.replace(/\n/g,'<br/>')
+    }
+  }
+}
+
+</script>

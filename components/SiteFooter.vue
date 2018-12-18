@@ -5,7 +5,7 @@
         <div class="col-sm-6 col-md-4">
           <logo color="#FFCE4B" />
         </div>
-        <nav-links />
+        <nav-links type="footer" />
         <contact-address />
         <social />
       </div>
