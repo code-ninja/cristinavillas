@@ -14,6 +14,11 @@ export default {
   components: {
     SiteHeader,
     SiteFooter
+  },
+  head() {
+    return {
+      title: this.$store.getters.getSettingByName('sitename')
+    }
   }
 }
 </script>

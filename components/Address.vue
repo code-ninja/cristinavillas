@@ -7,10 +7,10 @@
     <h6 class="menu-nav-list-title mb-4">Contact</h6>
     <div class="menu-nav-content mb-sm-5 mb-md-0">
       <ul class="menu-links">
-        <li><a href="tel:(02)6974521">Tel: (02) 6974521</a></li>
-        <li><a href="tel:09178664932">Mobile: 0917-8664932</a></li>
-        <li>Fax: 697-5188</li>
-        <li><a href="mailto:cristinavillashotel@gmail.com">Email: cristinavillashotel@gmail.com</a></li>
+        <li v-if="phone"><a :href="'tel:'+phone">Tel: {{ phone }}</a></li>
+        <li v-if="mobile"><a :href="'tel:'+mobile">Mobile: {{ mobile }}</a></li>
+        <li v-if="fax">Fax: {{ fax }}</li>
+        <li v-if="email"><a :href="'mailto:'+email">Email: {{ email }}</a></li>
       </ul>
     </div>
     <p></p>
@@ -22,8 +22,20 @@
 export default {
   computed: {
     address() {
-      let adr = this.$store.getters.getSettingByName('address') || ''
+      let adr = this.$store.getters.getSettingByName('address')
       return adr.replace(/\n/g,'<br/>')
+    },
+    phone() {
+      return this.$store.getters.getSettingByName('telephone')
+    },
+    mobile() {
+      return this.$store.getters.getSettingByName('mobile')
+    },
+    fax() {
+      return this.$store.getters.getSettingByName('fax')
+    },
+    email() {
+      return this.$store.getters.getSettingByName('email')
     }
   }
 }

@@ -5,6 +5,7 @@ const strapi = new Strapi(apiUrl)
 export const state = () => ({
   navLinks: [],
   siteSettings: {},
+  packages: [],
   menuOpen: false
 })
 
@@ -17,6 +18,9 @@ export const mutations = {
   },
   setSiteSettings(state, newValue) {
     state.siteSettings = newValue
+  },
+  setPackages(state, newValue) {
+    state.packages = newValue
   }
 }
 
@@ -28,7 +32,7 @@ export const getters = {
 }
 
 export const actions = {
-  async getNavLinks({ commit }) {
+  async getDefaultState({ commit }) {
     try {
       let { data } = await strapi.request('post', '/graphql', {
         data: {
@@ -40,29 +44,27 @@ export const actions = {
              	header
              	footer
              }
-          }`
-        }
-      })
-      return commit('setNavLinks', data.navlinks)
-    } catch (e) { }
-  },
-  async getSiteSettings({ commit }) {
-    try {
-      let { data } = await strapi.request('post', '/graphql', {
-        data: {
-          query: `query {
-            settings(where: { published: true }) {
+             settings(where: { published: true }) {
+               name
+               text
+              }
+            packages(where: { published: true }) {
+              id
               name
-              text
+              slug
+              img {
+                  url
+                }
              }
           }`
         }
       })
-      return commit('setSiteSettings', data.settings)
+      commit('setNavLinks', data.navlinks)
+      commit('setSiteSettings', data.settings)
+      commit('setPackages', data.packages)
     } catch (e) { }
   },
   async nuxtServerInit({ dispatch }) {
-    await dispatch('getNavLinks')
-    await dispatch('getSiteSettings')
+    await dispatch('getDefaultState')
   }
 }

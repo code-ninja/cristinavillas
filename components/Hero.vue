@@ -1,5 +1,5 @@
 <template>
-<main class="hero flex-column" :class="[ bg ]" role="main">
+<main class="hero flex-column" role="main" :style="{ 'background-image': url }">
   <logo color="#fff" class="mx-auto" />
   <div class="hero-content">
     <div class="container">
@@ -29,13 +29,19 @@
 </style>
 
 <script>
+const apiUrl = process.env.API_URL || 'http://localhost:1337'
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
     Logo
   },
-  props: ['title','bg']
+  computed: {
+    url() {
+      return 'url('+apiUrl+this.img+')'
+    }
+  },
+  props: ['title','img']
 }
 
 </script>
