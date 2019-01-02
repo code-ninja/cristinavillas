@@ -1,6 +1,6 @@
 <template>
 <div>
-  <hero title="Accomodations" bg="accomodations" />
+  <hero title="Accommodations" bg="accomodations" />
 
   <section>
     <div class="container">
@@ -13,8 +13,9 @@
       </div>
       </div>
 
-      <slider>
-        <div v-for="room in rooms" :key="room.url" class="swiper-slide">
+      <div class="row justify-content-md-center">
+
+        <div v-for="room in rooms" :key="room.url" class="room-wrapper">
           <img :src="room.img" :alt="room.name">
           <div class="room-details">
             <div class="room-name">{{ room.name }}</div>
@@ -26,13 +27,32 @@
                   <div>Capacity: {{ room.capacity }}</div>
                 </div>
                 <div class="col-auto">
-                  <nuxt-link :to="'/accomodations/'+room.url" class="btn btn-black">Book Now</nuxt-link>
+                  <nuxt-link :to="'/accommodations/'+room.url" class="btn btn-black">Book Now</nuxt-link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </slider>
+        <div v-for="room in rooms" :key="room.url" class="room-wrapper">
+          <img :src="room.img" :alt="room.name">
+          <div class="room-details">
+            <div class="room-name">{{ room.name }}</div>
+            <p class="d-none">{{ room.desc }}</p>
+            <div class="room-specs">
+              <div class="row">
+                <div class="col-md mb-3 mb-md-0">
+                  <div class="room-price">{{ room.price }}</div>
+                  <div>Capacity: {{ room.capacity }}</div>
+                </div>
+                <div class="col-auto">
+                  <nuxt-link :to="'/accommodations/'+room.url" class="btn btn-black">Book Now</nuxt-link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
 
   </section>
 
@@ -43,14 +63,12 @@
 
 <script>
 import Hero from '~/components/Hero.vue'
-import Slider from '~/components/Slider.vue'
 import Packages from '~/components/Packages.vue'
 
 export default {
   scrollToTop: true,
   components: {
     Hero,
-    Slider,
     Packages
   },
   data() {

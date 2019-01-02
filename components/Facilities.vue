@@ -10,7 +10,7 @@
                 <h2 class="title">Facilities</h2>
               </div>
               <div class="col-md-8 col-lg-5">
-                <p class="subtitle">These words are here to provide the reader with a basic impression of how actual text will appear in its final presentation.</p>
+                <p class="subtitle">{{ text }}</p>
               </div>
               <div class="col-sm-auto ml-md-auto">
                 <nuxt-link to="facilities" class="btn btn-black">View All</nuxt-link>
@@ -47,7 +47,10 @@ import Slider from '~/components/Slider.vue'
 export default {
   components: {
     Slider
-  }
+  },
+  props: [
+    'text'
+  ]
 }
 
 </script>

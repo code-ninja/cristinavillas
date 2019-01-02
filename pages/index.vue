@@ -1,23 +1,23 @@
 <template>
 <div>
-  <hero :title="herotitle" bg="home" :img="hero.url" />
+  <hero :title="herotitle" bg="home" :img="heroUrl" />
   <section>
     <div class="container">
-      <div class="row justify-content-md-center">
+      <div v-if="extras" class="row justify-content-md-center">
         <div class="col-md-10 col-lg-8 text-center">
           <h2 class="title">{{ extras.title }}</h2>
           <p class="subtitle">{{ extras.subtitle }}</p>
         </div>
         <div class="col-lg-10">
           <div class="embed-responsive embed-responsive-16by9 my-5">
-            <div class="embed-responsive-item"><img :src="extras.img"></div>
+            <div class="embed-responsive-item"><img :src="frontUrl"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
   <packages />
-  <facilities />
+  <facilities v-if="extras && extras.facilities" :text="extras.facilities" />
 </div>
 </template>
 
@@ -36,6 +36,14 @@ export default {
     Facilities,
     Packages
   },
+  computed: {
+    frontUrl() {
+      return this.images.length ? apiUrl + this.images[0].url : ''
+    },
+    heroUrl() {
+      return this.hero && this.hero.url ? this.hero.url : ''
+    }
+  },
   async asyncData({ res, params, error }) {
 
     try {
@@ -52,6 +60,9 @@ export default {
               herotitle
               summary
               extras
+              images {
+                url
+              }
              }
           }`
         }
@@ -59,9 +70,15 @@ export default {
 
       if (data.mainpages.length)
         return data.mainpages[0]
+      else
+        throw('')
 
     } catch (e) {
-      return {}
+
+      error({
+        statusCode: 503,
+        message: "You're in the right place at the wrong time! Come back later."
+      })
     }
 
   }

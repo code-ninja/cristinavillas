@@ -1,0 +1,84 @@
+
+// ==========================================================================
+// Rooms - Slider
+// ==========================================================================
+
+.room-wrapper {
+  position: relative;
+  width: auto !important;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-left: 30px;
+
+  img {
+   width: auto;
+   max-height: 430px;
+
+    // Small down
+    @include media-breakpoint-down(sm) {
+      max-height: 430px;
+    }
+
+    // Medium only
+    @include media-breakpoint-only(md) {
+      max-height: 312px;
+    }
+  }
+}
+
+
+.room-details {
+  background: #fff;
+  position: absolute auto 0 0 0;
+  margin: 0 32px;
+  padding: 24px 32px;
+  font-size: 13px;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    margin: 0 24px 0 0;
+    padding: 16px 20px 0;
+  }
+}
+
+.room-name {
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+    weight: 300;
+  };
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}
+
+.room-specs {
+  border-top: 1px solid rgba(0,0,0,0.07);
+  font-size: 12px;
+  padding-top: 24px;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    padding-top: 16px;
+  }
+}
+
+.room-price {
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+    weight: 500;
+  };
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}
