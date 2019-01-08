@@ -1,6 +1,6 @@
 <template>
 <div>
-  <hero title="Frequently Asked Questions" bg="faqs" />
+  <hero :title="herotitle" :img="hero.url" />
 
   <section>
     <div class="container">
@@ -39,9 +39,23 @@ export default {
 
     try {
 
-      const response = await strapi.request('post','/graphql',{
+      const { data } = await strapi.request('post','/graphql',{
         data: {
           query: `query {
+            mainpages(where: { slug:"/faqs", published: true }) {
+              slug
+              pagetitle
+              metadesc
+              hero {
+                url
+              }
+              herotitle
+              summary
+              extras
+              images {
+                url
+              }
+             }
             faqs {
               id
               Question
@@ -51,11 +65,22 @@ export default {
         }
       })
 
-      return response.data
+      if (!data.mainpages.length)
+        throw('')
+
+      return {
+        ...data.mainpages[0],
+        faqs: [
+          ...data.faqs
+        ]
+      }
 
     } catch (e) {
 
-      return { faqs: [] }
+      error({
+        statusCode: 503,
+        message: "You're in the right place at the wrong time! Come back later."
+      })
 
     }
 

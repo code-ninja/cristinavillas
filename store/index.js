@@ -4,7 +4,7 @@ const strapi = new Strapi(apiUrl)
 
 export const state = () => ({
   navLinks: [],
-  siteSettings: {},
+  siteSettings: null,
   packages: [],
   menuOpen: false
 })
@@ -26,6 +26,8 @@ export const mutations = {
 
 export const getters = {
   getSettingByName: (state) => (id) => {
+    if (!state.siteSettings)
+      return ''
     let s = state.siteSettings.filter(item => { return item.name == id })
     return s.length ? s[0].text : ''
   }

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <hero :title="herotitle" bg="home" :img="heroUrl" />
+  <hero :title="herotitle" :img="hero.url" />
   <section>
     <div class="container">
       <div v-if="extras" class="row justify-content-md-center">
@@ -40,9 +40,6 @@ export default {
     frontUrl() {
       return this.images.length ? apiUrl + this.images[0].url : ''
     },
-    heroUrl() {
-      return this.hero && this.hero.url ? this.hero.url : ''
-    }
   },
   async asyncData({ res, params, error }) {
 
