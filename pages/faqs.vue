@@ -35,7 +35,7 @@ export default {
   components: {
     Hero
   },
-  async asyncData ({ req, params }) {
+  async asyncData ({ req, params, error }) {
 
     try {
 

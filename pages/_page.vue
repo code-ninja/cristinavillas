@@ -29,7 +29,7 @@ export default {
     } catch (e) {
       error({
         statusCode: 404,
-        message: "Not here"
+        message: "Sorry. But, we can't find this page anywhere."
       })
     }
 
