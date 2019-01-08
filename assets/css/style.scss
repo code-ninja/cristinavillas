@@ -279,3 +279,15 @@
     }
   }
 }
+
+form {
+  label {
+    font: {
+      family: 'Montserrat';
+      size: 12px;
+      weight: 500;
+    };
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
