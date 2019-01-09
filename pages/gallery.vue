@@ -36,6 +36,12 @@ export default {
                 url
               }
              }
+             galleries(where: { published: true }) {
+               name
+               img {
+                 url
+               }
+             }
           }`
         }
       })
@@ -44,7 +50,10 @@ export default {
         throw('')
 
       return {
-        ...data.mainpages[0]
+        ...data.mainpages[0],
+        galleries: [
+          ...data.galleries
+        ]
       }
 
     } catch (e) {
