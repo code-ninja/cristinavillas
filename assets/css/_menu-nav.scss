@@ -5,6 +5,7 @@
   header {
     background: #000;
     transition: 0.5s ease-in;
+    padding: 14px 0;
   }
 }
 
@@ -30,7 +31,7 @@
 
   button.menu-toggle {
     svg {
-      transform: rotate(180deg)
+      transform: rotate(180deg);
     }
   }
 
@@ -40,7 +41,7 @@
   }
 
   .menu-nav-links {
-    position: absolute;
+    // position: absolute;
     z-index: $zindex-sticky;
 
     li {

@@ -153,11 +153,6 @@ header {
   z-index: $zindex-sticky;
   letter-spacing: 2px;
 
-  // Small down
-  @include media-breakpoint-down(sm) {
-    padding: 24px 0;
-  }
-
   .row {
     align-items: center;
   }
