@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0">
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0" v-if="address && phone">
     <h6 class="menu-nav-list-title mb-4">Address</h6>
     <div class="menu-nav-content mb-5">
       <address v-html="address" />
