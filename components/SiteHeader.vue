@@ -32,7 +32,7 @@
     <div class="row justify-content-md-center">
       <nav-links type="header" class="col-md-6 col-lg-5 my-5 my-sm-0" />
       <contact-address class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-lg-block" />
-      <social class="offset-lg-0 d-none d-lg-block" />
+      <social class="col-md-4 col-lg-2 offset-sm-6 offset-lg-0 d-none d-lg-block" />
     </div>
   </div>
 </div>
