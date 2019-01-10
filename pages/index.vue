@@ -10,13 +10,22 @@
         </div>
         <div class="col-lg-10">
           <div class="embed-responsive embed-responsive-16by9 my-5">
-            <div class="embed-responsive-item"><img :src="frontUrl"></div>
+            <div class="embed-responsive-item">
+              <iframe width="560" height="315"
+                v-if="videoSrc"
+                :src="videoSrc"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+              <img :src="frontUrl" v-else />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <packages />
+  <packages :subtitle="extras.packageSubTitle" />
   <!--Facilities-->
   <section>
     <div class="container mb-5">
@@ -27,8 +36,8 @@
               <div class="col-lg-4">
                 <h2 class="title">Facilities</h2>
               </div>
-              <div class="col-md-8 col-lg-5">
-                <p class="subtitle">{{ extras.facilities }}</p>
+              <div class="col-md-8 col-lg-5" v-if="extras.facilitiesSubTitle">
+                <p class="subtitle">{{ extras.facilitiesSubTitle }}</p>
               </div>
               <div class="col-sm-auto ml-md-auto">
                 <nuxt-link to="facilities" class="btn btn-black">View All</nuxt-link>
@@ -68,6 +77,12 @@ export default {
     Slider
   },
   computed: {
+    videoSrc() {
+      if (!(this.extras && this.extras.videoID))
+        return ''
+      let url = "//www.youtube-nocookie.com/embed/"+this.extras.videoID+"?controls=1&autohide=1;&showinfo=0;modestbranding=1&autoplay=0&rel=0"
+      return url
+    },
     frontUrl() {
       return this.images.length ? apiUrl + this.images[0].url : ''
     },
