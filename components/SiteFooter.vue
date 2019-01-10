@@ -5,9 +5,9 @@
         <div class="col-sm-6 col-md-4">
           <logo color="#FFCE4B" />
         </div>
-        <nav-links type="footer" />
-        <contact-address />
-        <social />
+        <nav-links type="footer" class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-md-block" />
+        <contact-address class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0" />
+        <social class="col-md-4 col-lg-2 offset-sm-6 offset-md-0"/>
       </div>
     </div>
   </footer>

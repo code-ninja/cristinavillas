@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-4 col-lg-2 offset-sm-6 offset-md-0" v-if="facebook || instagram || twitter">
+  <div v-if="facebook || instagram || twitter">
     <h6 class="menu-nav-list-title mb-4">Follow Us</h6>
     <div class="menu-nav-social d-flex">
       <ul>

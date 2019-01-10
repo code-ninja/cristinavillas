@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-md-block">
+  <div>
     <nav class="menu-nav-links" @click="$store.commit('toggleMenu',false)">
       <ul>
         <li v-for="navLink in navLinks" :key="navLink.id">
