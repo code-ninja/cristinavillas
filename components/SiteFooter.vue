@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-sm-6 col-md-4">
-          <logo color="#FFCE4B" />
+          <logo type="footerLogo" />
         </div>
         <nav-links type="footer" class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-md-block" />
         <contact-address class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0" />

@@ -1,6 +1,6 @@
 <template>
 <main class="hero flex-column" role="main" :style="{ 'background-image': url }">
-  <logo color="#fff" class="mx-auto" />
+  <logo type="headerLogo" class="mx-auto" />
   <div class="hero-content">
     <div class="container">
       <div class="row justify-content-center">
