@@ -8,14 +8,48 @@
         <div class="col-sm-8 col-lg-6">
           <div class="contact-card">
             <h2 class="title">Get in touch</h2>
-            <address class="mb-4" v-html="address"></address>
+            <!-- <address class="mb-4" v-html="address"></address>
             <div class="title title-6 pr-sm-5">Request for proposals, group and bookings</div>
             <ul class="menu-links">
               <li><a href="tel:(02)6974521">Tel: {{ phone }}</a></li>
               <li><a href="tel:09178664932">Mobile: {{ mobile }}</a></li>
               <li>Fax: 697-5188</li>
               <li class="mt-4"><a :href="'mailto:'+email">Email: {{ email }}</a></li>
-            </ul>
+            </ul> -->
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputName">Name</label>
+                  <input type="text" class="form-control" id="inputName" placeholder="Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputState">State</label>
+                  <select id="inputState" class="form-control custom-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-black">Submit</button>
+            </form>
           </div>
         </div>
       </div>
