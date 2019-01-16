@@ -204,3 +204,23 @@ header {
     size: 18px;
   }
 }
+
+form {
+  label {
+    font: {
+      family: 'Montserrat';
+      size: 12px;
+      weight: 500;
+    };
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.form-control {
+  font: {
+    family: 'Montserrat';
+    size: 14px;
+    weight: 500;
+  };
+}
