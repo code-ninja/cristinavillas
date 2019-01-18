@@ -148,7 +148,7 @@ button {
 
 header {
   color: #fff;
-  padding: 24px 0;
+  padding: 20px 10px;
   position: fixed 0 0 auto;
   z-index: $zindex-sticky;
   letter-spacing: 2px;
@@ -196,6 +196,7 @@ header {
     size: 14px;
   };
   letter-spacing: 3px;
+  padding: 0;
   text-transform: uppercase;
 
   svg {

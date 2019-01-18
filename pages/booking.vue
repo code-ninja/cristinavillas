@@ -10,12 +10,12 @@
     <div class="hero-content">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-6">
+          <div class="col-md-5 col-lg-6">
             <h1 class="title">Standard Room</h1>
           </div>
 
           <!--Booking Form-->
-          <div class="col-md-6">
+          <div class="col-md-6 col-lg-6 offset-md-1 offset-lg-0">
             <div class="booking-form">
               <form>
                 <div class="form-row">
@@ -59,7 +59,7 @@
       <div class="row">
 
         <!--Booking Room Details-->
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <div class="booking-room-details">
             <ul class="booking-room-specs">
               <li>Per night<div class="specs-value">Php 3,500</div>

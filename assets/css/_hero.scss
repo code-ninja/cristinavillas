@@ -115,7 +115,16 @@
 }
 
 .hero-secondary {
-  min-height: 75vh;
+
+  // Medium only
+  @include media-breakpoint-only(md) {
+    min-height: 50vh;
+  }
+
+  // Small only
+  @include media-breakpoint-up(lg) {
+    min-height: 75vh;
+  }
 
   h1 {
     margin: 0;
