@@ -10,6 +10,12 @@
   margin-bottom: 24px;
   text-transform: uppercase;
 
+  //  Small down
+  @include media-breakpoint-down(sm) {
+    border-top: 1px solid rgba(#000, 0.1);
+    padding-top: 24px;
+  }
+
   //  Large up
   @include media-breakpoint-up(lg) {
     font-size: 12px;
@@ -76,12 +82,18 @@
 
 .booking-form {
   background: #fff;
-  border: 1px solid rgba(#000, 0.1);
-  padding: 40px;
+  padding: 24px;
+
+  //  Small down
+  @include media-breakpoint-down(sm) {
+    margin: 0 -24px -24px;
+  }
 
   //  Medium up
   @include media-breakpoint-up(md) {
+    border: 1px solid rgba(#000, 0.1);
     position: absolute -64px 0 auto 0;
+    padding: 40px;
   }
 
   //  Large up

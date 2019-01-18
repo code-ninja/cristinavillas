@@ -19,11 +19,11 @@
             <div class="booking-form">
               <form>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-6">
                     <label for="inputCheckIn">Check-In</label>
                     <input type="text" class="form-control" id="inputCheckIn" placeholder="" value="Jan. 10, 2019">
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-6">
                     <label for="inputCheckOut">Check-Out</label>
                     <input type="text" class="form-control" id="inputCheckOut" placeholder="" value="Jan. 17, 2019">
                   </div>

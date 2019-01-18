@@ -127,10 +127,24 @@
   }
 
   h1 {
-    margin: 0;
+
+    // Small only
+    @include media-breakpoint-down(sm) {
+      text-align: center;
+    }
+
+    // Medium up
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
   }
 
   .hero-content {
     margin-bottom: percentage(40/1280);
+
+    // Extra small only
+    @include media-breakpoint-only(xs) {
+      margin-top: 160px;
+    }
   }
 }
