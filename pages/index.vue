@@ -90,6 +90,38 @@ export default {
       return apiUrl
     }
   },
+  head() {
+    return {
+      title: this.pagetitle,
+      meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.metadesc
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: this.metadesc
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: this.pagetitle
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: apiUrl + this.hero.url
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: this.herotitle
+      }
+    ]
+    }
+  },
   async asyncData({ res, params, error }) {
 
     try {
