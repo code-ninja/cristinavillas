@@ -1,0 +1,89 @@
+// ==========================================================================
+// Booking
+// ==========================================================================
+.booking-room-specs {
+  display: flex;
+  font: {
+    family: 'Montserrat';
+    size: 12px;
+  }
+  margin-bottom: 24px;
+  text-transform: uppercase;
+
+  li {
+    letter-spacing: 1px;
+
+    &:not(:last-child) {
+      margin-right: 64px;
+    }
+  }
+
+  .specs-value {
+    font: {
+      size: 18px;
+      weight: 500;
+    }
+    letter-spacing: 0;
+    margin-top: 6px;
+    text-transform: capitalize;
+  }
+}
+
+.booking-notes {
+  font-size: 12px;
+  margin: 24px 0;
+  letter-spacing: 1px;
+
+  ul {
+    list-style-type: disc;
+  }
+
+  li {
+    margin-left: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.list-title {
+  font: {
+    family: 'Montserrat';
+    size: 12px;
+  }
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.booking-form {
+  background: #fff;
+  border: 1px solid rgba(#000, 0.1);
+  padding: 52px 52px 64px;
+  position: absolute -64px 0 auto 0;
+  margin: 0 32px;
+}
+
+.booking-form-list {
+  font-size: 12px;
+  margin-top: 48px;
+  padding-left: 16px;
+
+  ul {
+    list-style-type: disc;
+  }
+
+  li {
+    color: rgba($body-color, 0.75);
+    letter-spacing: 1px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.booking-room-slider {
+  margin: 72px 0;
+}

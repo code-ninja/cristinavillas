@@ -113,3 +113,15 @@
     margin-bottom: 0;
   }
 }
+
+.hero-secondary {
+  min-height: 75vh;
+
+  h1 {
+    margin: 0;
+  }
+
+  .hero-content {
+    margin-bottom: percentage(40/1280);
+  }
+}

@@ -48,7 +48,7 @@
                   </select>
                 </div>
               </div>
-              <button type="submit" class="btn btn-black">Submit</button>
+              <button type="submit" class="btn btn-block btn-lg btn-black">Submit</button>
             </form>
           </div>
         </div>
@@ -73,7 +73,7 @@ export default {
   computed: {
     address() {
       let adr = this.$store.getters.getSettingByName('address')
-      return adr.replace(/\n/g,'<br/>')
+      return adr.replace(/\n/g, '<br/>')
     },
     phone() {
       return this.$store.getters.getSettingByName('telephone')
@@ -88,11 +88,17 @@ export default {
       return this.$store.getters.getSettingByName('email')
     }
   },
-  async asyncData ({ req, params, error }) {
+  async asyncData({
+    req,
+    params,
+    error
+  }) {
 
     try {
 
-      const { data } = await strapi.request('post','/graphql',{
+      const {
+        data
+      } = await strapi.request('post', '/graphql', {
         data: {
           query: `query {
             mainpages(where: { slug:"/contact", published: true }) {
@@ -114,7 +120,7 @@ export default {
       })
 
       if (!data.mainpages.length)
-        throw('')
+        throw ('')
 
       return {
         ...data.mainpages[0]
