@@ -14,7 +14,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "prod": "pm2 start npm ecosystem.config.js --name cristinavillas -- start",    
+    "prod": "pm2 start npm ecosystem.config.js --name cristinavillas -- start",
     "precommit": "npm run lint"
   },
   "dependencies": {
