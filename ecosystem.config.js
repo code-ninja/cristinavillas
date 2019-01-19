@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "cristinavillas",
-      script: "./node_modules/nuxt/bin/nuxt-start",
+      script: "./node_modules/nuxt/bin/nuxt.js",
       env: {
         "HOST": "0.0.0.0",
         "PORT": 3100,
