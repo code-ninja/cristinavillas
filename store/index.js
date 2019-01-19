@@ -64,7 +64,7 @@ export const actions = {
       commit('setNavLinks', data.navlinks)
       commit('setSiteSettings', data.settings)
       commit('setPackages', data.packages)
-    } catch (e) { }
+    } catch (e) { console.log(e) }
   },
   async nuxtServerInit({ dispatch }) {
     await dispatch('getDefaultState')

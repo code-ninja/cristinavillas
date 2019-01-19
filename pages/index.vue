@@ -165,6 +165,8 @@ export default {
 
     } catch (e) {
 
+      console.log(e)
+
       error({
         statusCode: 503,
         message: "You're in the right place at the wrong time! Come back later."
