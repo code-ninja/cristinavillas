@@ -7,7 +7,7 @@ module.exports = {
         "NUXT_HOST": "0.0.0.0",
         "NUXT_PORT": 3001,
         "NODE_ENV": "production",
-        "API_URL": "api.cristinavillasresort.com"
+        "API_URL": "//api.cristinavillasresort.com"
       }
     }
   ]
