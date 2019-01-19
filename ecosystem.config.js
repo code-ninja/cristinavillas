@@ -5,7 +5,7 @@ module.exports = {
       script: "./node_modules/nuxt/bin/nuxt.js",
       env: {
         "NUXT_HOST": "0.0.0.0",
-        "NUXT_PORT": 3100,
+        "NUXT_PORT": 3001,
         "NODE_ENV": "production",
         "API_URL": "api.cristinavillasresort.com"
       }
