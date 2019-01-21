@@ -58,17 +58,11 @@
 
     // Small only
     @include media-breakpoint-only(sm) {
-      // width: 160px;
-      margin: 0 0 32px;
+      margin: 32px 0;
     }
 
-    // // Medium only
-    // @include media-breakpoint-only(md) {
-    //   margin-top: 160px;
-    // }
-
-    // Small up
-    @include media-breakpoint-up(sm) {
+    // Medium up
+    @include media-breakpoint-up(md) {
       width: 140px;
     }
   }
@@ -116,9 +110,20 @@
 
 .hero-secondary {
 
+  // Extra small only
+  @include media-breakpoint-only(xs) {
+    min-height: 30vh;
+  }
+
+  // Small only
+  @include media-breakpoint-only(sm) {
+    min-height: 400px;
+    justify-content: space-between;
+  }
+
   // Medium only
   @include media-breakpoint-only(md) {
-    min-height: 50vh;
+    min-height: 450px;
   }
 
   // Small only
@@ -128,13 +133,13 @@
 
   h1 {
 
-    // Small only
-    @include media-breakpoint-down(sm) {
+    // Extra small only
+    @include media-breakpoint-only(xs) {
       text-align: center;
     }
 
-    // Medium up
-    @include media-breakpoint-up(md) {
+    // Small up
+    @include media-breakpoint-up(sm) {
       margin: 0;
     }
   }
@@ -144,7 +149,7 @@
 
     // Extra small only
     @include media-breakpoint-only(xs) {
-      margin-top: 160px;
+      margin-top: 64px;
     }
   }
 }

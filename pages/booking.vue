@@ -10,56 +10,57 @@
     <div class="hero-content">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-5 col-lg-6">
+          <div class="col-sm-5 col-lg-6">
             <h1 class="title">Standard Room</h1>
           </div>
-
-          <!--Booking Form-->
-          <div class="col-md-6 col-lg-6 offset-md-1 offset-lg-0">
-            <div class="booking-form">
-              <form>
-                <div class="form-row">
-                  <div class="form-group col-6">
-                    <label for="inputCheckIn">Check-In</label>
-                    <input type="text" class="form-control" id="inputCheckIn" placeholder="" value="Jan. 10, 2019">
-                  </div>
-                  <div class="form-group col-6">
-                    <label for="inputCheckOut">Check-Out</label>
-                    <input type="text" class="form-control" id="inputCheckOut" placeholder="" value="Jan. 17, 2019">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputNumberGuest">Number of guest</label>
-                  <select id="inputState" class="form-control custom-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>
-                <button type=" submit" class="btn btn-block btn-lg btn-black">Book Now</button>
-              </form>
-
-              <div class="booking-form-list">
-                <ul>
-                  <li>Price is subject to change without prior notice.</li>
-                  <li>Check-in time is 2:00 PM</li>
-                  <li>Check-out is 12:00 NOON the next day</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!--End Booking Form-->
         </div>
       </div>
 
     </div>
   </main>
 
-  <section class="py-4">
+  <section class="p-0 py-md-4">
     <div class="container">
       <div class="row">
 
+        <!--Booking Form-->
+        <div class="col-sm-7 col-md-6 order-sm-2">
+          <!-- offset-md-1 offset-lg-0-->
+          <div class="booking-form">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label for="inputCheckIn">Check-In</label>
+                  <input type="text" class="form-control" id="inputCheckIn" placeholder="" value="Jan. 10, 2019">
+                </div>
+                <div class="form-group col-6">
+                  <label for="inputCheckOut">Check-Out</label>
+                  <input type="text" class="form-control" id="inputCheckOut" placeholder="" value="Jan. 17, 2019">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputNumberGuest">Number of guest</label>
+                <select id="inputState" class="form-control custom-select">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <button type=" submit" class="btn btn-block btn-lg btn-black">Book Now</button>
+            </form>
+
+            <div class="booking-form-list">
+              <ul>
+                <li>Price is subject to change without prior notice.</li>
+                <li>Check-in time is 2:00 PM</li>
+                <li>Check-out is 12:00 NOON the next day</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--End Booking Form-->
+
         <!--Booking Room Details-->
-        <div class="col-md-6">
+        <div class="col-sm-5 col-md-6">
           <div class="booking-room-details">
             <ul class="booking-room-specs">
               <li>Per night<div class="specs-value">Php 3,500</div>

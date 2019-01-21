@@ -37,6 +37,13 @@
   text-transform: uppercase;
 }
 
+.btn-lg {
+  // Responsive large button
+  @include media-breakpoint-between(xs,sm) {
+    @include button-size(16px, 20px, $font-size-sm, $line-height-lg, 0);
+  }
+}
+
 .home-facilities {
 
   // Small up
