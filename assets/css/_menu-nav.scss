@@ -136,6 +136,10 @@
     size: 16px;
     opacity: 0.5;
     transition: opacity 0.2s ease-in;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   .social-fb {
@@ -165,6 +169,12 @@
       display: flex;
       align-items: center;
       line-height: 1.5;
+    }
+
+    &:hover {
+      .resort-logo {
+        opacity: 0.8;
+      }
     }
   }
 
