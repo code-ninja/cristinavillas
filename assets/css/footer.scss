@@ -12,8 +12,8 @@ footer {
   color: scale-color(#fff, $lightness: -40%);
   font-size: 12px;
 
-  // Small up
-  @include media-breakpoint-up(sm) {
+  // Extra small only
+  @include media-breakpoint-only(xs) {
     text-align: center;
   }
 
