@@ -168,3 +168,49 @@
 .social-tw {
   background-image: url("~assets/img/icon-tw.svg");
 }
+
+.menu-nav-resorts {
+  li {
+    &:not(:last-child) {
+      margin: 8px 0 40px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+    }
+  }
+
+  .resort-logo {
+    margin-right: 24px;
+    opacity: 0.5;
+  }
+
+  .resort-name {
+    font: {
+      family: Montserrat;
+      size: 14px;
+      weight: 400;
+    };
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.resort-logo {
+  background-repeat: no-repeat;
+  size: 72px 46px;
+}
+
+.cv-logo-sm {
+  background-image: url("~assets/img/cv-logo.svg");
+}
+
+.ca-logo {
+  background-image: url("~assets/img/ca-logo.svg");
+}
+
+.bsbs-logo {
+  background-image: url("~assets/img/bsbs-logo.svg");
+}
