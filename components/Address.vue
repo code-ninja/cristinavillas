@@ -1,11 +1,11 @@
 <template>
-  <div v-if="address && phone">
-    <h6 class="menu-nav-list-title mb-4">Address</h6>
-    <div class="menu-nav-content mb-5">
+  <div>
+    <h6 v-if="address" class="menu-nav-list-title mb-4">Address</h6>
+    <div v-if="address" class="menu-nav-content mb-5">
       <address v-html="address" />
     </div>
-    <h6 class="menu-nav-list-title mb-4">Contact</h6>
-    <div class="menu-nav-content mb-sm-5 mb-md-0">
+    <h6 v-if="phone || mobile || fax || email" class="menu-nav-list-title mb-4">Contact</h6>
+    <div class="menu-nav-content mb-5">
       <ul class="menu-links">
         <li v-if="phone"><a :href="'tel:'+phone">Tel: {{ phone }}</a></li>
         <li v-if="mobile"><a :href="'tel:'+mobile">Mobile: {{ mobile }}</a></li>
@@ -13,7 +13,22 @@
         <li v-if="email"><a :href="'mailto:'+email">Email: {{ email }}</a></li>
       </ul>
     </div>
-    <p></p>
+    <h6 v-if="facebook || instagram || twitter" class="menu-nav-list-title mb-4">Follow Us</h6>
+    <div v-if="facebook || instagram || twitter" class="menu-nav-content mb-sm-5 mb-md-0">
+    <div class="menu-nav-social d-flex">
+      <ul>
+        <li v-if="facebook">
+          <a :href="facebook" alt="Facebook" target="_blank" class="social-fb"></a>
+        </li>
+        <li v-if="instagram">
+          <a :href="instagram" alt="Instagram" target="_blank" class="social-ig"></a>
+        </li>
+        <li v-if="twitter">
+          <a :href="twitter" alt="Twitter" target="_blank" class="social-tw"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -36,6 +51,15 @@ export default {
     },
     email() {
       return this.$store.getters.getSettingByName('email')
+    },
+    facebook() {
+      return this.$store.getters.getSettingByName('facebook')
+    },
+    instagram() {
+      return this.$store.getters.getSettingByName('instagram')
+    },
+    twitter() {
+      return this.$store.getters.getSettingByName('twitter')
     }
   }
 }

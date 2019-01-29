@@ -20,7 +20,7 @@
                     <path fill="#FFF" d="M14 15.08l-2.42-4.53c-.006.003-1.358.647-1.42.675-1.54.724-4.674-5.214-3.168-5.996l1.432-.684L6.022 0 4.574.693c-4.951 2.503 2.91 17.321 7.975 15.076.084-.036 1.446-.686 1.451-.688z" /></svg> {{ tel }}</a>
               </div>
               <div class="col-auto">
-                <nuxt-link to="/reservations" class="btn btn-cta">Book Now</nuxt-link>
+                <nuxt-link to="/accommodations" class="btn btn-cta">Book Now</nuxt-link>
               </div>
             </div>
           </div>
@@ -30,9 +30,9 @@
   </header>
   <div id="navMenu" class="container" v-show="$store.state.menuOpen">
     <div class="row justify-content-md-center">
-      <nav-links type="header" class="col-md-6 col-lg-5 my-5 my-sm-0" />
-      <contact-address class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-lg-block" />
-      <social class="col-md-4 col-lg-2 offset-sm-6 offset-lg-0 d-none d-lg-block" />
+      <nav-links type="header" class="col-md-6 col-lg-4 my-5 my-sm-0" />
+      <contact-address class="col-sm-6 col-md-4 mb-5 mb-sm-0 d-none d-lg-block" />
+      <resorts class="col-md-4 offset-sm-6 offset-lg-0 d-none d-lg-block" />
     </div>
   </div>
 </div>
@@ -41,13 +41,13 @@
 <script>
 import NavLinks from '~/components/NavLinks.vue'
 import ContactAddress from '~/components/Address.vue'
-import Social from '~/components/Social.vue'
+import Resorts from '~/components/Resorts.vue'
 
 export default {
   components: {
     NavLinks,
     ContactAddress,
-    Social
+    Resorts
   },
   mounted() {
     window.addEventListener('scroll', this.stickyTop)

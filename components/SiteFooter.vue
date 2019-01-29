@@ -2,12 +2,9 @@
 <footer>
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="col-sm-6 col-md-4">
-          <logo type="footerLogo" />
-        </div>
-        <nav-links type="footer" class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0 d-none d-md-block" />
-        <contact-address class="col-sm-6 col-md-4 col-lg-3 mb-5 mb-sm-0" />
-        <social class="col-md-4 col-lg-2 offset-sm-6 offset-md-0"/>
+        <nav-links type="footer" class="col-md-6 col-lg-4 my-5 my-sm-0" />
+        <contact-address class="col-sm-6 col-md-4 mb-5 mb-sm-0 d-none d-lg-block" />
+        <resorts class="col-md-4 offset-sm-6 offset-lg-0 d-none d-lg-block" />
       </div>
     </div>
   </footer>
@@ -15,17 +12,15 @@
 
 <script>
 
-import Logo from '~/components/Logo.vue'
 import NavLinks from '~/components/NavLinks.vue'
 import ContactAddress from '~/components/Address.vue'
-import Social from '~/components/Social.vue'
+import Resorts from '~/components/Resorts.vue'
 
 export default {
   components: {
-    Logo,
     NavLinks,
     ContactAddress,
-    Social
+    Resorts
   }
 }
 
