@@ -1,6 +1,6 @@
 <template>
 <!--Header with phone number & book now-->
-<div :class="{ 'menu-nav' : $store.state.menuOpen, 'nav-fixed' : navFixed }">
+<div :class="{ 'menu-nav' : $store.state.menuOpen, 'nav-fixed' : navFixed }" class="nav-wrap">
   <header id="navTop">
     <div class="container-fluid">
       <div class="row no-gutters">
@@ -28,11 +28,11 @@
       </div>
     </div>
   </header>
-  <div id="navMenu" class="container" v-show="$store.state.menuOpen">
+  <div class="container" v-show="$store.state.menuOpen">
     <div class="row justify-content-md-center">
-      <nav-links type="header" class="col-md-6 col-lg-4 my-5 my-sm-0" />
-      <contact-address class="col-sm-6 col-md-4 mb-5 mb-sm-0 d-none d-lg-block" />
-      <resorts class="col-md-4 offset-sm-6 offset-lg-0 d-none d-lg-block" />
+      <nav-links type="header" class="fadeIn col-md-6 col-lg-4 my-5 my-sm-0" style="animation-delay: 0.2s;"/>
+      <contact-address class="fadeIn col-sm-6 col-md-4 mb-5 mb-sm-0 d-none d-lg-block" style="animation-delay: 0.1s;" />
+      <resorts class="fadeIn col-md-4 offset-sm-6 offset-lg-0 d-none d-lg-block"  style="animation-delay: 0s;" />
     </div>
   </div>
 </div>

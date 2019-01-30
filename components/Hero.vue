@@ -20,7 +20,7 @@
 
 #top {
   position: absolute;
-  bottom: 73px;
+  bottom: 340px;
   left: 0;
   height: 10px;
   width: 10px;

@@ -7,7 +7,6 @@ module.exports = {
   },
   head: {
     title: 'Hello from ',
-    titleTemplate: '%s - Cristina Villas Resort and Hotel',
     meta: [{
       charset: 'utf-8'
     },

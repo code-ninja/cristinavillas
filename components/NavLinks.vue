@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="menu-nav-links" @click="$store.commit('toggleMenu',false)">
+    <nav class="menu-nav-links fadeInUp" @click="$store.commit('toggleMenu',false)">
       <ul>
         <li v-for="navLink in navLinks" :key="navLink.id">
           <nuxt-link :to="navLink.slug">{{ navLink.label }}</nuxt-link>

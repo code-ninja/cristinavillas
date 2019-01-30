@@ -15,9 +15,15 @@ export default {
     SiteHeader,
     SiteFooter
   },
+  computed: {
+    sitename() {
+      return this.$store.getters.getSettingByName('sitename')
+    }
+  },
   head() {
     return {
-      title: this.$store.getters.getSettingByName('sitename')
+      title: this.sitename,
+      titleTemplate: '%s - ' + this.sitename
     }
   }
 }

@@ -99,7 +99,7 @@ const tomorrow = tom.toISOString()
 
 
 export default {
-  scrollToTop: true,
+  scrollToTop: false,
   components: {
     Hero,
     Slider,

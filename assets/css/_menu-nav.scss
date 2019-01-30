@@ -1,12 +1,51 @@
 // ==========================================================================
 // Menu Nav
 // ==========================================================================
+
+.nav-wrap {
+  transition: 0.15s ease-in;
+}
+
 .nav-fixed {
   header {
+    transition: 0.15s ease-in;
     background: #000;
-    transition: 0.5s ease-in;
     padding: 14px 0;
   }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeIn {
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-name: fadeInLeft;
+  animation-duration: 0.5s;
+
+  @include media-breakpoint-down(md) {
+    animation-name: fadeInDown;
+  }
+
 }
 
 .menu-nav {
@@ -33,7 +72,6 @@
       transform: rotate(180deg);
     }
   }
-
   // Medium up
   @include media-breakpoint-up(md) {
     flex-grow: 1;
@@ -41,26 +79,21 @@
 
   .menu-nav-links li {
     font-size: 22px;
-
     // Small only
     @include media-breakpoint-down(sm) {
       font-size: 16px;
       padding: 12px 0;
     }
-
   }
-
   // Small down
   @include media-breakpoint-down(sm) {
     bottom: 0;
   }
-
   // Medium down
   @include media-breakpoint-down(md) {
     text-align: center;
     padding: 80px 0;
   }
-
 }
 
 .menu-links {
@@ -72,7 +105,6 @@
 
   li {
     padding: 2px 0;
-
   }
 
   a {
@@ -80,7 +112,6 @@
       color: $brand-yellow;
     }
   }
-
 }
 
 .menu-nav-links li,
@@ -116,11 +147,9 @@
       padding: 0 0 20px;
     }
   }
-
 }
 
 .menu-nav-social {
-
   // Extra small down
   @include media-breakpoint-down(xs) {
     justify-content: center;
@@ -131,7 +160,6 @@
 
     li {
       padding: 4px 16px 0 0;
-
       // Extra small down
       @include media-breakpoint-down(sm) {
         padding-right: 24px;
