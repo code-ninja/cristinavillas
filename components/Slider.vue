@@ -32,7 +32,7 @@ export default {
         slidesPerView: 'auto',
         parallax: true,
         spaceBetween: 30,
-        centeredSlides: true
+        centeredSlides: false
       })
 
       this.swiper.on('imagesReady', this.ready = true)

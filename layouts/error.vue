@@ -1,6 +1,6 @@
 <template>
 <div>
-  <hero :title="error.message" bg="contact" />
+  <hero :title="error.message" />
 </div>
 </template>
 
@@ -11,6 +11,17 @@ export default {
   components: {
     Hero
   },
-  props: ['error']
+  computed: {
+    sitename() {
+      return this.$store.getters.getSettingByName('sitename')
+    }
+  },
+  props: ['error'],
+  head() {
+    return {
+      title: this.error.statusCode,
+      titleTemplate: this.sitename ? '%s - ' + this.sitename : '%s'
+    }
+  }
 }
 </script>

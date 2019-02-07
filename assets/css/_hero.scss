@@ -1,6 +1,81 @@
 // ==========================================================================
 // Hero
 // ==========================================================================
+
+.page-enter-active {
+  animation: fadeIn 0.40s ease-out both;
+}
+
+.page-leave-active {
+  animation: fadeOut 0.60s ease-in both;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes acrossIn {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes acrossOut {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
 .hero {
   background: center/cover no-repeat;
   min-height: 100vh;
@@ -8,12 +83,10 @@
   position: relative;
   justify-content: space-between;
   background-attachment: fixed;
-
   // Small only
   @include media-breakpoint-only(sm) {
     justify-content: center;
   }
-
   // Medium only
   @include media-breakpoint-only(md) {
     min-height: 70vh;
@@ -23,9 +96,7 @@
     content: '';
     display: block;
     position: absolute 0;
-
   }
-
   // Overlay Gradient
   &:before {
     // background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 56%, rgba(0,0,0,0.30) 75%, rgba(0,0,0,0.35) 100%);
@@ -35,12 +106,10 @@
   h1 {
     color: #fff;
     margin-bottom: 24px;
-
     // Small only
     @include media-breakpoint-down(sm) {
       font-size: 22px/32px;
     }
-
     // Large Up
     @include media-breakpoint-up(lg) {
       font-size: 40px/54px;
@@ -51,58 +120,47 @@
     width: 120px;
     position: relative;
     margin-top: 80px;
-
     // Extra small only
     @include media-breakpoint-only(xs) {
       margin-top: 120px;
     }
-
     // Small only
     @include media-breakpoint-only(sm) {
       margin: 32px 0;
     }
-
     // Medium up
     @include media-breakpoint-up(md) {
       width: 140px;
     }
   }
-
   // Home hero background
   &.home {
     background-image: url("~assets/img/cv-home-hero.jpg");
   }
-
   // Accomodations hero background
   &.accomodations {
     background-image: url("~assets/img/cv-rooms-hero.jpg");
   }
-
   // Facilities hero background
   &.facilities {
     background-image: url("~assets/img/cv-facilities-hero.jpg");
   }
-
   // FAQ hero background
   &.faqs {
     background-image: url("~assets/img/cv-faq-hero.jpg");
   }
-
   // Contact hero background
   &.contact {
     background-image: url("~assets/img/cv-front-building.jpg");
   }
-
 }
 
 .hero-content {
   margin-bottom: percentage(132/1280);
-
   // Extra small only
   @include media-breakpoint-only(xs) {
     margin-bottom: percentage(198/1280);
   }
-
   // Small only
   @include media-breakpoint-only(sm) {
     margin-bottom: 0;
@@ -110,35 +168,29 @@
 }
 
 .hero-secondary {
-
   // Extra small only
   @include media-breakpoint-only(xs) {
     min-height: 30vh;
   }
-
   // Small only
   @include media-breakpoint-only(sm) {
     min-height: 400px;
     justify-content: space-between;
   }
-
   // Medium only
   @include media-breakpoint-only(md) {
     min-height: 450px;
   }
-
   // Small only
   @include media-breakpoint-up(lg) {
     min-height: 75vh;
   }
 
   h1 {
-
     // Extra small only
     @include media-breakpoint-only(xs) {
       text-align: center;
     }
-
     // Small up
     @include media-breakpoint-up(sm) {
       margin: 0;
@@ -147,7 +199,6 @@
 
   .hero-content {
     margin-bottom: percentage(40/1280);
-
     // Extra small only
     @include media-breakpoint-only(xs) {
       margin-top: 64px;

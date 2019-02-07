@@ -20,7 +20,7 @@
 
 #top {
   position: absolute;
-  bottom: 340px;
+  bottom: 400px;
   left: 0;
   height: 10px;
   width: 10px;
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     url() {
-      return 'url('+apiUrl+this.img+')'
+      return this.img ? 'url('+apiUrl+this.img+')' : ''
     }
   },
   props: ['title','img']

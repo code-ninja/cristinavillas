@@ -4,25 +4,62 @@
 
 .room-wrapper {
   position: relative;
-  width: auto !important;
-  align-items: center;
-  margin-bottom: 100px;
-  margin-left: 30px;
+  overflow: hidden;
 
-  img {
-    width: auto;
-    max-height: 430px;
+  .room-pic {
+    background: red;
+    height: 400px;
+    background-size: cover;
+    display: block;
 
-    // Small down
-    @include media-breakpoint-down(sm) {
-      max-height: 430px;
+    &:before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 14px;
+      right: 14px;
+      bottom: 0;
+      background: black;
+      opacity: 0;
+      transition: 0.2s ease-in;
     }
 
-    // Medium only
-    @include media-breakpoint-only(md) {
-      max-height: 312px;
-    }
   }
+
+
+  &:hover {
+
+    .room-details {
+      padding-bottom: 40px;
+    }
+
+    .room-pic {
+      &:before {
+        opacity: 0.3;
+      }
+    }
+
+
+  }
+
+  // img {
+  //   position: relative;
+  //   width: 100%;
+  //   max-width: 400px;
+  //   max-height: 430px;
+  //
+  //   // Small down
+  //   @include media-breakpoint-down(sm) {
+  //     max-height: 520px;
+  //     max-width: 600px;
+  //   }
+  //
+  //   // Medium only
+  //   @include media-breakpoint-only(md) {
+  //     max-height: 312px;
+  //     max-width: 375px;
+  //   }
+  // }
 }
 
 .room-details {
@@ -31,12 +68,14 @@
   margin: 0 32px;
   padding: 24px 32px;
   font-size: 13px;
+  transition: 0.15s ease-in;
 
   // Small down
   @include media-breakpoint-down(sm) {
-    margin: 0 24px 0 0;
-    padding: 16px 20px 0;
+    margin: 0 24px 0 24px;
+    padding: 16px 20px;
   }
+
 }
 
 .room-name {

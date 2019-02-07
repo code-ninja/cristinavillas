@@ -1,5 +1,5 @@
 <template>
-<div class="cv-logo" v-html="svg" v-if="svg"></div>
+<div class="cv-logo" v-html="svg ? svg : ''"></div>
 </template>
 
 <script>

@@ -6,23 +6,23 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10 col-lg-8 text-center">
-          <h2 class="title"  v-if="extras && extras.title">{{ extras.title }}</h2>
-          <p class="subtitle"  v-if="extras && extras.subtitle">{{ extras.subtitle }}</p>
+          <h2 class="title" v-if="extras && extras.title">{{ extras.title }}</h2>
+          <p class="subtitle" v-if="extras && extras.subtitle">{{ extras.subtitle }}</p>
         </div>
       </div>
-      </div>
+    </div>
 
-      <div class="row justify-content-md-center">
-
-        <div v-for="room in rooms" :key="room.url" class="room-wrapper">
-          <img :src="apiUrl + room.img.url" :alt="room.name">
+    <div class="container">
+      <div class="row">
+        <div v-for="room in rooms" :key="room.url" class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
+          <nuxt-link :to="'/accommodations/'+room.url" class="room-pic"  :style="{'background-image': 'url('+apiUrl + room.img.url+')' }"></nuxt-link>
           <div class="room-details">
             <div class="room-name">{{ room.name }}</div>
             <p class="d-none">{{ room.desc }}</p>
             <div class="room-specs">
               <div class="row">
                 <div class="col-md mb-3 mb-md-0">
-                  <div class="room-price">{{ room.price }}</div>
+                  <div class="room-price">Php {{ room.price }}</div>
                   <div>Capacity: {{ room.capacity }}</div>
                 </div>
                 <div class="col-auto">
@@ -32,7 +32,7 @@
             </div>
           </div>
         </div>
-
+      </div>
     </div>
 
   </section>
@@ -64,39 +64,44 @@ export default {
   head() {
     return {
       title: this.pagetitle,
-      meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: this.metadesc
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: this.metadesc
-      },
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: this.pagetitle
-      },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: apiUrl + this.hero.url
-      },
-      {
-        hid: 'og:image:alt',
-        property: 'og:image:alt',
-        content: this.herotitle
-      }
-    ]
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: this.metadesc
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.metadesc
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.pagetitle
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: apiUrl + this.hero.url
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.herotitle
+        }
+      ]
     }
   },
-  async asyncData({ res, params, error }) {
+  async asyncData({
+    res,
+    params,
+    error
+  }) {
 
     try {
-      let { data } = await strapi.request('post', '/graphql', {
+      let {
+        data
+      } = await strapi.request('post', '/graphql', {
         data: {
           query: `query {
             mainpages(where: { slug:"/accommodations", published: true }) {
@@ -128,7 +133,7 @@ export default {
       })
 
       if (!data.mainpages.length)
-        throw('')
+        throw ('')
 
       return {
         ...data.mainpages[0],

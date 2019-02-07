@@ -1,7 +1,8 @@
-module.exports = {
+export default {
   /*
    ** Headers of the page
    */
+  transition: 'page',
   env: {
     API_URL: process.env.API_URL || 'http://localhost:1337'
   },
@@ -66,7 +67,7 @@ module.exports = {
    ** Customize the progress bar color
    */
   loading: {
-    color: '#3B8070'
+    color: '#FFCE4B'
   },
   /*
    ** Build configuration
