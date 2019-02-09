@@ -1,9 +1,8 @@
 <template>
-<div class="swiper-container" :style="{ 'visibility': ready ? 'visible': 'hidden'}">
+<div class="swiper-container" :style="{'visibility': ready ? 'visible' : 'hidden'}">
   <div class="swiper-wrapper">
     <slot />
   </div>
-  <slot name="after-wrapper" />
 </div>
 </template>
 
@@ -15,7 +14,7 @@ export default {
     this.recreateSwiper()
   },
   destroyed() {
-    if (this.swiper) this.swiper.destroy()
+    this.swiper.destroy(true, false)
   },
   data() {
     return {
@@ -26,16 +25,14 @@ export default {
   methods: {
     recreateSwiper() {
 
-      if (this.swiper) this.swiper.destroy()
-
       this.swiper = new Swiper(this.$el, {
         slidesPerView: 'auto',
-        parallax: true,
+        parallax: false,
         spaceBetween: 30,
-        centeredSlides: false
+        centeredSlides: true
       })
 
-      this.swiper.on('imagesReady', this.ready = true)
+      this.swiper.on('init', this.ready = true)
 
     }
   }

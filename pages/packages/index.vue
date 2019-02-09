@@ -2,16 +2,7 @@
   <div>
     <hero :title="herotitle" :img="hero.url" />
 
-    <section>
-      <div class="container">
-        <!-- <div class="row justify-content-md-center">
-          <nav class="filter-gallery">
-            <nuxt-link v-for="category in categories" :key="category.url" :to="category.url">{{ category.name }}</nuxt-link>
-          </nav>
-        </div> -->
-      </div>
-      <nuxt-child />
-    </section>
+    <packages />
 
   </div>
 </template>
@@ -28,7 +19,8 @@ const strapi = new Strapi(apiUrl)
 export default {
   scrollToTop: true,
   components: {
-    Hero
+    Hero,
+    Packages
   },
   head() {
     return {

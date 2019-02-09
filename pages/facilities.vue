@@ -3,25 +3,28 @@
     <hero :title="herotitle" :img="hero.url" />
 
     <section>
+
       <div class="container">
-        <!-- <div class="row justify-content-md-center">
-          <nav class="filter-gallery">
-            <nuxt-link v-for="category in categories" :key="category.url" :to="category.url">{{ category.name }}</nuxt-link>
-          </nav>
-        </div> -->
+        <div class="row justify-content-md-center">
+          <div class="col-md-10 col-lg-8 text-center">
+            <h2 class="title" v-if="extras && extras.title">{{ extras.title }}</h2>
+            <p class="subtitle" v-if="extras && extras.subtitle">{{ extras.subtitle }}</p>
+          </div>
+        </div>
       </div>
 
-      <div class="masonry-gallery">
-        <masonry
-        :cols="{default: 4, 1000: 3, 700: 2}"
-        :gutter="{default: '16px', 400: '10px'}"
-        >
-          <div class="image-item" v-for="(image, index) in items" :key="index">
-            <img :src="image" />
+      <div class="container">
+        <div class="row">
+          <div v-for="(item, index) in imgs" :key="index" class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
+            <div class="room-pic preview-img-item"   @click="$photoswipe.open(index, imgs)">
+              <div :style="{'background-image': 'url('+item.src+')' }"></div>
+            </div>
+              <div class="room-caption">{{ item.title }}</div>
           </div>
-        </masonry>
+        </div>
       </div>
     </section>
+
   </div>
 </template>
 
@@ -38,22 +41,31 @@ export default {
   components: {
     Hero
   },
+  mounted() {
+    for (let i = 0; i<this.facilities.length; i++) {
+      let item = {
+        src : apiUrl + this.facilities[i].img.url,
+        title: this.facilities[i].name
+      }
+      let img = new Image()
+      img.onload = function() {
+        item.w = this.width
+        item.h = this.height
+      }
+      img.src = item.src
+      this.imgs.push(item)
+    }
+  },
+  computed: {
+    apiUrl() {
+      return apiUrl
+    }
+  },
   data() {
     return {
-      index: 0,
-      visible: false,
-      items: [
-        'img/cv-facilities-gallery-1.jpg',
-        'img/cv-facilities-gallery-2.jpg',
-        'img/cv-facilities-gallery-3.jpg',
-        'img/cv-facilities-gallery-4.jpg',
-        'img/cv-facilities-gallery-5.jpg',
-        'img/cv-facilities-gallery-6.jpg',
-        'img/cv-facilities-gallery-7.jpg',
-        'img/cv-facilities-gallery-8.jpg',
-        'img/cv-facilities-gallery-9.jpg',
-        'img/cv-facilities-gallery-10.jpg'
-      ]
+      lightbox: false,
+      imgs: [],
+      index: 0
     }
   },
   head() {
@@ -109,16 +121,27 @@ export default {
                 url
               }
              }
+             facilities(where: { published: true }) {
+               url
+               name
+               img {
+                 url
+               }
+             }
+
           }`
         }
       })
 
-      if (!data.mainpages.length)
+      if (data.mainpages.length)
+        return {
+          ...data.mainpages[0],
+          facilities: [
+            ...data.facilities
+          ]
+        }
+      else
         throw('')
-
-      return {
-        ...data.mainpages[0],
-      }
 
     } catch (e) {
 
@@ -129,11 +152,6 @@ export default {
 
     }
 
-  },
-  methods: {
-    handleHide() {
-      this.visible = false
-    }
   }
 
 }

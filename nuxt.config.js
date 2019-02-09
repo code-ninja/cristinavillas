@@ -137,16 +137,13 @@ export default {
     }
   },
   plugins: [{
-    src: '~/plugins/lightbox',
+    src: '~/plugins/photoswipe.js',
     ssr: false
-  },
-  {
-    src: '~/plugins/masonry',
-    ssr: true
   }
   ],
   css: [
     // SCSS file in the project
-    'assets/css/style.scss'
+    'assets/css/style.scss',
+    'swiper/dist/css/swiper.css'
   ]
 }

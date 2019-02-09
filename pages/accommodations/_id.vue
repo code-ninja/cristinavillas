@@ -57,7 +57,7 @@
 
             <div class="booking-notes" v-if="notes">
               <div class="list-title">Notes</div>
-              <div v-html="marked"></div>
+              <div class="marked" v-html="marked"></div>
             </div>
           </div>
           <!--End Booking Room Details-->

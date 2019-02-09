@@ -142,7 +142,7 @@ export default {
                 url
               }
              }
-            facilities(where: { published: true }) {
+            facilities(limit: 3, where: { published: true }) {
               url
               name
               img {

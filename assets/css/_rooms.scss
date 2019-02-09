@@ -4,24 +4,36 @@
 
 .room-wrapper {
   position: relative;
-  overflow: hidden;
 
   .room-pic {
-    background: red;
     height: 400px;
-    background-size: cover;
     display: block;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #eee;
+      background-size: cover;
+      transition: 0.2s;
+    }
 
     &:before {
       content: ' ';
       position: absolute;
       top: 0;
-      left: 14px;
-      right: 14px;
+      left: 0;
+      right: 0;
       bottom: 0;
       background: black;
       opacity: 0;
       transition: 0.2s ease-in;
+      z-index: 1;
     }
 
   }
@@ -36,6 +48,10 @@
     .room-pic {
       &:before {
         opacity: 0.3;
+      }
+
+      div {
+        transform: scale(1.2);
       }
     }
 
@@ -69,6 +85,7 @@
   padding: 24px 32px;
   font-size: 13px;
   transition: 0.15s ease-in;
+  z-index: 3;
 
   // Small down
   @include media-breakpoint-down(sm) {
