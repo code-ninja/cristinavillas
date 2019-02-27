@@ -142,6 +142,9 @@ export default {
   plugins: [{
     src: '~/plugins/photoswipe.js',
     ssr: false
+  }, {
+    src: '~/plugins/swaychat.js',
+    ssr: false
   }
   ],
   css: [
