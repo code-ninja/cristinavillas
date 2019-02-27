@@ -83,7 +83,7 @@
   display: flex;
   position: relative;
   justify-content: space-between;
-  background-attachment: fixed;
+  // background-attachment: fixed;
   // Small only
   @include media-breakpoint-only(sm) {
     justify-content: center;
