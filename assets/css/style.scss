@@ -82,11 +82,11 @@
   position: relative;
   overflow: hidden;
   text-align: center;
+  margin-bottom: 30px;
 
   // Extra small only
   @include media-breakpoint-only(xs) {
     height: 124px;
-    margin-bottom: 24px;
   }
 
   // Small only
@@ -101,7 +101,7 @@
 
   // Large up
   @include media-breakpoint-up(lg) {
-    margin: 0 8px;
+    margin: 0 8px inherit;
     height: 300px;
   }
 

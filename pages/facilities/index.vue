@@ -15,12 +15,12 @@
 
       <div class="container">
         <div class="row">
-          <div v-for="(item, index) in imgs" :key="index" class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
-            <div class="room-pic preview-img-item"   @click="$photoswipe.open(index, imgs)">
-              <div :style="{'background-image': 'url('+item.src+')' }"></div>
+          <nuxt-link v-for="(item, index) in facilities" :key="index" :to="'/facilities/'+item.id" class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
+            <div class="room-pic preview-img-item">
+              <div :style="{'background-image': 'url('+apiUrl+item.img.url+')' }"></div>
             </div>
-              <div class="room-caption">{{ item.title }}</div>
-          </div>
+              <div class="room-caption">{{ item.name }}</div>
+          </nuxt-link>
         </div>
       </div>
     </section>
@@ -40,21 +40,6 @@ export default {
   scrollToTop: true,
   components: {
     Hero
-  },
-  mounted() {
-    for (let i = 0; i<this.facilities.length; i++) {
-      let item = {
-        src : apiUrl + this.facilities[i].img.url,
-        title: this.facilities[i].name
-      }
-      let img = new Image()
-      img.onload = function() {
-        item.w = this.width
-        item.h = this.height
-      }
-      img.src = item.src
-      this.imgs.push(item)
-    }
   },
   computed: {
     apiUrl() {
@@ -122,6 +107,7 @@ export default {
               }
              }
              facilities(where: { published: true }) {
+               id
                url
                name
                img {

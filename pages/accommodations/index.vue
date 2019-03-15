@@ -120,7 +120,7 @@ export default {
                 url
               }
              }
-             rooms(where:{ published: true}){
+             rooms(sort: "price:asc",where:{ published: true}){
                url
                name
                desc
