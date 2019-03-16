@@ -14,7 +14,7 @@
       </li>
 
       <li>
-        <a href="#" target="_blank" alt="">
+        <a href="https://casaazulresort.com" target="_blank" alt="">
           <div class="resort-logo ca-logo"></div>
           <div>
             <div class="resort-name">Casa Azul</div>
@@ -23,7 +23,7 @@
         </a>
       </li>
       <li>
-        <a href="#" target="_blank" alt="">
+        <a href="https://bosobosohighlands.com" target="_blank" alt="">
           <div class="resort-logo bsbs-logo"></div>
           <div>
             <div class="resort-name">Boso-Boso Highlands</div>
@@ -32,7 +32,7 @@
         </a>
       </li>
       <li>
-        <a href="#" target="_blank" alt="">
+        <a href="#">
           <div class="resort-logo cy-logo"></div>
           <div>
             <div class="resort-name">The Courtyard</div>
