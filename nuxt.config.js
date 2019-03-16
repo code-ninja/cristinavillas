@@ -145,6 +145,9 @@ export default {
   }, {
     src: '~/plugins/swaychat.js',
     ssr: false
+  }, {
+    src: '~/plugins/vcalendar.js',
+    ssr: false
   }
   ],
   css: [
