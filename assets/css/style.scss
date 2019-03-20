@@ -13,7 +13,7 @@
 @import "rooms";
 @import "booking";
 @import "rates";
-@import "~swiper/dist/css/swiper.min";
+@import "~swiper/dist/css/swiper";
 
 .pswp__caption__center {
   text-align: center !important;
@@ -24,8 +24,8 @@
 }
 
 .marked {
-
-  ol, ul {
+  ol,
+  ul {
     margin: 20px;
     padding-left: 20px;
     line-height: 1.5;
@@ -131,7 +131,6 @@
     }
 
     &:hover {
-
       .packages-bg {
         transform: scale(1.2);
       }

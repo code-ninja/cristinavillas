@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <nav-links type="footer" class="col-md-6 col-lg-4 my-5 my-sm-0" />
-        <contact-address class="col-sm-6 col-md-4 mb-5 mb-sm-0 d-none d-lg-block" />
+        <contact-address class="col-sm-6 col-md-4 mb-5 mb-sm-0 d-lg-block" />
         <resorts class="col-md-4 offset-sm-6 offset-lg-0 d-none d-lg-block" />
       </div>
     </div>

@@ -24,9 +24,9 @@
             <div class="form-group">
               <label>Check-In - Check-Out</label>
               <no-ssr>
-                <v-date-picker mode='range' v-model='form.range' :min-date="form.range.start" :theme-styles='themeStyles' show-caps :disabled-attribute="themeStyles.disabled">
+                <v-date-picker mode='range' v-model='form.range' :min-date="minDate" :theme-styles='themeStyles' show-caps :disabled-attribute="themeStyles.disabled" popoverVisibility="focus">
                   <div slot-scope="props">
-                    <input type="text" class="form-control" :value="props.inputValue" @change.native='props.updateValue($event.target.value)' readonly style="background: #fff" />
+                    <input type="text" class="form-control" :value="props.inputValue" @change.native='props.updateValue($event.target.value);' @focus='started = true' readonly style="background: #fff" />
                   </div>
                 </v-date-picker>
                 <div slot="placeholder">
@@ -184,6 +184,7 @@ export default {
           fontSize: '0.9rem'
         }
       },
+      minDate: today,
       form: {
         range: {
           start: today,
