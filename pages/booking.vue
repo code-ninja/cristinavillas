@@ -1,6 +1,6 @@
 <template>
 <div>
-  <main class="hero hero-secondary accomodations flex-column" role="main">
+  <main class="hero flex-column" role="main">
     <div class="cv-logo mx-auto">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 64">
         <g fill-rule="evenodd">
@@ -9,9 +9,11 @@
       </svg></div>
     <div class="hero-content">
       <div class="container">
-        <div class="row no-gutters">
-          <div class="col-sm-5 col-lg-6">
-            <h1 class="title">Standard Room</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="text-center">
+              <h1 class="title">Rates &amp; Rules</h1>
+            </div>
           </div>
         </div>
       </div>
@@ -19,160 +21,167 @@
     </div>
   </main>
 
-  <section class="p-0 py-md-4">
+  <section>
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-md-center">
+        <div class="col-md-10 col-lg-8 text-center">
+          <h2 class="title">Resort Time</h2>
+          <div class="resort-time d-flex justify-content-center">
+            <ul class="rates-card-specs">
+              <li>Day Time<div class="specs-value">6AM - 5PM</div>
+              </li>
+              <li>Night Time<div class="specs-value">6PM - 5AM</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
 
-        <!--Booking Form-->
-        <div class="col-sm-7 col-md-6 order-sm-2">
-          <!-- offset-md-1 offset-lg-0-->
-          <div class="booking-form">
-            <form>
-              <div class="form-row">
-                <div class="form-group col-6">
-                  <label for="inputCheckIn">Check-In</label>
-                  <input type="text" class="form-control" id="inputCheckIn" placeholder="" value="Jan. 10, 2019">
-                </div>
-                <div class="form-group col-6">
-                  <label for="inputCheckOut">Check-Out</label>
-                  <input type="text" class="form-control" id="inputCheckOut" placeholder="" value="Jan. 17, 2019">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputNumberGuest">Number of guest</label>
-                <select id="inputState" class="form-control custom-select">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <button type=" submit" class="btn btn-block btn-lg btn-black">Book Now</button>
-            </form>
+      <!--Rates-->
+      <div class="row my-5 justify-content-center">
+        <div class="col-sm-10">
+          <h2 class="title text-center text-lg-left">Rates</h2>
 
-            <div class="booking-form-list">
-              <ul>
-                <li>Price is subject to change without prior notice.</li>
-                <li>Check-in time is 2:00 PM</li>
-                <li>Check-out is 12:00 NOON the next day</li>
-              </ul>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card rates-card">
+                <div class="rate-type">Adult</div>
+                <ul class="rates-card-specs">
+                  <li>Day Time<div class="specs-value">₱170</div>
+                  </li>
+                  <li>Night Time<div class="specs-value">₱190</div>
+                  </li>
+                  <li>Day &amp; Night<div class="specs-value">₱340</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card rates-card">
+                <div class="rate-type">Children (3 to 4 ft)</div>
+                <ul class="rates-card-specs">
+                  <li>Day Time<div class="specs-value">₱120</div>
+                  </li>
+                  <li>Night Time<div class="specs-value">₱140</div>
+                  </li>
+                  <li>Day &amp; Night<div class="specs-value">₱240</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card rates-card">
+                <div class="rate-type">Children (below 3 ft)</div>
+                <ul class="rates-card-specs">
+                  <li>Day Time<div class="specs-value">Free</div>
+                  </li>
+                  <li>Night Time<div class="specs-value">Free</div>
+                  </li>
+                  <li>Day &amp; Night<div class="specs-value">Free</div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-        <!--End Booking Form-->
-
-        <!--Booking Room Details-->
-        <div class="col-sm-5 col-md-6">
-          <div class="booking-room-details">
-            <ul class="booking-room-specs">
-              <li>Per night<div class="specs-value">Php 3,500</div>
-              </li>
-              <li>Capacity<div class="specs-value">2 to 4 Guests</div>
-              </li>
-              <li>Room Size<div class="specs-value">30m²</div>
-              </li>
-            </ul>
-            <hr>
-          </div>
-
-          <div class="booking-notes">
-            <div class="list-title">Notes</div>
-            <ul>
-              <li>Regular rate is inclusive of complimentary breakfast for 2. Breakfast is serve from 7:00 AM to 10:00 AM only.</li>
-              <li>Children 12 yrs old below will be free of charge but without breakfast.</li>
-              <li>All rooms rates are good for 2 pax only in excess of 2 pax will charge Php 600.00 per pax with breakfast.</li>
-            </ul>
-          </div>
-        </div>
-        <!--End Booking Room Details-->
       </div>
-    </div>
+      <!--End Rates-->
 
-    <div class="booking-room-slider">
-      <slider>
-        <div class="swiper-slide" v-for="facility in facilities" :key="facility.url">
-          <img :src="apiUrl+ facility.img.url" :alt="facility.name">
-          <div class="slider-caption">{{ facility.name }}</div>
+      <!--Cottages-->
+      <div class="row my-5 justify-content-center">
+        <div class="col-md-10">
+          <h2 class="title text-center text-lg-left">Cottages</h2>
+
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">Day</th>
+                    <th scope="col">Night</th>
+                    <th scope="col">Day &amp; Night</th>
+                    <th scope="col">Excess/pax</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Picnic Table (20 units)</td>
+                    <td>6 pax</td>
+                    <td>₱400</td>
+                    <td>₱500</td>
+                    <td>₱800</td>
+                    <td>₱50/pax</td>
+                  </tr>
+                  <tr>
+                    <td>Grand Casita (1 unit)</td>
+                    <td>20 pax</td>
+                    <td>₱1500</td>
+                    <td>₱1800</td>
+                    <td>₱3500</td>
+                    <td>₱50/pax</td>
+                  </tr>
+                  <tr>
+                    <td>Grand Casita (1 unit)</td>
+                    <td>20 pax</td>
+                    <td>₱1500</td>
+                    <td>₱1800</td>
+                    <td>₱3500</td>
+                    <td>₱50/pax</td>
+                  </tr>
+                  <tr>
+                    <td>Grand Casita (1 unit)</td>
+                    <td>20 pax</td>
+                    <td>₱1500</td>
+                    <td>₱1800</td>
+                    <td>₱3500</td>
+                    <td>₱50/pax</td>
+                  </tr>
+                  <tr>
+                    <td>Grand Casita (1 unit)</td>
+                    <td>20 pax</td>
+                    <td>₱1500</td>
+                    <td>₱1800</td>
+                    <td>₱3500</td>
+                    <td>₱50/pax</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </slider>
-    </div>
+      </div>
+      <!--End Rates-->
 
+
+      <!--Cottages-->
+      <div class="row my-5 justify-content-center">
+        <div class="col-md-10">
+          <h2 class="title text-center text-lg-left">Rules &amp; Regulations</h2>
+
+          <div class="row">
+            <div class="col">
+              <div class="bullet-list">
+                <ul>
+                  <li><strong>STRICTLY SWIMMING ATTIRE</strong> (Swimsuit/White Cotton Sando &amp; Shorts for ladies and Swimming Trunks/Cotton Shorts for men).</li>
+                  <li>All bathers should shower with soap before entering the pool.</li>
+                  <li>Unaccompanied children are not allowed in the pool.</li>
+                  <li>Strictly no diving.</li>
+                  <li>No use of pool while under the influence of drugs or alcohol.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End Rates-->
+
+
+
+    </div>
   </section>
 </div>
 </template>
-
-<script>
-import Slider from '~/components/Slider.vue'
-
-import Strapi from 'strapi-sdk-javascript/build/main'
-const apiUrl = process.env.API_URL || 'http://localhost:1337'
-const strapi = new Strapi(apiUrl)
-
-export default {
-  components: {
-    Slider
-  },
-  computed: {
-    frontUrl() {
-      return this.images.length ? apiUrl + this.images[0].url : ''
-    },
-    apiUrl() {
-      return apiUrl
-    }
-  },
-  async asyncData({
-    res,
-    params,
-    error
-  }) {
-
-    try {
-      let {
-        data
-      } = await strapi.request('post', '/graphql', {
-        data: {
-          query: `query {
-            mainpages(where: { slug:"/", published: true }) {
-             	slug
-             	pagetitle
-             	metadesc
-              hero {
-                url
-              }
-              herotitle
-              summary
-              extras
-              images {
-                url
-              }
-             }
-            facilities(where: { published: true }) {
-              url
-              name
-              img {
-                url
-              }
-            }
-          }`
-        }
-      })
-
-      if (data.mainpages.length)
-        return {
-          ...data.mainpages[0],
-          facilities: [
-            ...data.facilities
-          ]
-        }
-      else
-        throw ('')
-
-    } catch (e) {
-
-      error({
-        statusCode: 503,
-        message: "You're in the right place at the wrong time! Come back later."
-      })
-    }
-
-  }
-}
-</script>

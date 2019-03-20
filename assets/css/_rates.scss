@@ -1,0 +1,101 @@
+// ==========================================================================
+// Rates
+// ==========================================================================
+.rates-card {
+  padding: 24px;
+
+  &:not(last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.rate-type {
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+    weight: 600;
+  };
+}
+
+.resort-time {
+  .rates-card-specs {
+    border: 0;
+    margin: 32px 0 64px;
+    padding: 0;
+
+    //  Small down
+    @include media-breakpoint-down(sm) {
+      margin: 24px 0 32px;
+    }
+
+    // Small only
+    @include media-breakpoint-only(sm) {
+      width: 80%;
+      flex-wrap: nowrap;
+    }
+
+    li {
+      &:not(:last-child) {
+        border-right: 1px solid rgba(#000, 0.1);
+        padding-right: 40px;
+        margin-right: 40px;
+
+        // Medium only
+        @include media-breakpoint-only(sm) {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.rates-card-specs {
+  border-top: 1px solid rgba(#000, 0.1);
+  margin: 10px 0 0;
+  padding: 20px 0 0;
+}
+
+.table {
+  font-family: 'Montserrat';
+  font-size: 13px;
+
+  //  Small down
+  @include media-breakpoint-down(sm) {
+    font-size: 11px;
+  }
+
+  thead {
+    th {
+      text-transform: uppercase;
+      font: {
+        size: 11px;
+      };
+      letter-spacing: 1px;
+
+      //  Small down
+      @include media-breakpoint-down(sm) {
+        min-width: 140px;
+      }
+
+    }
+  }
+}
+
+.bullet-list {
+  font-size: 12px;
+  padding-left: 16px;
+
+  ul {
+    list-style-type: disc;
+  }
+
+  li {
+    color: rgba($body-color, 0.75);
+    letter-spacing: 1px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

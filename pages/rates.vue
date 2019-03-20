@@ -5,7 +5,7 @@
   <section>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-8 marked" v-html="marked"></div>
+        <div class="col-8 marked" v-html="marked">Resort Time</div>
       </div>
     </div>
   </section>
@@ -33,40 +33,45 @@ export default {
   head() {
     return {
       title: this.pagetitle,
-      meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: this.metadesc
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: this.metadesc
-      },
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: this.pagetitle
-      },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: apiUrl + this.hero.url
-      },
-      {
-        hid: 'og:image:alt',
-        property: 'og:image:alt',
-        content: this.herotitle
-      }
-    ]
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: this.metadesc
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.metadesc
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.pagetitle
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: apiUrl + this.hero.url
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.herotitle
+        }
+      ]
     }
   },
-  async asyncData ({ req, params, error }) {
+  async asyncData({
+    req,
+    params,
+    error
+  }) {
 
     try {
 
-      const { data } = await strapi.request('post','/graphql',{
+      const {
+        data
+      } = await strapi.request('post', '/graphql', {
         data: {
           query: `query {
             mainpages(where: { slug:"/rates", published: true }) {
@@ -88,7 +93,7 @@ export default {
       })
 
       if (!data.mainpages.length)
-        throw('')
+        throw ('')
 
       return {
         ...data.mainpages[0]
