@@ -1,6 +1,6 @@
 <template>
 <main class="hero flex-column" role="main" :style="{ 'background-image': url }">
-  <logo type="headerLogo" class="mx-auto" />
+  <nuxt-link to="/"><logo type="headerLogo" class="mx-auto" /></nuxt-link>
   <div class="hero-content">
     <div class="container">
       <div class="row justify-content-center">
