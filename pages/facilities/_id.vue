@@ -1,0 +1,90 @@
+<template>
+  <div>
+    <hero :title="name" :img="img.url" />
+    <section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-8 marked" v-html="marked"></div>
+        </div>
+      </div>
+
+      <div class="booking-room-slider">
+        <slider>
+          <div class="swiper-slide" v-for="image in gallery" :key="image.url">
+            <img :src="apiUrl+ image.url" />
+          </div>
+        </slider>
+      </div>
+
+    </section>
+
+  </div>
+</template>
+
+
+<script>
+
+import Hero from '~/components/Hero.vue'
+import Slider from '~/components/Slider.vue'
+import marked from 'marked'
+
+import Strapi from 'strapi-sdk-javascript/build/main'
+const apiUrl = process.env.API_URL || 'http://localhost:1337'
+const strapi = new Strapi(apiUrl)
+
+export default {
+  scrollToTop: true,
+  components: {
+    Hero,
+    Slider
+  },
+  computed: {
+    apiUrl() {
+      return apiUrl
+    },
+    marked() {
+      return this.bigdesc ? marked(this.bigdesc) : ''
+    }
+  },
+  async asyncData({ res, params, error }) {
+
+    try {
+      let { data } = await strapi.request('post', '/graphql', {
+        data: {
+          query: `query {
+             facilities(where:{ id: "`+params.id+`",published: true}){
+               name
+               url
+               bigdesc
+               img {
+                 url
+               }
+               gallery {
+                 url
+               }
+             }
+          }`
+        }
+      })
+
+      if (!data.facilities.length)
+        throw('')
+
+      return {
+        ...data.facilities[0]
+      }
+
+    } catch (e) {
+
+      //console.log(e)
+
+      error({
+        statusCode: 404,
+        message: "This package doesn't exist"
+      })
+    }
+
+  }
+}
+
+</script>

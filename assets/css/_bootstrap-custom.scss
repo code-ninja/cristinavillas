@@ -12,12 +12,14 @@ $grid-breakpoints: (
 // Grid containers
 // Define the maximum width of `.container` for different screen sizes.
 $container-max-widths: (
-  sm: 540px,
+  sm: 648px,
   md: 720px,
   lg: 960px,
   xl: 1140px
 )
 !default;
+
+$body-color: #000;
 
 // Links
 //
@@ -41,12 +43,25 @@ $line-height-base: 1.8;
 // Buttons + Forms
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-lg: $border-radius;
+
 $input-btn-padding-y: 0.6251rem; //10px
 $input-btn-padding-x: 0.875rem; //14px;
 $input-btn-line-height: 1;
 $input-btn-focus-width: 0;
 
 $btn-padding-x: 1.125rem; //18px;
+
+// Input Padding - Large
+$input-btn-padding-y-lg: 0.6875rem; //11px
+$input-btn-padding-x-lg: 0.6875rem; //11px
+
+$input-height: 40px;
+
+$input-focus-border-color: rgba(#000, 0.75);
+$form-group-margin-bottom: 1.5rem;
 
 // ==========================================================================
 // Bootsrap Required Import
@@ -61,7 +76,7 @@ $btn-padding-x: 1.125rem; //18px;
 // @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
-// @import "~bootstrap/scss/images";
+@import "~bootstrap/scss/images";
 // @import "~bootstrap/scss/code";
 @import "~bootstrap/scss/grid";
 // @import "~bootstrap/scss/tables";
@@ -71,6 +86,7 @@ $btn-padding-x: 1.125rem; //18px;
 // @import "~bootstrap/scss/dropdown";
 // @import "~bootstrap/scss/button-group";
 @import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/spinners";
 @import "~bootstrap/scss/custom-forms";
 // @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";

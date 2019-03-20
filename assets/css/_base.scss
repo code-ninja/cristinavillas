@@ -148,15 +148,10 @@ button {
 
 header {
   color: #fff;
-  padding: 24px 0;
+  padding: 20px 10px;
   position: fixed 0 0 auto;
   z-index: $zindex-sticky;
   letter-spacing: 2px;
-
-  // Small down
-  @include media-breakpoint-down(sm) {
-    padding: 24px 0;
-  }
 
   .row {
     align-items: center;
@@ -201,10 +196,32 @@ header {
     size: 14px;
   };
   letter-spacing: 3px;
+  padding: 0;
   text-transform: uppercase;
 
   svg {
+    transition: 0.25s ease-in;
     margin-right: 10px;
     size: 18px;
   }
+}
+
+form {
+  label {
+    font: {
+      family: 'Montserrat';
+      size: 12px;
+      weight: 500;
+    };
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.form-control {
+  font: {
+    family: 'Montserrat';
+    size: 16px;
+    weight: 500;
+  };
 }

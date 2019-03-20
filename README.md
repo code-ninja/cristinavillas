@@ -8,12 +8,6 @@ git clone --recurse-submodules git@github.com:code-ninja/cristinavillas.git <tar
 
 ```
 
-## Configuration
-
-1. Create config file in root folder using config.SAMPLE.json as pattern, save as config.development.json for development settings and config.production.json for production
-  - See https://docs.ghost.org/docs/config for details
-2. Create content folder in root, create data folder under content.
-
 ## Installation
 
 1. Install using yarn, and then run migration script
@@ -21,7 +15,6 @@ git clone --recurse-submodules git@github.com:code-ninja/cristinavillas.git <tar
 ```bash
 
 yarn
-yarn migrate
 
 ```
 
@@ -37,6 +30,7 @@ yarn dev
 
 ```bash
 
+yarn build
 yarn start
 
 ```
