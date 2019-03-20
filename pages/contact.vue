@@ -64,6 +64,9 @@ export default {
     Hero
   },
   computed: {
+    sitename() {
+      return this.$store.getters.getSettingByName('sitename')
+    },
     address() {
       let adr = this.$store.getters.getSettingByName('address')
       return adr.replace(/\n/g, '<br/>')
@@ -203,11 +206,12 @@ export default {
         from: `${this.form.name} <info@fbmgroup.co>`,
         to: `FBM Sales Team <info@fbmgroup.co>`,
         replyTo: `${this.form.name} <${this.form.email}>`,
-        subject: `Booking ${this.name} in ${this.sitename}: ${this.form.name}`,
+        subject: `Hello from ${this.form.name}`,
         html: `
           Name: ${this.form.name} <br/>
           Email: ${this.form.email} <br/>
           Phone: ${this.form.phone} <br />
+          Site: ${this.sitename} <br />
           ${this.form.message}
           `
       }).then(() => {
