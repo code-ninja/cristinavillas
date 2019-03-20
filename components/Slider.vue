@@ -3,6 +3,9 @@
   <div class="swiper-wrapper">
     <slot />
   </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
 </div>
 </template>
 
@@ -19,7 +22,7 @@ export default {
   data() {
     return {
       swiper: null,
-      ready: false
+      ready: true
     }
   },
   methods: {
@@ -27,9 +30,13 @@ export default {
 
       this.swiper = new Swiper(this.$el, {
         slidesPerView: 'auto',
-        parallax: false,
-        spaceBetween: 30,
-        centeredSlides: true
+        parallax: true,
+        spaceBetween: 0,
+        centeredSlides: false,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }
       })
 
       this.swiper.on('init', this.ready = true)
