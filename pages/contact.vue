@@ -19,7 +19,7 @@
             </div>
 
 
-            <form @submit.prevent="send" v-if="!sent">
+            <form @submit.prevent="send" v-if="!sent" :class="{ 'was-validated' : validated }" novalidate>
               <div class="form-group">
                 <input type="text" class="form-control" ref="inputName" id="inputName" placeholder="Name" v-model="form.name" required>
               </div>
@@ -166,6 +166,7 @@ export default {
   },
   data() {
     return {
+      validated: false,
       sending: false,
       sent: false,
       form: {
@@ -178,6 +179,7 @@ export default {
   },
   methods: {
     send() {
+      this.validated = true
 
       let { name, email, phone, message } = this.form;
 
@@ -215,6 +217,7 @@ export default {
           ${this.form.message}
           `
       }).then(() => {
+        this.validated = false
         this.sent = true
         this.sending = false
         this.form.name = ''

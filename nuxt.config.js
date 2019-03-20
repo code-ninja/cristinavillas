@@ -139,6 +139,9 @@ export default {
       })
     }
   },
+  modules: [
+    ['@nuxtjs/google-analytics', { id: 'none' }]
+  ],
   plugins: [{
     src: '~/plugins/photoswipe.js',
     ssr: false
@@ -148,6 +151,8 @@ export default {
   }, {
     src: '~/plugins/vcalendar.js',
     ssr: false
+  }, {
+    src: '~/plugins/ga.js'
   }
   ],
   css: [
