@@ -249,7 +249,7 @@ export default {
 
     } catch (e) {
 
-      console.log(e)
+      //console.log(e)
 
       error({
         statusCode: 404,

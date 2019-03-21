@@ -231,7 +231,7 @@ export default {
         }
       })
 
-      console.log(data)
+      //console.log(data)
 
       if (!data.mainpages.length)
         throw ('')
