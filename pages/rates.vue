@@ -142,13 +142,13 @@ export default {
       return this.summary ? marked(this.summary) : ''
     },
     entrance() {
-      return this.rates.filter((rate) => rate.ratetype == 'Entrance')
+      return this.rates.length ? this.rates.filter((rate) => rate.ratetype == 'Entrance') : []
     },
     cottages() {
-      return this.rates.filter(rate => rate.ratetype == 'Cottage')
+      return this.rates.length ? this.rates.filter(rate => rate.ratetype == 'Cottage') : []
     },
     special() {
-      return this.rates.filter(rate => rate.ratetype == 'Special')
+      return this.rates.length ? this.rates.filter(rate => rate.ratetype == 'Special') : []
     },
     daytime() {
       return this.$store.getters.getSettingByName('daytime')
