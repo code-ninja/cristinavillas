@@ -238,7 +238,7 @@ export default {
 
       return {
         ...data.mainpages[0],
-        rates: data.rates
+        rates: data.rates ? data.rates : []
       }
 
     } catch (e) {
