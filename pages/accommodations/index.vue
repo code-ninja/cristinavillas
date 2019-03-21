@@ -25,7 +25,7 @@
               <div class="row">
                 <div class="col-md mb-3 mb-md-0">
                   <div class="room-price">Php {{ room.price }}</div>
-                  <div>Capacity: {{ room.capacity }}</div>
+                  <div>Up to {{ room.capacity }}</div>
                 </div>
                 <div class="col-auto">
                   <nuxt-link :to="'/accommodations/'+room.url" class="btn btn-black">Book Now</nuxt-link>
