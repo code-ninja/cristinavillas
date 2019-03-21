@@ -97,11 +97,7 @@
     </div>
 
     <div class="booking-room-slider">
-      <slider>
-        <div class="swiper-slide" v-for="image in images" :key="image.url">
-          <img :src="apiUrl+ image.url" />
-        </div>
-      </slider>
+      <slider :images="slides"></slider>
     </div>
 
   </section>
@@ -140,6 +136,21 @@ export default {
     },
     marked() {
       return this.notes ? marked(this.notes) : ''
+    },
+    slides() {
+      let items = []
+      if (this.img)
+        items.push({
+          url: this.img.url,
+          title: this.name
+        })
+      for (let i = 0; i < this.images.length; i++)
+        items.push({
+          url: this.images[i].url,
+          title: `${this.name} ${i+1}`
+        })
+
+      return items
     }
   },
   data() {

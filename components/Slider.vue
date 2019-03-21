@@ -1,47 +1,63 @@
 <template>
-<div class="swiper-container" :style="{'visibility': ready ? 'visible' : 'hidden'}">
-  <div class="swiper-wrapper">
-    <slot />
+<div>
+  <div v-swiper:mySwiper="swiperOption">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide preview-img-item" v-for="(image,index) in images" :key="index">
+        <img :src="apiUrl + image.url" @click="$photoswipe.open(index, imgs, { showAnimationDuration: 0, hideAnimationDuration:0 })" />
+        <div class="slider-caption" v-if="image.title">{{ image.title }}</div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
+
 </div>
 </template>
 
 <script>
-import Swiper from 'swiper'
+const apiUrl = process.env.API_URL || 'http://localhost:1337'
 
 export default {
-  mounted() {
-    this.recreateSwiper()
-  },
-  destroyed() {
-    this.swiper.destroy(true, false)
+  props: [
+    'images'
+  ],
+  computed: {
+    apiUrl() {
+      return apiUrl
+    }
   },
   data() {
     return {
-      swiper: null,
-      ready: true
+      imgs: [],
+      swiperOption: {
+        loop: false,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        pagination: {
+          el: '.swiper-pagination',
+          dynamicBullets: true,
+          clickable: true
+        }
+      }
     }
   },
-  methods: {
-    recreateSwiper() {
+  mounted() {
 
-      this.swiper = new Swiper(this.$el, {
-        slidesPerView: 'auto',
-        parallax: true,
-        spaceBetween: 0,
-        centeredSlides: false,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }
-      })
-
-      this.swiper.on('init', this.ready = true)
-
+    if (this.images)
+    for (let i = 0; i < this.images.length; i++) {
+      let item = {
+        src: apiUrl + this.images[i].url,
+        title: this.images[i].title ? this.images[i].title : ''
+      }
+      let img = new Image()
+      img.onload = function() {
+        item.w = this.width
+        item.h = this.height
+      }
+      img.src = item.src
+      this.imgs.push(item)
     }
+
   }
 }
 </script>

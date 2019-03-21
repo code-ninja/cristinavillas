@@ -30,9 +30,12 @@
   width: auto !important;
   align-items: center;
   padding-left: 30px;
+  padding-bottom: 30px;
+
   img {
    width: auto;
    height: 423px;
+   cursor: zoom-in;
 
     // Small down
     @include media-breakpoint-down(sm) {

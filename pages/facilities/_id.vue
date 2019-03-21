@@ -9,11 +9,7 @@
       </div>
 
       <div class="booking-room-slider">
-        <slider>
-          <div class="swiper-slide" v-for="image in gallery" :key="image.url">
-            <img :src="apiUrl+ image.url" />
-          </div>
-        </slider>
+        <slider :images="slides"></slider>
       </div>
 
     </section>
@@ -44,6 +40,23 @@ export default {
     },
     marked() {
       return this.bigdesc ? marked(this.bigdesc) : ''
+    },
+    slides() {
+      let items = []
+
+      if (this.img)
+        items.push({
+          url: this.img.url,
+          title: this.name
+        })
+
+      for (let i=0; i < this.gallery.length; i++)
+        items.push({
+          url: this.gallery[i].url,
+          title: `${this.name} ${i+1}`
+        })
+
+      return items
     }
   },
   async asyncData({ res, params, error }) {

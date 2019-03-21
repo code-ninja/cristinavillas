@@ -48,12 +48,7 @@
         </div>
       </div>
 
-      <slider>
-        <div class="swiper-slide" v-for="facility in facilities" :key="facility.url">
-          <img :src="apiUrl+ facility.img.url" :alt="facility.name">
-          <div class="slider-caption">{{ facility.name }}</div>
-        </div>
-      </slider>
+      <slider :images="slides"></slider>
 
   </section>
   <!--End of Facilities-->
@@ -88,6 +83,15 @@ export default {
     },
     apiUrl() {
       return apiUrl
+    },
+    slides() {
+      let items = []
+      for (let i in this.facilities)
+        items.push({
+          url: this.facilities[i].img.url,
+          title: this.facilities[i].name
+        })
+      return items
     }
   },
   head() {

@@ -153,6 +153,9 @@ export default {
     ssr: false
   }, {
     src: '~/plugins/ga.js'
+  }, {
+    src: '~/plugins/swiper.js',
+    ssr: false
   }
   ],
   css: [
