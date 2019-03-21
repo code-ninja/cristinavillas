@@ -79,7 +79,7 @@
             <ul class="booking-room-specs">
               <li>Per night<div class="specs-value">Php {{ price }}</div>
               </li>
-              <li>Capacity<div class="specs-value">{{ capacity }} Guests</div>
+              <li>Capacity<div class="specs-value">{{ capacity }}</div>
               </li>
               <li v-if="size">Room Size<div class="specs-value">{{ size }}</div>
               </li>
