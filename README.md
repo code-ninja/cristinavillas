@@ -26,11 +26,24 @@ yarn dev
 
 ```
 
-3. Run in production using
+3. Production deployment
 
 ```bash
-
+nvm use v10.14.1
+git pull origin master
+yarn
 yarn build
-yarn start
+pm2 start npm --name "your-app-alias" -- start
+
+```
+
+4. Production updating
+
+```bash
+nvm use v10.14.1
+git pull origin master
+yarn
+yarn build
+pm2 restart "your-app-alias"
 
 ```
