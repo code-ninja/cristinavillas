@@ -26,6 +26,9 @@
         <li v-if="twitter">
           <a :href="twitter" alt="Twitter" target="_blank" class="social-tw"></a>
         </li>
+        <li v-if="youtube">
+          <a :href="youtube" alt="Twitter" target="_blank" class="social-yt"></a>
+        </li>
       </ul>
     </div>
   </div>
@@ -60,6 +63,9 @@ export default {
     },
     twitter() {
       return this.$store.getters.getSettingByName('twitter')
+    },
+    youtube() {
+      return this.$store.getters.getSettingByName('youtube')
     }
   }
 }
