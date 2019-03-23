@@ -2,12 +2,14 @@
 <!--Packages-->
 <section class="bg-light-yellow" v-if="packages.length">
   <div class="container">
-    <div class="row justify-content-md-center">
+
+    <div class="row justify-content-md-center" v-if="limit">
       <div class="col-md-10 col-lg-6 text-center">
         <h2 class="title">Packages</h2>
         <p class="subtitle" v-if="subtitle">{{ subtitle }}</p>
       </div>
     </div>
+
     <div class="row justify-content-center">
       <div class="col-10 col-sm-12 col-md-10">
         <div class="row mt-4">
@@ -25,6 +27,12 @@
       </div>
     </div>
 
+    <div class="row justify-content-md-center" v-if="limit">
+      <div class="col-md-10 col-lg-6 text-center">
+        <nuxt-link to="packages" class="btn btn-black">View All</nuxt-link>
+      </div>
+    </div>
+
   </div>
 </section>
 <!--End of Packages-->
@@ -35,11 +43,15 @@ const apiUrl = process.env.API_URL || 'http://localhost:1337'
 
 export default {
   props: [
-    'subtitle'
+    'subtitle',
+    'limit'
   ],
   computed: {
     packages() {
-      return this.$store.state.packages || []
+      let p = this.$store.state.packages ? this.$store.state.packages : []
+      if (this.limit && p.length)
+        p = p.slice(0,this.limit)
+      return p
     },
     url() {
       return apiUrl

@@ -25,7 +25,7 @@
       </div>
     </div>
   </section>
-  <packages :subtitle="extras.packageSubTitle" />
+  <packages :subtitle="extras.packageSubTitle" limit="3" />
   <!--Facilities-->
   <section>
     <div class="container mb-5">
