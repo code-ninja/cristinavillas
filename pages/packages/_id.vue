@@ -3,6 +3,15 @@
     <hero :title="name" :img="img.url" />
     <section>
       <div class="container">
+
+        <div class="row justify-content-md-center">
+          <div class="col-md-10 col-lg-6 text-center">
+            <h2 class="title">{{ name }}</h2>
+            <hr />
+            <br />
+          </div>
+        </div>
+
         <div class="row justify-content-center">
           <div class="col-8 marked" v-html="marked"></div>
         </div>
