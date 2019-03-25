@@ -1,4 +1,6 @@
 import dotenv from 'dotenv'
+import axios from 'axios'
+
 dotenv.config()
 
 export default {
@@ -76,6 +78,7 @@ export default {
    ** Build configuration
    */
   build: {
+    parallel: false,
     /*
      ** Run ESLint on save
      */
@@ -139,8 +142,44 @@ export default {
       })
     }
   },
+  sitemap: {
+    async routes(cb) {
+      try {
+
+        const apiUrl = process.env.API_URL || 'http://localhost:1337'
+        const { data } = await axios.post(`${apiUrl}/graphql`, {
+          query: `
+            query {
+              facilities(where: { published: true }) {
+                id
+              }
+              rooms( sort:"price:asc", where:{ published: true } ) {
+                url
+              }
+              packages(where: { published: true }) {
+                slug
+              }
+            }
+          `
+        })
+
+        let routes = [
+          ...data.data.facilities.map(i => `/facilities/${i.id}`),
+          ...data.data.rooms.map(i => `/accommodations/${i.url}`),
+          ...data.data.packages.map(i => `/packages/${i.slug}`)
+        ]
+
+        cb(null, routes)
+
+      } catch (e) {
+
+      }
+
+    }
+  },
   modules: [
-    ['@nuxtjs/google-analytics', { id: 'none' }]
+    ['@nuxtjs/google-analytics', { id: 'none' }],
+    '@nuxtjs/sitemap'
   ],
   plugins: [{
     src: '~/plugins/photoswipe.js',

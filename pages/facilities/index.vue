@@ -19,7 +19,7 @@
             <div class="room-pic preview-img-item">
               <div :style="{'background-image': 'url('+apiUrl+item.img.url+')' }"></div>
             </div>
-              <div class="room-caption">{{ item.name }}</div>
+              <div class="slider-caption">{{ item.name }}</div>
           </nuxt-link>
         </div>
       </div>
