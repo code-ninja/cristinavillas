@@ -12,8 +12,8 @@
 
 @keyframes kenburns {
 
-  50% {
-    transform: scale3d(1.5,1.5,1.5) translate3d(0, 0, 0);
+  60% {
+    transform: scale3d(1.25,1.25,1.25);
   }
 
 }
@@ -104,14 +104,13 @@
 
   figure {
     background: center/cover no-repeat;
-    background-position: center center;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: -20px;
-    animation: kenburns 40s ease infinite;
-    animation-delay: 2s;
+    animation: kenburns 60s ease infinite;
+    animation-delay: 1s;
 
     &:before {
       content: '';
