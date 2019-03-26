@@ -1,5 +1,7 @@
 <template>
-<main class="hero flex-column" role="main" :style="{ 'background-image': url }">
+<main class="hero flex-column" role="main">
+
+  <figure :style="{ 'background-image': url }"></figure>
   <nuxt-link to="/"><logo type="headerLogo" class="mx-auto" /></nuxt-link>
   <div class="hero-content">
     <div class="container">
