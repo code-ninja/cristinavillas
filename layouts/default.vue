@@ -18,12 +18,22 @@ export default {
   computed: {
     sitename() {
       return this.$store.getters.getSettingByName('sitename')
+    },
+    fbAppID() {
+      return this.$store.getters.getSettingByName('fb_app_id')
     }
   },
   head() {
     return {
       title: this.sitename,
-      titleTemplate: '%s - ' + this.sitename
+      titleTemplate: '%s - ' + this.sitename,
+      meta: [
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: this.fbAppID || '2342695049293795'
+        }
+      ]
     }
   }
 }
