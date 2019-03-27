@@ -32,6 +32,21 @@ export default {
           hid: 'fb:app_id',
           property: 'fb:app_id',
           content: this.fbAppID || '2342695049293795'
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'website'
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: this.sitename
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: process.env.SEO_URL
         }
       ]
     }

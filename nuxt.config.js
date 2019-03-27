@@ -9,7 +9,8 @@ export default {
    */
   // transition: 'page',
   env: {
-    API_URL: process.env.API_URL || 'http://localhost:1337'
+    API_URL: process.env.API_URL || 'http://localhost:1337',
+    SEO_URL: process.env.SEO_URL || 'http://localhost:1337'
   },
   head: {
     title: 'Hello from ',
