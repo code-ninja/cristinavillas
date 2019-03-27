@@ -68,6 +68,37 @@ export default {
       return items
     }
   },
+  head() {
+    return {
+      title: this.name,
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: this.desc || ''
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.desc || ''
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.name || ''
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: apiUrl + this.img.url
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.name
+        }
+      ]
+    }
+  },
   async asyncData({ res, params, error }) {
 
     try {
@@ -78,6 +109,7 @@ export default {
                name
                url
                bigdesc
+               desc
                img {
                  url
                }
