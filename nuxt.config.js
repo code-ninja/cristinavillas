@@ -7,7 +7,7 @@ export default {
   /*
    ** Headers of the page
    */
-  transition: 'page',
+  // transition: 'page',
   env: {
     API_URL: process.env.API_URL || 'http://localhost:1337'
   },
