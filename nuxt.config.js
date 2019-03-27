@@ -13,60 +13,8 @@ export default {
   },
   head: {
     title: 'Hello from ',
-    meta: [{
-      charset: 'utf-8'
-    },
-    {
-      name: 'viewport',
-      content: 'width=device-width, initial-scale=1'
-    },
-    {
-      hid: 'description',
-      name: 'description',
-      content: 'The best resort and hotel in Antipolo, Philippines'
-    },
-    {
-      name: 'msapplication-TileColor',
-      content: '#2f2d2d'
-    },
-    {
-      name: 'theme-color',
-      content: '#2f2d2d'
-    }
-    ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    },
-    {
-      rel: 'apple-touch-icon',
-      type: 'image/png',
-      sizes: '180x180',
-      href: '/apple-touch-icon.png'
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      href: '/favicon-32x32.png'
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      href: '/favicon-16x16.png'
-    },
-    {
-      rel: 'manifest',
-      href: '/site.webmanifest'
-    },
-    {
-      rel: 'mask-icon',
-      href: '/safari-pinned-tab.svg',
-      color: '#2f2d2d'
-    }
-    ]
+    meta: [],
+    link: []
   },
   /*
    ** Customize the progress bar color
@@ -195,14 +143,27 @@ export default {
 
     }
   },
+  manifest: {
+    name: process.env.SEO_NAME || 'Cristina Villas Mountain Resort',
+    short_name: process.env.SEO_SHORT_NAME || 'cristinavillas',
+    background_color: process.env.SEO_BG || '#2f2d2d',
+    theme_color: process.env.SEO_TC || '#2f2d2d',
+    description: 'FBM Resort in Antipolo'
+  },
+  meta: {
+    ogUrl: process.env.SEO_URL || 'https://cristinavillasresort.com',
+    twitterCard: 'summary',
+    twitterSite: '@FbmResorts',
+    twitterCreator: '@paulopmx'
+  },
+  icon: {
+    iconSrc: process.env.SEO_LOGO || 'assets/img/cv-big-logo.png'
+  },
   modules: [
     ['@nuxtjs/google-analytics', {
       id: 'none'
     }],
-    ['@nuxtjs/pwa', {
-      icon: false,
-      manifest: false,
-    }],
+    ['@nuxtjs/pwa'],
     '@nuxtjs/sitemap'
   ],
   plugins: [{
