@@ -8,7 +8,7 @@
           <h2 class="title">{{ extras.title }}</h2>
           <p class="subtitle">{{ extras.subtitle }}</p>
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-10" v-if="videoSrc">
           <div class="embed-responsive embed-responsive-16by9 my-5">
             <div class="embed-responsive-item">
               <object :data="videoSrc"></object>
@@ -70,9 +70,6 @@ export default {
         return ''
       let url = "//www.youtube-nocookie.com/embed/"+this.extras.videoID+"?controls=1&autohide=1;&showinfo=0;modestbranding=1&autoplay=0&rel=0"
       return url
-    },
-    frontUrl() {
-      return this.images.length ? apiUrl + this.images[0].url : ''
     },
     apiUrl() {
       return apiUrl
