@@ -11,14 +11,7 @@
         <div class="col-lg-10">
           <div class="embed-responsive embed-responsive-16by9 my-5">
             <div class="embed-responsive-item">
-              <iframe width="560" height="315"
-                v-if="videoSrc"
-                :src="videoSrc"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-              <img :src="frontUrl" v-else />
+              <object :data="videoSrc"></object>
             </div>
           </div>
         </div>
