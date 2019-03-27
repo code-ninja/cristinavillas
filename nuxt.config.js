@@ -79,6 +79,14 @@ export default {
    */
   build: {
     parallel: false,
+    babel: {
+      presets({ isServer }) {
+        const targets = isServer ? { node: '10' } : { ie: '11' }
+        return [
+          [require.resolve('@nuxt/babel-preset-app'), { targets }]
+        ]
+      }
+    },
     /*
      ** Run ESLint on save
      */

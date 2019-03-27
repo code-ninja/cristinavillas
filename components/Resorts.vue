@@ -2,7 +2,7 @@
 <div>
   <h6 class="menu-nav-list-title mb-4">FBM Group of Resorts</h6>
   <div class="menu-nav-resorts d-flex">
-    <ul class="menu-links">
+    <ul class="menu-links text-left">
       <li>
         <a href="https://cristinavillasresort.com" target="_blank" alt="">
           <div class="resort-logo cv-logo-sm"></div>
@@ -22,7 +22,7 @@
           </div>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="https://bosobosohighlands.com" target="_blank" alt="">
           <div class="resort-logo bsbs-logo"></div>
           <div>
@@ -39,7 +39,7 @@
             <div>Inn &amp; Resort</div>
           </div>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </div>
