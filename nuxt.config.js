@@ -80,10 +80,18 @@ export default {
   build: {
     parallel: false,
     babel: {
-      presets({ isServer }) {
-        const targets = isServer ? { node: '10' } : { ie: '11' }
+      presets({
+        isServer
+      }) {
+        const targets = isServer ? {
+          node: '10'
+        } : {
+            ie: '11'
+          }
         return [
-          [require.resolve('@nuxt/babel-preset-app'), { targets }]
+          [require.resolve('@nuxt/babel-preset-app'), {
+            targets
+          }]
         ]
       }
     },
@@ -155,7 +163,9 @@ export default {
       try {
 
         const apiUrl = process.env.API_URL || 'http://localhost:1337'
-        const { data } = await axios.post(`${apiUrl}/graphql`, {
+        const {
+          data
+        } = await axios.post(`${apiUrl}/graphql`, {
           query: `
             query {
               facilities(where: { published: true }) {
@@ -186,7 +196,13 @@ export default {
     }
   },
   modules: [
-    ['@nuxtjs/google-analytics', { id: 'none' }],
+    ['@nuxtjs/google-analytics', {
+      id: 'none'
+    }],
+    ['@nuxtjs/pwa', {
+      icon: false,
+      manifest: false,
+    }],
     '@nuxtjs/sitemap'
   ],
   plugins: [{
@@ -203,8 +219,7 @@ export default {
   }, {
     src: '~/plugins/swiper.js',
     ssr: false
-  }
-  ],
+  }],
   css: [
     // SCSS file in the project
     'assets/css/style.scss',

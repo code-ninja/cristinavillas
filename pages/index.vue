@@ -101,12 +101,12 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: this.metadesc
+        content: this.metadesc ? this.metadesc : ''
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: this.metadesc
+        content: this.metadesc ? this.metadesc : ''
       },
       {
         hid: 'og:title',
