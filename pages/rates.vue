@@ -216,7 +216,7 @@ export default {
                 url
               }
              }
-             rates(where:{publish: true}) {
+             rates( sort:"sort:asc", where:{ publish: true } ) {
                id
                name
                count
