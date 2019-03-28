@@ -22,7 +22,7 @@
           </div>
         </a>
       </li>
-      <!-- <li>
+      <li>
         <a href="https://bosobosohighlands.com" target="_blank" alt="">
           <div class="resort-logo bsbs-logo"></div>
           <div>
@@ -30,7 +30,8 @@
             <div>Resort &amp; Hotel</div>
           </div>
         </a>
-      </li>
+      </li>      
+      <!--
       <li>
         <a href="#">
           <div class="resort-logo cy-logo"></div>
