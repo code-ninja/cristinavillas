@@ -18,16 +18,16 @@
     <div class="menu-nav-social d-flex">
       <ul>
         <li v-if="facebook">
-          <a :href="facebook" alt="Facebook" target="_blank" class="social-fb"></a>
+          <a :href="facebook" alt="Facebook" aria-label="Facebook" target="_blank" class="social-fb"></a>
         </li>
         <li v-if="instagram">
-          <a :href="instagram" alt="Instagram" target="_blank" class="social-ig"></a>
+          <a :href="instagram" alt="Instagram" aria-label="Instagram" target="_blank" class="social-ig"></a>
         </li>
         <li v-if="twitter">
-          <a :href="twitter" alt="Twitter" target="_blank" class="social-tw"></a>
+          <a :href="twitter" alt="Twitter" aria-label="Twitter" target="_blank" class="social-tw"></a>
         </li>
         <li v-if="youtube">
-          <a :href="youtube" alt="Twitter" target="_blank" class="social-yt"></a>
+          <a :href="youtube" alt="Youtube" aria-label="Youtube" target="_blank" class="social-yt"></a>
         </li>
       </ul>
     </div>

@@ -15,8 +15,8 @@
 
       <div class="container">
         <div class="row">
-          <nuxt-link v-for="(item, index) in facilities" :key="index" :to="'/facilities/'+item.id" class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
-            <div class="room-pic preview-img-item">
+          <nuxt-link v-for="(item, index) in facilities" :aria-label="item.name" :key="index" :to="'/facilities/'+item.id" class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
+            <div class="room-pic preview-img-item" :alt="item.name">
               <div :style="{'background-image': 'url('+apiUrl+item.img.url+')' }"></div>
             </div>
               <div class="slider-caption">{{ item.name }}</div>

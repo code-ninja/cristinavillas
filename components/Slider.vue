@@ -1,22 +1,25 @@
 <template>
-<div>
+<LazyHydrate when-visible>
   <div v-swiper:mySwiper="swiperOption">
     <div class="swiper-wrapper">
       <div class="swiper-slide preview-img-item" v-for="(image,index) in images" :key="index">
-        <img :src="apiUrl + image.url" @click="$photoswipe.open(index, imgs, { showAnimationDuration: 0, hideAnimationDuration:0 })" />
+        <img :src="apiUrl + image.url" :alt="image.title ? image.title : 'Slider Image' + (index ? ' ' + index : '')" @click="$photoswipe.open(index, imgs, { showAnimationDuration: 0, hideAnimationDuration:0 })" />
         <div class="slider-caption" v-if="image.title">{{ image.title }}</div>
       </div>
     </div>
     <div class="swiper-pagination"></div>
   </div>
-
-</div>
+</LazyHydrate>
 </template>
 
 <script>
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
+import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
+  components: {
+    LazyHydrate
+  },
   props: [
     'images'
   ],

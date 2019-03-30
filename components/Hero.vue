@@ -2,7 +2,7 @@
 <main class="hero flex-column" role="main">
 
   <figure :style="{ 'background-image': url }"></figure>
-  <nuxt-link to="/"><logo type="headerLogo" class="mx-auto" /></nuxt-link>
+  <nuxt-link to="/" alt="Home" aria-label="Home"><logo type="headerLogo" class="mx-auto" /></nuxt-link>
   <div class="hero-content">
     <div class="container">
       <div class="row justify-content-center">

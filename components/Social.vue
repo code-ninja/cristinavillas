@@ -4,13 +4,13 @@
     <div class="menu-nav-social d-flex">
       <ul>
         <li v-if="facebook">
-          <a :href="facebook" alt="Facebook" target="_blank" class="social-fb"></a>
+          <a :href="facebook" alt="Facebook" target="_blank" aria-label="Facebook Page" class="social-fb"></a>
         </li>
         <li v-if="instagram">
-          <a :href="instagram" alt="Instagram" target="_blank" class="social-ig"></a>
+          <a :href="instagram" alt="Instagram" target="_blank" aria-label="Instagram Page" class="social-ig"></a>
         </li>
         <li v-if="twitter">
-          <a :href="twitter" alt="Twitter" target="_blank" class="social-tw"></a>
+          <a :href="twitter" alt="Twitter" target="_blank" aria-label="Twitter Page" class="social-tw"></a>
         </li>
       </ul>
     </div>

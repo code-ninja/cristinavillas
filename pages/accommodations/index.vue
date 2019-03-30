@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div v-for="room in rooms" :key="room.url" class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
-          <nuxt-link :to="'/accommodations/'+room.url" class="room-pic">
+          <nuxt-link :to="'/accommodations/'+room.url" class="room-pic" :aria-label="room.name">
             <div :style="{'background-image': 'url('+apiUrl + room.img.url+')' }"></div>
           </nuxt-link>
           <div class="room-details">

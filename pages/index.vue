@@ -8,13 +8,15 @@
           <h2 class="title">{{ extras.title }}</h2>
           <p class="subtitle">{{ extras.subtitle }}</p>
         </div>
-        <div class="col-lg-10" v-if="videoSrc">
+
+        <LazyHydrate class="col-lg-10" v-if="videoSrc">
           <div class="embed-responsive embed-responsive-16by9 my-5">
             <div class="embed-responsive-item">
-              <object :data="videoSrc"></object>
+              <object :data="videoSrc" :alt="pagetitle+' video'"></object>
             </div>
           </div>
-        </div>
+        </LazyHydrate>
+
       </div>
     </div>
   </section>
@@ -33,7 +35,7 @@
                 <p class="subtitle">{{ extras.facilitiesSubTitle }}</p>
               </div>
               <div class="col-sm-auto ml-md-auto">
-                <nuxt-link to="facilities" class="btn btn-black">View All</nuxt-link>
+                <nuxt-link to="facilities" class="btn btn-black" aria-label="View All">View All</nuxt-link>
               </div>
             </div>
 
@@ -53,6 +55,7 @@
 import Hero from '~/components/Hero.vue'
 import Packages from '~/components/Packages.vue'
 import Slider from '~/components/Slider.vue'
+import LazyHydrate from 'vue-lazy-hydration'
 
 import Strapi from 'strapi-sdk-javascript/build/main'
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
@@ -62,7 +65,8 @@ export default {
   components: {
     Hero,
     Packages,
-    Slider
+    Slider,
+    LazyHydrate
   },
   computed: {
     videoSrc() {
