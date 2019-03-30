@@ -10,6 +10,10 @@
 //   animation: fadeOut 0.60s ease-in both;
 // }
 
+.pswp__img {
+  animation: zoomIn 0.25s ease-in;
+}
+
 @keyframes kenburns {
 
   60% {
@@ -22,7 +26,7 @@
 @keyframes zoomIn {
   from {
     opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.7, 0.7, 0.7);
   }
 
   50% {
