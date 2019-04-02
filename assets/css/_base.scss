@@ -148,10 +148,14 @@ button {
 
 header {
   color: #fff;
+  font: {
+    family: 'Montserrat';
+    size: 12px;
+  };
+  letter-spacing: 2px;
   padding: 20px 10px;
   position: fixed 0 0 auto;
   z-index: $zindex-sticky;
-  letter-spacing: 2px;
 
   .row {
     align-items: center;
@@ -159,6 +163,17 @@ header {
 
   a {
     color: inherit;
+  }
+
+  .menu-nav-links {
+    li {
+      padding: 10px 16px;
+      font-weight: normal;
+
+      &:first-child {
+        padding: 10px 16px;
+      }
+    }
   }
 }
 
