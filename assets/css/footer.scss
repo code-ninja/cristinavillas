@@ -37,6 +37,10 @@ footer {
     li {
       padding: 12px 0;
 
+      a {
+        border: 0 !important;
+      }
+
       &:first-child {
         padding: 0 0 6px;
       }

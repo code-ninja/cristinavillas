@@ -20,13 +20,10 @@
           <div class="row no-gutters justify-content-md-center">
             <nav class="menu-nav-links">
               <ul class="d-flex">
-                <li><a href="/" class="nuxt-link-exact-active nuxt-link-active">Home</a></li>
-                <li><a href="/accommodations" class="">Accommodations</a></li>
-                <li><a href="/facilities" class="">Facilities</a></li>
-                <li><a href="/gallery" class="">Gallery</a></li>
-                <li><a href="/packages" class="">Packages</a></li>
-                <li><a href="/faqs" class="">FAQs</a></li>
-                <li><a href="/contact" class="">Contact Us</a></li>
+                <li v-for="navLink in navLinks" :key="navLink.id">
+                  <a v-if="navLink.slug.slice(0,4) == 'http'" :href="navLink.slug" :aria-label="navLink.label" target="_blank">{{ navLink.label }}</a>
+                  <nuxt-link v-else :to="navLink.slug">{{ navLink.label }}</nuxt-link>
+                </li>
               </ul>
             </nav>
           </div>
@@ -77,6 +74,10 @@ export default {
   computed: {
     tel() {
       return this.$store.getters.getSettingByName('telephone')
+    },
+    navLinks() {
+      const nav = this.$store.state.navLinks
+      return nav.filter(item=>{return item['header'] == true})
     }
   },
   methods: {

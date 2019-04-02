@@ -158,10 +158,17 @@
 
     a {
       display: block;
+      padding-bottom: 3px;
       color: #fff;
+
+      &.nuxt-link-exact-active {
+        //border-bottom: 2px solid #fff;
+        font-weight: bold;
+      }
 
       &:hover {
         color: $brand-yellow;
+        border-color: $brand-yellow;
       }
     }
 
