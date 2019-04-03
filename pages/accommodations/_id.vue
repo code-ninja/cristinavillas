@@ -323,11 +323,11 @@ export default {
 
       let start = this.form.range.start.toISOString().slice(0,10)
       let end = this.form.range.end.toISOString().slice(0,10)
-      let email = this.$store.getters.getSettingByName('email')
+      let toEmail = this.$store.getters.getSettingByName('email')
 
       axios.post(apiUrl + '/email', {
         from: `${this.form.name} <info@fbmgroup.co>`,
-        to: `Sales Team <${email}>`,
+        to: `Sales Team <${toEmail}>`,
         replyTo: `${this.form.name} <${this.form.email}>`,
         subject: `Booking ${this.name} in ${this.sitename}: ${this.form.name}`,
         html: `

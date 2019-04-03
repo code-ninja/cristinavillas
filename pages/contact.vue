@@ -203,11 +203,11 @@ export default {
       }
 
       this.sending = true
-      let email = this.$store.getters.getSettingByName('email')
+      let toEmail = this.$store.getters.getSettingByName('email')
 
       axios.post(apiUrl + '/email', {
         from: `${this.form.name} <info@fbmgroup.co>`,
-        to: `Sales Team <${email}>`,
+        to: `Sales Team <${toEmail}>`,
         replyTo: `${this.form.name} <${this.form.email}>`,
         subject: `Hello from ${this.form.name}`,
         html: `
