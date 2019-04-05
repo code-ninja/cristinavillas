@@ -13,3 +13,5 @@ npm-debug.log
 dist
 
 .DS_Store
+
+static/sw.js
