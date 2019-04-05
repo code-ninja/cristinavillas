@@ -60,6 +60,7 @@
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" v-if="booking"></span>
                 {{ booking ? 'Booking' : started ? 'Submit' : 'Book now' }}
               </button>
+              <div class="row justify-content-center" role="alert" v-if="error">Something went wrong, please try again.</div>
             </form>
 
             <div class="booking-form-list" v-if="!started">
@@ -115,6 +116,8 @@ import axios from 'axios'
 import Strapi from 'strapi-sdk-javascript/build/main'
 
 const apiUrl = process.env.API_URL || 'http://localhost:1337'
+const googleDoc = process.env.GOOGLE_DOC || ''
+
 const strapi = new Strapi(apiUrl)
 const today = new Date()
 const tomorrow = new Date()
@@ -155,6 +158,7 @@ export default {
   },
   data() {
     return {
+      error: false,
       started: false,
       booking: false,
       booked: false,
@@ -294,7 +298,10 @@ export default {
       let re = /\S+@\S/;
       return re.test(this.form.email);
     },
-    book() {
+    async book() {
+
+      this.error = false
+
       if (!this.started) {
         this.started = true
         this.$nextTick(() => this.$refs.inputName.focus())
@@ -321,32 +328,65 @@ export default {
 
       this.booking = true
 
-      let start = this.form.range.start.toISOString().slice(0,10)
-      let end = this.form.range.end.toISOString().slice(0,10)
+      let start = this.form.range.start.toISOString().slice(0, 10)
+      let end = this.form.range.end.toISOString().slice(0, 10)
       let toEmail = this.$store.getters.getSettingByName('email')
 
-      axios.post(apiUrl + '/email', {
-        from: `${this.form.name} <info@fbmgroup.co>`,
-        to: `Sales Team <${toEmail}>`,
-        replyTo: `${this.form.name} <${this.form.email}>`,
-        subject: `Booking ${this.name} in ${this.sitename}: ${this.form.name}`,
-        html: `
-          From: ${start} <br/>
-          To: ${end} <br/>
-          Pax: ${this.form.count} <br/>
-          Name: ${this.form.name} <br/>
-          Email: ${this.form.email} <br/>
-          Phone: ${this.form.phone}
-          `
-      }).then(() => {
-        this.booked = true
+      let form = this.form
+
+      try {
+
+        //save on spreadsheet
+        if (googleDoc)
+          await axios({
+            url: googleDoc,
+            method: 'get',
+            params: {
+              Name: form.name,
+              Email: form.email,
+              Phone: form.phone,
+              Count: form.count,
+              Room: this.name,
+              Price: this.price,
+              Start: start,
+              End: end,
+              Contacted: 'no',
+              Deposit: 'no',
+              DateBooked: today.toISOString().slice(0, 10)
+            }
+          })
+
+        //send an email
+        await axios.post(apiUrl + '/email', {
+          from: `${this.form.name} <info@fbmgroup.co>`,
+          to: `Sales Team <${toEmail}>`,
+          replyTo: `${this.form.name} <${this.form.email}>`,
+          subject: `Booking ${this.name} in ${this.sitename}: ${this.form.name}`,
+          html: `
+              From: ${start} <br/>
+              To: ${end} <br/>
+              Pax: ${this.form.count} <br/>
+              Name: ${this.form.name} <br/>
+              Email: ${this.form.email} <br/>
+              Phone: ${this.form.phone}
+              `
+        })
+
+      } catch (e) {
+
         this.booking = false
-        this.started = false
-        this.validated = false
-        this.form.name = ''
-        this.form.email = ''
-        this.form.phone = ''
-      })
+        this.error = true
+        return
+
+      }
+
+      this.booked = true
+      this.booking = false
+      this.started = false
+      this.validated = false
+      this.form.name = ''
+      this.form.email = ''
+      this.form.phone = ''
 
     }
   }
