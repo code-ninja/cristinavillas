@@ -10,7 +10,8 @@ export default {
   // transition: 'page',
   env: {
     API_URL: process.env.API_URL || 'http://localhost:1337',
-    SEO_URL: process.env.SEO_URL || 'http://localhost:1337'
+    SEO_URL: process.env.SEO_URL || 'http://localhost:1337',
+    GOOGLE_DOC: process.env.GOOGLE_DOC || ''
   },
   head: {
     title: 'Hello from ',
