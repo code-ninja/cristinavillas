@@ -10,7 +10,7 @@
         <li v-if="phone"><a :href="'tel:'+phone">Tel: {{ phone }}</a></li>
         <li v-if="mobile"><a :href="'tel:'+mobile">Mobile: {{ mobile }}</a></li>
         <li v-if="fax">Fax: {{ fax }}</li>
-        <li v-if="email"><a :href="'mailto:'+email">Email: {{ email }}</a></li>
+        <li v-if="email"><a :href="`mailto:${email}?subject=Inquiry for ${sitename}`">Email: {{ email }}</a></li>
       </ul>
     </div>
     <h6 v-if="facebook || instagram || twitter" class="menu-nav-list-title mb-4">Follow Us</h6>
@@ -39,6 +39,9 @@
 
 export default {
   computed: {
+    sitename() {
+      return this.$store.getters.getSettingByName('sitename')
+    },
     address() {
       let adr = this.$store.getters.getSettingByName('address')
       return adr.replace(/\n/g,'<br/>')
