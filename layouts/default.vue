@@ -10,6 +10,8 @@
 import SiteHeader from '~/components/SiteHeader.vue'
 import SiteFooter from '~/components/SiteFooter.vue'
 
+const URL = process.env.SEO_URL || ''
+
 export default {
   components: {
     SiteHeader,
@@ -27,6 +29,12 @@ export default {
     return {
       title: this.sitename,
       titleTemplate: '%s - ' + this.sitename,
+      link: [
+        {
+          rel: 'canonical',
+          href: URL + this.$route.path
+        }
+      ],
       meta: [
         {
           hid: 'fb:app_id',
