@@ -16,8 +16,7 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1140px
-)
-!default;
+) !default;
 
 $body-color: #000;
 
@@ -39,6 +38,7 @@ $font-size-base: 0.875rem;
 $font-family-sans-serif: "Open Sans", sans-serif;
 $font-weight-base: 400;
 $line-height-base: 1.8;
+$headings-font-family: $font-family-primary;
 
 // Buttons + Forms
 //
