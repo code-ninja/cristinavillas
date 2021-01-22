@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600");
 @import "cv-variables.scss";
 @import "bootstrap-custom";
 
@@ -8,6 +8,7 @@
 // ==========================================================================
 @import "base";
 @import "menu-nav";
+@import "banner";
 @import "hero";
 @import "slider";
 @import "rooms";

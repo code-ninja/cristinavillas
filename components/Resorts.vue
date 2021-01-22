@@ -1,7 +1,7 @@
 <template>
 <div>
   <h6 class="menu-nav-list-title mb-4">FBM Group of Resorts</h6>
-  <div class="menu-nav-resorts d-flex">
+  <div class="menu-nav-resorts d-flex justify-content-center justify-content-sm-start">
     <ul class="menu-links text-left">
       <li>
         <a href="https://cristinavillasresort.com" target="_blank" alt="">
