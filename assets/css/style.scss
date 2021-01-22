@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500");
 @import "cv-variables.scss";
 @import "bootstrap-custom";
 
@@ -13,6 +13,7 @@
 @import "rooms";
 @import "booking";
 @import "rates";
+@import "advisory";
 @import "~swiper/dist/css/swiper";
 
 .pswp__caption__center {
@@ -38,16 +39,15 @@
   ol {
     list-style: decimal;
   }
-
 }
 
 .cv-strapline {
   border-top: 1px solid scale-color(#fff, $lightness: -75%);
   font: {
-    family: 'Montserrat';
+    family: "Montserrat";
     size: 10px;
     weight: 200;
-  };
+  }
   letter-spacing: 1px;
   margin-top: 16px;
   padding-top: 10px;
@@ -62,13 +62,12 @@
 
 .btn-lg {
   // Responsive large button
-  @include media-breakpoint-between(xs,sm) {
+  @include media-breakpoint-between(xs, sm) {
     @include button-size(16px, 20px, $font-size-sm, $line-height-lg, 0);
   }
 }
 
 .home-facilities {
-
   // Small up
   @include media-breakpoint-down(sm) {
     padding-top: 40px;
@@ -76,7 +75,7 @@
 }
 
 .bg-light-yellow {
-  background: scale-color(#FFFAED, $lightness: 1%);
+  background: scale-color(#fffaed, $lightness: 1%);
 }
 
 .packages-card {
@@ -121,24 +120,24 @@
       transition: 0.2s;
 
       &:before {
-        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
-        content: '';
+        background-image: linear-gradient(
+          -180deg,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 0.8) 100%
+        );
+        content: "";
         display: block;
         position: absolute 0;
         z-index: 1;
       }
-
     }
 
     &:hover {
       .packages-bg {
         transform: scale(1.2);
       }
-
     }
-
   }
-
 }
 
 .packages-content {
@@ -155,15 +154,14 @@
   @include media-breakpoint-only(sm) {
     padding: 16px 0;
   }
-
 }
 
 .package-name {
   font: {
-    family: 'Montserrat';
+    family: "Montserrat";
     size: 12px;
     weight: 300;
-  };
+  }
   letter-spacing: 3px;
   line-height: normal;
   text-transform: uppercase;
@@ -182,7 +180,7 @@
   }
 
   li {
-    border-bottom: 1px solid rgba(0,0,0,0.075);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
     padding: 24px 0;
     margin: 16px 0;
 
@@ -192,10 +190,10 @@
 
     h4 {
       font: {
-        family: 'Montserrat';
+        family: "Montserrat";
         size: 18px;
         weight: 500;
-      };
+      }
     }
   }
 }
@@ -224,7 +222,6 @@
   // Small up
   @include media-breakpoint-up(sm) {
     position: absolute;
-
   }
 
   // Medium up
@@ -244,7 +241,7 @@
 }
 
 .contact-map-location {
-  background: url("~assets/img/cv-location-map.jpg") 100%/cover no-repeat;
+  background: url("~assets/img/cv-location-map.jpg") 100% / cover no-repeat;
   height: 300px;
 
   // Small down
@@ -261,11 +258,11 @@
 
 // Facilities
 .filter-gallery {
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   font: {
-    family: 'Montserrat';
+    family: "Montserrat";
     size: 12px;
-  };
+  }
   letter-spacing: 2px;
   padding: 4px 0;
   text-transform: uppercase;
