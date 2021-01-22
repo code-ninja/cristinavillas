@@ -2,7 +2,10 @@
 // Policies
 // ==========================================================================
 .safety-protocols {
-  margin: 48px 0;
+  // Medium up
+  @include media-breakpoint-up(md) {
+    margin: 48px 0;
+  }
 
   h3 {
     font-family: $font-family-primary;
@@ -10,11 +13,9 @@
   }
 
   div[class^="col-lg-6"] {
-    margin: 24px 0;
-
-    // Medium up
-    @include media-breakpoint-up(md) {
-      margin: 48px 0;
+    // Small down
+    @include media-breakpoint-down(sm) {
+      margin: 24px 0;
     }
   }
 
