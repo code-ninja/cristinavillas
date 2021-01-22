@@ -2,6 +2,18 @@
 <div>
   <hero title="Our flexible policies, health and safety protocols" class="home"/>
 
+  <div class="sub-nav">
+    <div class="container-fluid">
+      <div class="row no-gutters justify-content-md-center">
+        <nav class="menu-nav-links">
+          <ul class="d-flex">
+            <li><a class="active" href="#">Our Health &amp; Safety Protocols</a></li>
+            <li><a href="#">Our Flexible Cancellation</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
   <section>
     <div class="container">
       <div class="row justify-content-md-center">

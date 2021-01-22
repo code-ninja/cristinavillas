@@ -8,7 +8,7 @@
 @import "cv-variables.scss";
 
 footer {
-  background: #2e302b;
+  background: $brand-brown;
   color: scale-color(#fff, $lightness: -40%);
   font-size: 12px;
 
@@ -45,7 +45,5 @@ footer {
         padding: 0 0 6px;
       }
     }
-
   }
-
 }

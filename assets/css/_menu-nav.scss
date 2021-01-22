@@ -67,7 +67,6 @@
   @include media-breakpoint-down(md) {
     animation-name: fadeIn;
   }
-
 }
 
 .menu-nav {
@@ -84,7 +83,7 @@
 
   &:after,
   &:before {
-    content: '';
+    content: "";
     display: block;
     flex-grow: 1;
   }
@@ -139,10 +138,10 @@
 .menu-nav-links li,
 .menu-nav-list-title {
   font: {
-    family: 'Montserrat';
+    family: "Montserrat";
     size: 12px;
     weight: 300;
-  };
+  }
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -263,7 +262,7 @@
       family: Montserrat;
       size: 14px;
       weight: 400;
-    };
+    }
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -288,4 +287,54 @@
 
 .cy-logo {
   background-image: url("~assets/img/cy-logo.svg");
+}
+
+.sub-nav {
+  background: $brand-brown;
+  padding: 14px 0;
+  position: sticky;
+  top: 62px;
+  z-index: 1;
+
+  // Small down
+  @include media-breakpoint-down(sm) {
+    top: 64px;
+  }
+
+  // X Large up
+  @include media-breakpoint-up(xl) {
+    top: 66px;
+  }
+
+  .menu-nav-links {
+    li {
+      padding: 4px 0;
+
+      // Small down
+      @include media-breakpoint-down(sm) {
+        &:first-child {
+          padding-right: 16px;
+        }
+      }
+
+      // Medium up
+      @include media-breakpoint-up(md) {
+        padding: 4px 16px;
+      }
+
+      .active {
+        font-weight: 700;
+
+        &:after {
+          content: "";
+          display: block;
+          position: relative;
+          top: 4px;
+          width: 100%;
+          height: 1px;
+          background: $brand-yellow;
+        }
+      }
+    }
+  }
 }
