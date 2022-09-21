@@ -328,8 +328,23 @@ export default {
 
       this.booking = true
 
-      let start = this.form.range.start.toISOString().slice(0, 10)
-      let end = this.form.range.end.toISOString().slice(0, 10)
+      const startObj = {
+        month: this.form.range.start.getMonth() + 1,
+        date: this.form.range.start.getDate(),
+        year: this.form.range.start.getFullYear()
+      }
+      const endObj = {
+        month: this.form.range.end.getMonth() + 1,
+        date: this.form.range.end.getDate(),
+        year: this.form.range.end.getFullYear()
+      }
+      if (startObj.date < 10) startObj.date = `0${startObj.date}`
+      if (startObj.month < 10) startObj.month = `0${startObj.month}`
+      if (endObj.date < 10) endObj.date = `0${endObj.date}`
+      if (endObj.month < 10) endObj.month = `0${endObj.month}`
+
+      let start = `${startObj.year}-${startObj.month}-${startObj.date}`
+      let end = `${endObj.year}-${endObj.month}-${endObj.date}`
       let toEmail = this.$store.getters.getSettingByName('email')
 
       let form = this.form
