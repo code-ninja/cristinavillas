@@ -4,7 +4,7 @@
   <div class="menu-nav-resorts d-flex justify-content-center justify-content-sm-start">
     <ul class="menu-links text-left">
       <li>
-        <a href="https://cristinavillasresort.com" target="_blank" alt="">
+        <a href="https://cristinavillasmountainresort.com" target="_blank" alt="">
           <div class="resort-logo cv-logo-sm"></div>
           <div>
             <div class="resort-name">Cristina Villas</div>
