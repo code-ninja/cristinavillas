@@ -7,7 +7,7 @@
         <a href="https://cristinavillasresort.com" target="_blank" alt="">
           <div class="resort-logo cv-logo-sm"></div>
           <div>
-            <div class="resort-name">Cristina Villa</div>
+            <div class="resort-name">Cristina Villas</div>
             <div>Mountain Resort &amp; Hotel</div>
           </div>
         </a>

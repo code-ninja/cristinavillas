@@ -1,29 +1,5 @@
 <template>
-<div class="travel-advisory">
-  
-  <div class="alert d-flex justify-content-between shadow">
-    <div class="d-flex align-items-center">
-      <div class="alert-icon">
-        <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 33">
-          <g clip-path="url(#clip0)">
-            <path d="M16 .5C7.164.5 0 7.664 0 16.5s7.164 16 16 16 16-7.164 16-16-7.164-16-16-16zm-.001 7.667c.92 0 1.668.746 1.668 1.666a1.666 1.666 0 11-1.668-1.667zM18.667 24.5h-5.334v-1.333c.646-.239 1.334-.268 1.334-.98V16.23c0-.712-.688-.824-1.334-1.063v-1.333h4v8.353c0 .713.69.744 1.334.98V24.5z" fill="#000"/>
-          </g>
-          <defs>
-            <clipPath id="clip0">
-              <path fill="#fff" transform="translate(0 .5)" d="M0 0h32v32H0z"/>
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
-      <div class="alert-content">
-        <div class="alert-heading">Covid-19 Updates</div>
-        <p class="m-0">Our flexible policies, health and safety protocols. <nuxt-link :to="'/advisory/'"><strong>Learn more</strong></nuxt-link></p>
-      </div>
-    </div>
-    <button type="button" class="close align-self-baseline" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
+<div>
 
   <hero :title="herotitle" :img="hero.url" />
   <section>
