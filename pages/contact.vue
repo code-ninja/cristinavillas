@@ -19,6 +19,10 @@
             </div>
 
 
+            <div class="alert alert-danger" role="alert" v-if="error">
+              <p>Something went wrong sending your message. Please try again or call us directly.</p>
+            </div>
+
             <form @submit.prevent="send" v-if="!sent" :class="{ 'was-validated' : validated }" novalidate>
               <div class="form-group">
                 <input type="text" class="form-control" ref="inputName" id="inputName" placeholder="Name" v-model="form.name" required>
@@ -169,6 +173,7 @@ export default {
       validated: false,
       sending: false,
       sent: false,
+      error: false,
       form: {
         name: '',
         email: '',
@@ -203,20 +208,17 @@ export default {
       }
 
       this.sending = true
+      this.error = false
       let toEmail = this.$store.getters.getSettingByName('email')
 
-      axios.post(apiUrl + '/email', {
-        from: `${this.form.name} <info@fbmgroup.co>`,
-        to: `Sales Team <${toEmail}>`,
-        replyTo: `${this.form.name} <${this.form.email}>`,
-        subject: `Hello from ${this.form.name}`,
-        html: `
-          Name: ${this.form.name} <br/>
-          Email: ${this.form.email} <br/>
-          Phone: ${this.form.phone} <br />
-          Site: ${this.sitename} <br />
-          ${this.form.message}
-          `
+      axios.post('/api/email', {
+        type: 'contact',
+        name: this.form.name,
+        email: this.form.email,
+        phone: this.form.phone,
+        message: this.form.message,
+        sitename: this.sitename,
+        to: toEmail
       }).then(() => {
         this.validated = false
         this.sent = true
@@ -225,10 +227,10 @@ export default {
         this.form.email = ''
         this.form.phone = ''
         this.form.message = ''
+      }).catch(() => {
+        this.sending = false
+        this.error = true
       })
-
-
-
     }
   }
 }

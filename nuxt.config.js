@@ -161,6 +161,9 @@ export default {
   icon: {
     iconSrc: process.env.SEO_LOGO || 'assets/img/cv-big-logo.png'
   },
+  serverMiddleware: [
+    { path: '/api/email', handler: '~/server/email.js' }
+  ],
   modules: [
     ['@nuxtjs/google-analytics', {
       id: 'none'

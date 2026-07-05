@@ -373,19 +373,18 @@ export default {
         }
 
         //send an email
-        await axios.post(apiUrl + '/email', {
-          from: `${this.form.name} <info@fbmgroup.co>`,
-          to: `Sales Team <${toEmail}>`,
-          replyTo: `${this.form.name} <${this.form.email}>`,
-          subject: `Booking ${this.name} in ${this.sitename}: ${this.form.name}`,
-          html: `
-              From: ${start} <br/>
-              To: ${end} <br/>
-              Pax: ${this.form.count} <br/>
-              Name: ${this.form.name} <br/>
-              Email: ${this.form.email} <br/>
-              Phone: ${this.form.phone}
-              `
+        await axios.post('/api/email', {
+          type: 'booking',
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          count: form.count,
+          room: this.name,
+          price: this.price,
+          start: start,
+          end: end,
+          sitename: this.sitename,
+          to: toEmail
         })
 
       } catch (e) {
