@@ -1,0 +1,13 @@
+/* Component tokens and overrides layered on compiled site.scss */
+:root {
+  --brand-yellow: #ffce4b;
+  --brand-brown: #2e302b;
+}
+
+#top {
+  position: absolute;
+  bottom: 450px;
+  left: 0;
+  height: 10px;
+  width: 10px;
+}

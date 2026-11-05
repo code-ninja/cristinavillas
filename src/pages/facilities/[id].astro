@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro'
+import Hero from '../../components/Hero.astro'
+import Slider from '../../components/Slider.vue'
+import { getFacilityById, getSiteChrome, StrapiError } from '../../lib/strapi'
+import { getSetting } from '../../lib/settings'
+import { apiUrl, mediaUrl } from '../../lib/env'
+import { renderMarkdown } from '../../lib/markdown'
+
+const { id } = Astro.params
+if (!id) return Astro.rewrite('/404')
+
+let facility
+let headerLogo = ''
+try {
+  facility = await getFacilityById(id)
+  headerLogo = getSetting((await getSiteChrome()).settings, 'headerLogo')
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!facility) return Astro.rewrite('/404')
+
+const html = await renderMarkdown(facility.bigdesc)
+const slides = [
+  { url: facility.img.url, title: facility.name },
+  ...(facility.gallery ?? []).map((g, i) => ({ url: g.url, title: `${facility.name} ${i + 1}` })),
+]
+---
+
+<Base
+  title={facility.name}
+  description={facility.desc}
+  path={`/facilities/${id}`}
+  ogImage={mediaUrl(facility.img.url)}
+  ogImageAlt={facility.name}
+>
+  <Hero title={facility.name} img={facility.img.url} headerLogoHtml={headerLogo} />
+  <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-10 col-lg-6 text-center">
+          <h2 class="title">{facility.name}</h2>
+          <hr />
+          <br />
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-8 marked" set:html={html} />
+      </div>
+    </div>
+
+    <div class="booking-room-slider">
+      <Slider client:visible images={slides} apiBase={apiUrl()} />
+    </div>
+  </section>
+</Base>

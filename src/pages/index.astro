@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import PackagesSection from '../components/PackagesSection.astro'
+import Slider from '../components/Slider.vue'
+import { getHomePage, getSiteChrome, StrapiError } from '../lib/strapi'
+import { getSetting } from '../lib/settings'
+import { mediaUrl, apiUrl } from '../lib/env'
+
+let home
+let packages
+let headerLogo = ''
+try {
+  home = await getHomePage()
+  const chrome = await getSiteChrome()
+  packages = chrome.packages
+  headerLogo = getSetting(chrome.settings, 'headerLogo')
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!home) return Astro.rewrite('/404')
+
+const { page, facilities } = home
+const extras = (page.extras ?? {}) as Record<string, string>
+const videoId = extras.videoID
+const videoSrc = videoId
+  ? `//www.youtube-nocookie.com/embed/${videoId}?controls=1&autohide=1&showinfo=0&modestbranding=1&autoplay=0&rel=0`
+  : ''
+const slides = facilities.map((f) => ({ url: f.img.url, title: f.name }))
+---
+
+<Base
+  title={page.pagetitle}
+  description={page.metadesc}
+  path="/"
+  ogImage={mediaUrl(page.hero?.url)}
+  ogImageAlt={page.herotitle}
+>
+  <Hero title={page.herotitle} img={page.hero?.url} headerLogoHtml={headerLogo} />
+  <section>
+    <div class="container">
+      {
+        extras.title && (
+          <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-8 text-center">
+              <h2 class="title">{extras.title}</h2>
+              {extras.subtitle && <p class="subtitle">{extras.subtitle}</p>}
+            </div>
+            {videoSrc && (
+              <div class="col-lg-10 embed-responsive embed-responsive-16by9 my-5">
+                <div class="embed-responsive-item">
+                  <object data={videoSrc} aria-label={`${page.pagetitle} video`} />
+                </div>
+              </div>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </section>
+  <PackagesSection packages={packages} subtitle={extras.packageSubTitle} limit={3} />
+  <section>
+    <div class="container mb-5">
+      <div class="row no-gutters justify-content-md-center">
+        <div class="home-facilities text-center text-md-left">
+          <div class="row justify-content-center">
+            <div class="col-lg-4">
+              <h2 class="title">Facilities</h2>
+            </div>
+            {
+              extras.facilitiesSubTitle && (
+                <div class="col-md-8 col-lg-5">
+                  <p class="subtitle">{extras.facilitiesSubTitle}</p>
+                </div>
+              )
+            }
+            <div class="col-sm-auto ml-md-auto">
+              <a href="/facilities" class="btn btn-black" aria-label="View All">View All</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Slider client:visible images={slides} apiBase={apiUrl()} />
+  </section>
+</Base>

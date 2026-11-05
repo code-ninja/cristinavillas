@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import { getMainPage, getFaqs, getSiteChrome, StrapiError } from '../lib/strapi'
+import { getSetting } from '../lib/settings'
+import { mediaUrl } from '../lib/env'
+
+let page
+let faqs
+let headerLogo = ''
+try {
+  page = await getMainPage('/faqs')
+  faqs = await getFaqs()
+  headerLogo = getSetting((await getSiteChrome()).settings, 'headerLogo')
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!page) return Astro.rewrite('/404')
+---
+
+<Base
+  title={page.pagetitle}
+  description={page.metadesc}
+  path="/faqs"
+  ogImage={mediaUrl(page.hero?.url)}
+  ogImageAlt={page.herotitle}
+>
+  <Hero title={page.herotitle} img={page.hero?.url} headerLogoHtml={headerLogo} />
+
+  <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col">
+          <h2 class="title">General Questions</h2>
+          <div class="faq-list">
+            <ul>
+              {
+                faqs.map((faq) => (
+                  <li>
+                    <h4>{faq.Question}</h4>
+                    <p>{faq.Answer}</p>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

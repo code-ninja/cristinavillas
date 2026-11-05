@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro'
+import Hero from '../../components/Hero.astro'
+import PackagesSection from '../../components/PackagesSection.astro'
+import { getMainPage, getSiteChrome, StrapiError } from '../../lib/strapi'
+import { getSetting } from '../../lib/settings'
+import { mediaUrl } from '../../lib/env'
+
+let page
+let chrome
+try {
+  page = await getMainPage('/packages')
+  chrome = await getSiteChrome()
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!page) return Astro.rewrite('/404')
+const headerLogo = getSetting(chrome.settings, 'headerLogo')
+---
+
+<Base
+  title={page.pagetitle}
+  description={page.metadesc}
+  path="/packages"
+  ogImage={mediaUrl(page.hero?.url)}
+  ogImageAlt={page.herotitle}
+>
+  <Hero title={page.herotitle} img={page.hero?.url} headerLogoHtml={headerLogo} />
+
+  <PackagesSection packages={chrome.packages} />
+</Base>

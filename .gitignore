@@ -6,11 +6,10 @@ npm-debug.log
 .log
 .env
 
-# Nuxt build
-.nuxt
-
-# Nuxt generate
 dist
+.astro
+.dev.vars
+.wrangler
 
 .DS_Store
 

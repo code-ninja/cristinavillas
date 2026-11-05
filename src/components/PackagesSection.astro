@@ -1,0 +1,60 @@
+---
+import { mediaUrl } from '../lib/env'
+import type { SiteChrome } from '../lib/strapi'
+
+interface Props {
+  packages: SiteChrome['packages']
+  subtitle?: string
+  limit?: number
+}
+
+const { packages, subtitle, limit } = Astro.props
+const list = limit ? packages.slice(0, limit) : packages
+---
+
+{
+  list.length > 0 && (
+    <section class="bg-light-yellow">
+      <div class="container">
+        {limit && (
+          <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-6 text-center">
+              <h2 class="title">Packages</h2>
+              {subtitle && <p class="subtitle">{subtitle}</p>}
+            </div>
+          </div>
+        )}
+        <div class="row justify-content-center">
+          <div class="col-10 col-sm-12 col-md-10">
+            <div class="row mt-4">
+              {list.map((item) => (
+                <div class="col-sm-4">
+                  <div class="packages-card bg-secondary">
+                    <a href={`/packages/${item.slug}`} aria-label={item.name}>
+                      <div
+                        class="packages-bg"
+                        style={`background-image: url(${mediaUrl(item.img.url)})`}
+                      />
+                      <div class="packages-content">
+                        <div class="package-name">{item.name}</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {limit && (
+          <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-6 text-center">
+              <a href="/packages" class="btn btn-black" aria-label="View All">
+                View All
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

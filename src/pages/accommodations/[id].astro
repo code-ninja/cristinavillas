@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro'
+import Hero from '../../components/Hero.astro'
+import BookingForm from '../../components/BookingForm.vue'
+import Slider from '../../components/Slider.vue'
+import { getRoomByUrl, getSiteChrome, StrapiError } from '../../lib/strapi'
+import { getSetting } from '../../lib/settings'
+import { apiUrl, mediaUrl, googleDocUrl } from '../../lib/env'
+import { renderMarkdown } from '../../lib/markdown'
+
+const { id } = Astro.params
+if (!id) return Astro.rewrite('/404')
+
+let room
+let sitename = ''
+let toEmail = ''
+let headerLogo = ''
+let googleDoc = ''
+try {
+  room = await getRoomByUrl(id)
+  const chrome = await getSiteChrome()
+  sitename = getSetting(chrome.settings, 'sitename')
+  toEmail = getSetting(chrome.settings, 'email')
+  headerLogo = getSetting(chrome.settings, 'headerLogo')
+  googleDoc = googleDocUrl()
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!room) return Astro.rewrite('/404')
+
+const notesHtml = await renderMarkdown(room.notes)
+const slides = [
+  { url: room.img.url, title: room.name },
+  ...(room.images ?? []).map((image, i) => ({ url: image.url, title: `${room.name} ${i + 1}` })),
+]
+---
+
+<Base
+  title={room.name}
+  description={room.desc}
+  path={`/accommodations/${id}`}
+  ogImage={mediaUrl(room.img.url)}
+  ogImageAlt={room.name}
+>
+  <Hero title={room.name} img={room.img.url} headerLogoHtml={headerLogo} />
+  <section class="p-0 py-md-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-md-6 order-sm-2">
+          <BookingForm
+            client:interact="self"
+            roomName={room.name}
+            price={room.price}
+            sitename={sitename}
+            toEmail={toEmail}
+            googleDoc={googleDoc}
+          />
+        </div>
+        <div class="col-sm-5 col-md-6">
+          <div class="booking-room-details">
+            <ul class="booking-room-specs">
+              <li>Per night<div class="specs-value">Php {room.price}</div></li>
+              <li>Capacity<div class="specs-value">{room.capacity}</div></li>
+              {room.size && <li>Room Size<div class="specs-value">{room.size}</div></li>}
+            </ul>
+            <hr />
+          </div>
+
+          {
+            notesHtml && (
+              <div class="booking-notes">
+                <div class="list-title">Notes</div>
+                <div class="marked" set:html={notesHtml} />
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-room-slider">
+      <Slider client:visible images={slides} apiBase={apiUrl()} />
+    </div>
+  </section>
+</Base>

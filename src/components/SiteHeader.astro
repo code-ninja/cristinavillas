@@ -1,0 +1,150 @@
+---
+import ContactAddress from './ContactAddress.astro'
+import Resorts from './Resorts.astro'
+import type { SiteChrome } from '../lib/strapi'
+import { getSetting } from '../lib/settings'
+
+interface Props {
+  chrome: SiteChrome
+  currentPath: string
+}
+
+const { chrome, currentPath } = Astro.props
+const navLinks = chrome.navlinks.filter((n) => n.header)
+const tel = getSetting(chrome.settings, 'telephone')
+const isExternal = (slug: string) => slug.slice(0, 4) === 'http'
+const openIcon = 'M0 2.5h16v1H0v-1zm4 5h12v1H4v-1zm-4 5h16v1H0v-1z'
+const closeIcon =
+  'M8.282 7.575l6.01-6.01.708.707-6.01 6.01 6.01 6.01-.707.708-6.01-6.01L2.272 15l-.708-.707 6.01-6.01-6.01-6.01.707-.708 6.01 6.01z'
+---
+
+<div class="nav-wrap" data-nav>
+  <header id="navTop">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col d-xl-none">
+          <button class="menu-toggle" aria-label="Menu" aria-expanded="false" data-menu-toggle>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path
+                fill="#FFF"
+                fill-rule="evenodd"
+                d={openIcon}
+                data-open={openIcon}
+                data-close={closeIcon}
+              />
+            </svg>
+            <span data-menu-label>Menu</span>
+          </button>
+        </div>
+        {
+          tel && (
+            <div class="col-auto d-none d-xl-block">
+              <a href={`tel:${tel}`} aria-label="Telephone">
+                <svg class="mr-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path
+                    fill="#FFF"
+                    d="M14 15.08l-2.42-4.53c-.006.003-1.358.647-1.42.675-1.54.724-4.674-5.214-3.168-5.996l1.432-.684L6.022 0 4.574.693c-4.951 2.503 2.91 17.321 7.975 15.076.084-.036 1.446-.686 1.451-.688z"
+                  />
+                </svg>{' '}
+                {tel}
+              </a>
+            </div>
+          )
+        }
+        <div class="col d-none d-xl-block">
+          <div class="row no-gutters justify-content-md-center">
+            <nav class="menu-nav-links">
+              <ul class="d-flex">
+                {
+                  navLinks.map((link) => (
+                    <li>
+                      {isExternal(link.slug) ? (
+                        <a href={link.slug} aria-label={link.label} target="_blank" rel="noopener">
+                          {link.label}
+                        </a>
+                      ) : (
+                        <a href={link.slug} aria-current={link.slug === currentPath ? 'page' : undefined}>
+                          {link.label}
+                        </a>
+                      )}
+                    </li>
+                  ))
+                }
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="header-location-contact">
+            <a href="/accommodations" aria-label="Book Now" class="btn btn-cta">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container" style="display: none" data-menu-panel>
+    <div class="row justify-content-md-center">
+      <div class="fadeIn col-md-6 col-lg-4 my-5 my-sm-0" style="animation-delay: 0.2s;">
+        <nav class="menu-nav-links fadeInUp">
+          <ul>
+            {
+              navLinks.map((link) => (
+                <li>
+                  {isExternal(link.slug) ? (
+                    <a href={link.slug} aria-label={link.label} target="_blank" rel="noopener">
+                      {link.label}
+                    </a>
+                  ) : (
+                    <a href={link.slug} aria-current={link.slug === currentPath ? 'page' : undefined}>
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+      <ContactAddress
+        settings={chrome.settings}
+        class="fadeIn col-sm-6 col-md-4 mb-5 mb-sm-0 d-none d-lg-block"
+        style="animation-delay: 0.1s;"
+      />
+      <Resorts
+        class="fadeIn col-md-4 offset-sm-6 offset-lg-0 d-none d-lg-block"
+        style="animation-delay: 0s;"
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  const wrap = document.querySelector<HTMLElement>('[data-nav]')
+  const header = document.getElementById('navTop')
+  const toggle = wrap?.querySelector<HTMLButtonElement>('[data-menu-toggle]')
+  const panel = wrap?.querySelector<HTMLElement>('[data-menu-panel]')
+  const icon = toggle?.querySelector('path')
+  const label = toggle?.querySelector('[data-menu-label]')
+
+  function setMenu(open: boolean) {
+    if (!wrap || !panel || !toggle) return
+    wrap.classList.toggle('menu-nav', open)
+    panel.style.display = open ? '' : 'none'
+    toggle.setAttribute('aria-expanded', String(open))
+    if (icon) icon.setAttribute('d', (open ? icon.dataset.close : icon.dataset.open) ?? '')
+    if (label) label.textContent = open ? 'Close' : 'Menu'
+  }
+
+  toggle?.addEventListener('click', () => setMenu(!wrap?.classList.contains('menu-nav')))
+  panel?.querySelector('.menu-nav-links')?.addEventListener('click', () => setMenu(false))
+
+  function stickyTop() {
+    if (!wrap || !header) return
+    const screenHeight = document.documentElement.clientHeight
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    wrap.classList.toggle('nav-fixed', scrollTop + header.offsetHeight >= screenHeight)
+  }
+
+  window.addEventListener('scroll', stickyTop, { passive: true })
+  stickyTop()
+</script>

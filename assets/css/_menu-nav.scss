@@ -160,7 +160,7 @@
       padding-bottom: 3px;
       color: #fff;
 
-      &.nuxt-link-exact-active {
+      &[aria-current="page"] {
         //border-bottom: 2px solid #fff;
         font-weight: bold;
       }

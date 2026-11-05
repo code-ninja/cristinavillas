@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import ContactForm from '../components/ContactForm.vue'
+import { getMainPage, getSiteChrome, StrapiError } from '../lib/strapi'
+import { getSetting } from '../lib/settings'
+import { mediaUrl } from '../lib/env'
+
+let page
+let sitename = ''
+let toEmail = ''
+let headerLogo = ''
+try {
+  page = await getMainPage('/contact')
+  const chrome = await getSiteChrome()
+  sitename = getSetting(chrome.settings, 'sitename')
+  toEmail = getSetting(chrome.settings, 'email')
+  headerLogo = getSetting(chrome.settings, 'headerLogo')
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!page) return Astro.rewrite('/404')
+---
+
+<Base
+  title={page.pagetitle}
+  description={page.metadesc}
+  path="/contact"
+  ogImage={mediaUrl(page.hero?.url)}
+  ogImageAlt={page.herotitle}
+>
+  <Hero title={page.herotitle} img={page.hero?.url} headerLogoHtml={headerLogo} />
+  <section class="contact bg-light-yellow collapse">
+    <div class="container p-0">
+      <div class="row no-gutters">
+        <div class="col-sm-8 col-lg-6">
+          <div class="contact-card">
+            <h2 class="title">Get in touch</h2>
+            <div class="title title-6 pr-sm-5">Request for proposals, group and bookings</div>
+            <ContactForm client:interact="self" sitename={sitename} toEmail={toEmail} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map-location" />
+  </section>
+</Base>

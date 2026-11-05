@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600");
 @import "cv-variables.scss";
 @import "bootstrap-custom";
 
@@ -15,7 +13,7 @@
 @import "booking";
 @import "rates";
 @import "advisory";
-@import "~swiper/dist/css/swiper";
+@import "swiper/css";
 
 .pswp__caption__center {
   text-align: center !important;
@@ -281,7 +279,7 @@
     }
   }
 
-  .nuxt-link-exact-active {
+  [aria-current="page"] {
     border-bottom: 1px solid #000;
     color: #000;
   }
