@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro'
+import Hero from '../../components/Hero.astro'
+import { getMainPage, getFacilities, getSiteChrome, StrapiError } from '../../lib/strapi'
+import { getSetting } from '../../lib/settings'
+import { mediaUrl } from '../../lib/env'
+
+let page
+let facilities
+let headerLogo = ''
+try {
+  page = await getMainPage('/facilities')
+  facilities = await getFacilities()
+  headerLogo = getSetting((await getSiteChrome()).settings, 'headerLogo')
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!page) return Astro.rewrite('/404')
+const extras = (page.extras ?? {}) as Record<string, string>
+---
+
+<Base
+  title={page.pagetitle}
+  description={page.metadesc}
+  path="/facilities"
+  ogImage={mediaUrl(page.hero?.url)}
+  ogImageAlt={page.herotitle}
+>
+  <Hero title={page.herotitle} img={page.hero?.url} headerLogoHtml={headerLogo} />
+
+  <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-10 col-lg-8 text-center">
+          {extras.title && <h2 class="title">{extras.title}</h2>}
+          {extras.subtitle && <p class="subtitle">{extras.subtitle}</p>}
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        {
+          facilities.map((item) => (
+            <a
+              href={`/facilities/${item.id}`}
+              aria-label={item.name}
+              class="room-wrapper col-12 col-md-6 col-lg-4 mb-4"
+            >
+              <div class="room-pic preview-img-item">
+                <div style={`background-image: url(${mediaUrl(item.img.url)})`} />
+              </div>
+              <div class="slider-caption">{item.name}</div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,151 @@
+---
+import { renderMarkdown } from '../lib/markdown'
+import Base from '../layouts/Base.astro'
+import Hero from '../components/Hero.astro'
+import { getMainPage, getRates, getSiteChrome, StrapiError } from '../lib/strapi'
+import { getSetting } from '../lib/settings'
+import { mediaUrl } from '../lib/env'
+
+let page
+let rates
+let chrome
+try {
+  page = await getMainPage('/rates')
+  rates = await getRates()
+  chrome = await getSiteChrome()
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!page) return Astro.rewrite('/404')
+
+const headerLogo = getSetting(chrome.settings, 'headerLogo')
+const daytime = getSetting(chrome.settings, 'daytime')
+const nighttime = getSetting(chrome.settings, 'nighttime')
+const entrance = rates.filter((rate) => rate.ratetype == 'Entrance')
+const cottages = rates.filter((rate) => rate.ratetype == 'Cottage')
+const special = rates.filter((rate) => rate.ratetype == 'Special')
+const rules = await renderMarkdown(page.summary)
+---
+
+<Base
+  title={page.pagetitle}
+  description={page.metadesc}
+  path="/rates"
+  ogImage={mediaUrl(page.hero?.url)}
+  ogImageAlt={page.herotitle}
+>
+  <Hero title={page.herotitle} img={page.hero?.url} headerLogoHtml={headerLogo} />
+
+  <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-10 col-lg-8 text-center">
+          <h2 class="title">Resort Time</h2>
+          <div class="resort-time d-flex justify-content-center">
+            <ul class="rates-card-specs">
+              <li>Day Time<div class="specs-value">{daytime}</div></li>
+              <li>Night Time<div class="specs-value">{nighttime}</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr />
+
+      <!--Rates-->
+      <div class="row my-5 justify-content-center">
+        <div class="col-sm-10">
+          <h2 class="title text-center text-lg-left">Rates</h2>
+          <div class="row">
+            {
+              entrance.map((rate) => (
+                <div class="col-lg-6">
+                  <div class="card rates-card">
+                    <div class="rate-type">{rate.name}</div>
+                    <ul class="rates-card-specs">
+                      <li>Day Time<div class="specs-value">₱{rate.day}</div></li>
+                      <li>Night Time<div class="specs-value">₱{rate.night}</div></li>
+                      <li>Day &amp; Night<div class="specs-value">₱{rate.daynight}</div></li>
+                    </ul>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!--Cottages-->
+      <div class="row my-5 justify-content-center">
+        <div class="col-md-10">
+          <h2 class="title text-center text-lg-left">Cottages</h2>
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">Day (₱)</th>
+                    <th scope="col">Night (₱)</th>
+                    <th scope="col">Day &amp; Night (₱)</th>
+                    <th scope="col">Excess</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    cottages.map((rate) => (
+                      <tr>
+                        <td>{rate.name} ({rate.count} units)</td>
+                        <td>{rate.capacity}</td>
+                        <td>{rate.day}</td>
+                        <td>{rate.night}</td>
+                        <td>{rate.daynight}</td>
+                        <td>{rate.excess}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Special rates-->
+      <div class="row my-5 justify-content-center">
+        <div class="col-sm-10">
+          <div class="row">
+            {
+              special.map((rate) => (
+                <div class="col-lg-6">
+                  <div class="card rates-card">
+                    <div class="rate-type">{rate.name}</div>
+                    <ul class="rates-card-specs">
+                      <li>Rate<div class="specs-value">₱{rate.day}</div></li>
+                      {rate.excess && <li>Excess<div class="specs-value">₱{rate.excess}</div></li>}
+                    </ul>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!--Rules-->
+      <div class="row my-5 justify-content-center">
+        <div class="col-md-10">
+          <h2 class="title text-center text-lg-left">Rules &amp; Regulations</h2>
+          <div class="row">
+            <div class="col">
+              <div class="bullet-list" set:html={rules} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

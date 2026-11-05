@@ -1,0 +1,43 @@
+---
+interface Props {
+  class?: string
+  style?: string
+}
+
+const { class: className, style } = Astro.props
+---
+
+<div class={className} style={style}>
+  <h6 class="menu-nav-list-title mb-4">FBM Group of Resorts</h6>
+  <div class="menu-nav-resorts d-flex justify-content-center justify-content-sm-start">
+    <ul class="menu-links text-left">
+      <li>
+        <a href="https://cristinavillasmountainresort.com" target="_blank" rel="noopener">
+          <div class="resort-logo cv-logo-sm"></div>
+          <div>
+            <div class="resort-name">Cristina Villas</div>
+            <div>Mountain Resort &amp; Hotel</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://casaazulresort.com" target="_blank" rel="noopener">
+          <div class="resort-logo ca-logo"></div>
+          <div>
+            <div class="resort-name">Casa Azul</div>
+            <div>Femar Resort &amp; Hotel</div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="https://bosobosohighlands.com" target="_blank" rel="noopener">
+          <div class="resort-logo bsbs-logo"></div>
+          <div>
+            <div class="resort-name">Boso-Boso Highlands</div>
+            <div>Resort &amp; Hotel</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

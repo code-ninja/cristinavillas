@@ -1,0 +1,79 @@
+---
+import { getSetting } from '../lib/settings'
+import type { SiteChrome } from '../lib/strapi'
+
+interface Props {
+  settings: SiteChrome['settings']
+  class?: string
+  style?: string
+}
+
+const { settings, class: className, style } = Astro.props
+const sitename = getSetting(settings, 'sitename')
+const address = getSetting(settings, 'address').replace(/\n/g, '<br/>')
+const phone = getSetting(settings, 'telephone')
+const mobile = getSetting(settings, 'mobile')
+const fax = getSetting(settings, 'fax')
+const email = getSetting(settings, 'email')
+const facebook = getSetting(settings, 'facebook')
+const instagram = getSetting(settings, 'instagram')
+const twitter = getSetting(settings, 'twitter')
+const youtube = getSetting(settings, 'youtube')
+---
+
+<div class={className} style={style}>
+  {address && <h6 class="menu-nav-list-title mb-4">Address</h6>}
+  {
+    address && (
+      <div class="menu-nav-content mb-5">
+        <address set:html={address} />
+      </div>
+    )
+  }
+  {(phone || mobile || fax || email) && <h6 class="menu-nav-list-title mb-4">Contact</h6>}
+  <div class="menu-nav-content mb-5">
+    <ul class="menu-links">
+      {phone && <li><a href={`tel:${phone}`}>Tel: {phone}</a></li>}
+      {mobile && <li><a href={`tel:${mobile}`}>Mobile: {mobile}</a></li>}
+      {fax && <li>Fax: {fax}</li>}
+      {
+        email && (
+          <li>
+            <a href={`mailto:${email}?subject=Inquiry for ${sitename}`}>Email: {email}</a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+  {(facebook || instagram || twitter) && <h6 class="menu-nav-list-title mb-4">Follow Us</h6>}
+  {
+    (facebook || instagram || twitter) && (
+      <div class="menu-nav-content mb-sm-5 mb-md-0">
+        <div class="menu-nav-social d-flex">
+          <ul>
+            {facebook && (
+              <li>
+                <a href={facebook} aria-label="Facebook" target="_blank" rel="noopener" class="social-fb" />
+              </li>
+            )}
+            {instagram && (
+              <li>
+                <a href={instagram} aria-label="Instagram" target="_blank" rel="noopener" class="social-ig" />
+              </li>
+            )}
+            {twitter && (
+              <li>
+                <a href={twitter} aria-label="Twitter" target="_blank" rel="noopener" class="social-tw" />
+              </li>
+            )}
+            {youtube && (
+              <li>
+                <a href={youtube} aria-label="Youtube" target="_blank" rel="noopener" class="social-yt" />
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
+    )
+  }
+</div>

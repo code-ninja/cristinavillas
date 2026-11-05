@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro'
+import Hero from '../../components/Hero.astro'
+import PackagesSection from '../../components/PackagesSection.astro'
+import { getMainPage, getRoomsList, getSiteChrome, StrapiError } from '../../lib/strapi'
+import { getSetting } from '../../lib/settings'
+import { mediaUrl } from '../../lib/env'
+
+let page
+let rooms
+let packages
+let headerLogo = ''
+try {
+  page = await getMainPage('/accommodations')
+  rooms = await getRoomsList()
+  const chrome = await getSiteChrome()
+  packages = chrome.packages
+  headerLogo = getSetting(chrome.settings, 'headerLogo')
+} catch (e) {
+  if (e instanceof StrapiError) return Astro.redirect('/502')
+  throw e
+}
+if (!page) return Astro.rewrite('/404')
+const extras = (page.extras ?? {}) as Record<string, string>
+---
+
+<Base
+  title={page.pagetitle}
+  description={page.metadesc}
+  path="/accommodations"
+  ogImage={mediaUrl(page.hero?.url)}
+  ogImageAlt={page.herotitle}
+>
+  <Hero title={page.herotitle} img={page.hero?.url} headerLogoHtml={headerLogo} />
+  <section>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-10 col-lg-8 text-center">
+          {extras.title && <h2 class="title">{extras.title}</h2>}
+          {extras.subtitle && <p class="subtitle">{extras.subtitle}</p>}
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        {
+          rooms.map((room) => (
+            <div class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
+              <a href={`/accommodations/${room.url}`} class="room-pic" aria-label={room.name}>
+                <div style={`background-image: url(${mediaUrl(room.img.url)})`} />
+              </a>
+              <div class="room-details">
+                <div class="room-name">{room.name}</div>
+                <p class="d-none">{room.desc}</p>
+                <div class="room-specs">
+                  <div class="row">
+                    <div class="col-md mb-3 mb-md-0">
+                      <div class="room-price">Php {room.price}</div>
+                      <div>Capacity: {room.capacity}</div>
+                    </div>
+                    <div class="col-auto">
+                      <a href={`/accommodations/${room.url}`} class="btn btn-black">
+                        Book Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <PackagesSection packages={packages} />
+</Base>

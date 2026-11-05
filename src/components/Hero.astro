@@ -1,0 +1,32 @@
+---
+import { mediaUrl } from '../lib/env'
+
+interface Props {
+  title: string
+  img?: string
+  headerLogoHtml?: string
+  class?: string
+}
+
+const { title, img, headerLogoHtml, class: className = '' } = Astro.props
+const bg = img ? `url(${mediaUrl(img)})` : undefined
+---
+
+<main class={`hero flex-column ${className}`} role="main">
+  {bg && <figure style={`background-image: ${bg}`} />}
+  <a href="/" aria-label="Home">
+    {headerLogoHtml ? <div class="cv-logo mx-auto" set:html={headerLogoHtml} /> : null}
+  </a>
+  <div class="hero-content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="text-center">
+            <h1 class="title">{title}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="top" />
+</main>

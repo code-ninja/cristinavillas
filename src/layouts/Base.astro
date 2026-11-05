@@ -1,0 +1,75 @@
+---
+import SiteHeader from '../components/SiteHeader.astro'
+import VendorScripts from '../components/VendorScripts.vue'
+import SiteFooter from '../components/SiteFooter.astro'
+import { getSiteChrome, StrapiError } from '../lib/strapi'
+import { getSetting } from '../lib/settings'
+import { canonicalUrl } from '../lib/head'
+import { seoUrl, mediaUrl, seoLogo, seoName, seoThemeColor } from '../lib/env'
+import '../styles/site.scss'
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
+  path: string
+  ogImage?: string
+  ogImageAlt?: string
+}
+
+const { title, description = '', path, ogImage, ogImageAlt } = Astro.props
+
+let chrome
+try {
+  chrome = await getSiteChrome()
+} catch (e) {
+  if (e instanceof StrapiError) {
+    return Astro.redirect('/502')
+  }
+  throw e
+}
+
+const sitename = getSetting(chrome.settings, 'sitename')
+const fullTitle = title ? `${title} - ${sitename}` : sitename
+const canonical = canonicalUrl(seoUrl(), path)
+const pageOgUrl = canonical
+const fbAppId = getSetting(chrome.settings, 'fb_app_id') || '2342695049293795'
+const ga = getSetting(chrome.settings, 'google_analytics')
+const swaychat = getSetting(chrome.settings, 'swaychat')
+const logo = seoLogo()
+const themeColor = seoThemeColor()
+const appleTitle = seoName() || sitename
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <meta property="fb:app_id" content={fbAppId} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={sitename} />
+    <meta property="og:url" content={pageOgUrl} />
+    <meta property="og:title" content={title || sitename} />
+    {description && <meta property="og:description" content={description} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@FbmResorts" />
+    <meta name="theme-color" content={themeColor} />
+    {appleTitle && <meta name="apple-mobile-web-app-title" content={appleTitle} />}
+    <link rel="manifest" href="/site.webmanifest" />
+    {logo && <link rel="icon" type="image/png" href={logo} />}
+    {logo && <link rel="apple-touch-icon" href={logo} />}
+    <link rel="msapplication-config" href="/browserconfig.xml" />
+  </head>
+  <body>
+    <SiteHeader chrome={chrome} currentPath={path} />
+    <slot />
+    <SiteFooter chrome={chrome} currentPath={path} />
+    <VendorScripts client:defer googleAnalytics={ga || undefined} swaychatWidgetId={swaychat || undefined} />
+  </body>
+</html>

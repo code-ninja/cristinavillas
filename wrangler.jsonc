@@ -1,0 +1,19 @@
+{
+  // Workers Builds overrides "name" with the connected Worker's name, so the same file deploys
+  // all three resort Workers. Per-site values live in each Worker's dashboard Variables and Secrets.
+  "name": "cristinavillas",
+  "main": "./dist/_worker.js/index.js",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "compatibility_date": "2026-11-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "keep_vars": true,
+  "observability": {
+    "enabled": true,
+    "traces": {
+      "enabled": true
+    }
+  }
+}

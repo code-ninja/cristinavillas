@@ -1,0 +1,43 @@
+---
+import ContactAddress from './ContactAddress.astro'
+import Resorts from './Resorts.astro'
+import type { SiteChrome } from '../lib/strapi'
+
+interface Props {
+  chrome: SiteChrome
+  currentPath: string
+}
+
+const { chrome, currentPath } = Astro.props
+const navLinks = chrome.navlinks.filter((n) => n.footer)
+---
+
+<footer>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-6 col-lg-4 my-5 my-sm-0">
+        <nav class="menu-nav-links fadeInUp">
+          <ul>
+            {
+              navLinks.map((link) => (
+                <li>
+                  {link.slug.slice(0, 4) === 'http' ? (
+                    <a href={link.slug} aria-label={link.label} target="_blank" rel="noopener">
+                      {link.label}
+                    </a>
+                  ) : (
+                    <a href={link.slug} aria-current={link.slug === currentPath ? 'page' : undefined}>
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+      <ContactAddress settings={chrome.settings} class="col-sm-6 col-md-4 mb-5 d-lg-block" />
+      <Resorts class="col-10 offset-1 offset-sm-0 col-md-12 col-lg-4" />
+    </div>
+  </div>
+</footer>
