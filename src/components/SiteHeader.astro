@@ -3,6 +3,7 @@ import ContactAddress from './ContactAddress.astro'
 import Resorts from './Resorts.astro'
 import type { SiteChrome } from '../lib/strapi'
 import { getSetting } from '../lib/settings'
+import { isExternalHref, navHref } from '../lib/head'
 
 interface Props {
   chrome: SiteChrome
@@ -12,7 +13,7 @@ interface Props {
 const { chrome, currentPath } = Astro.props
 const navLinks = chrome.navlinks.filter((n) => n.header)
 const tel = getSetting(chrome.settings, 'telephone')
-const isExternal = (slug: string) => slug.slice(0, 4) === 'http'
+const isExternal = (slug: string) => isExternalHref(slug)
 const openIcon = 'M0 2.5h16v1H0v-1zm4 5h12v1H4v-1zm-4 5h16v1H0v-1z'
 const closeIcon =
   'M8.282 7.575l6.01-6.01.708.707-6.01 6.01 6.01 6.01-.707.708-6.01-6.01L2.272 15l-.708-.707 6.01-6.01-6.01-6.01.707-.708 6.01 6.01z'
@@ -63,7 +64,7 @@ const closeIcon =
                           {link.label}
                         </a>
                       ) : (
-                        <a href={link.slug} aria-current={link.slug === currentPath ? 'page' : undefined}>
+                        <a href={navHref(link.slug)} aria-current={navHref(link.slug) === currentPath ? 'page' : undefined}>
                           {link.label}
                         </a>
                       )}
@@ -95,7 +96,7 @@ const closeIcon =
                       {link.label}
                     </a>
                   ) : (
-                    <a href={link.slug} aria-current={link.slug === currentPath ? 'page' : undefined}>
+                    <a href={navHref(link.slug)} aria-current={navHref(link.slug) === currentPath ? 'page' : undefined}>
                       {link.label}
                     </a>
                   )}

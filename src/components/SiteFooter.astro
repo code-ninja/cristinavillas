@@ -2,6 +2,7 @@
 import ContactAddress from './ContactAddress.astro'
 import Resorts from './Resorts.astro'
 import type { SiteChrome } from '../lib/strapi'
+import { navHref } from '../lib/head'
 
 interface Props {
   chrome: SiteChrome
@@ -26,7 +27,7 @@ const navLinks = chrome.navlinks.filter((n) => n.footer)
                       {link.label}
                     </a>
                   ) : (
-                    <a href={link.slug} aria-current={link.slug === currentPath ? 'page' : undefined}>
+                    <a href={navHref(link.slug)} aria-current={navHref(link.slug) === currentPath ? 'page' : undefined}>
                       {link.label}
                     </a>
                   )}
