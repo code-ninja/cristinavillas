@@ -15,8 +15,15 @@ const runtime = (optional = true) => envField.string({ context: 'server', access
 export default defineConfig({
   output: 'server',
   adapter: cloudflare({
-    imageService: 'passthrough',
+    imageService: 'cloudflare',
   }),
+  image: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**.cristinavillasmountainresort.com' },
+      { protocol: 'https', hostname: '**.casaazulresort.com' },
+      { protocol: 'https', hostname: '**.bosobosohighlands.com' },
+    ],
+  },
   env: {
     schema: {
       API_URL: runtime(false),

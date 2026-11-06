@@ -33,7 +33,7 @@ const list = limit ? packages.slice(0, limit) : packages
                     <a href={`/packages/${item.slug}`} aria-label={item.name}>
                       <div
                         class="packages-bg"
-                        style={`background-image: url(${mediaUrl(item.img.url)})`}
+                        style={`background-image: url(${mediaUrl(item.img.url, 'card')})`}
                       />
                       <div class="packages-content">
                         <div class="package-name">{item.name}</div>

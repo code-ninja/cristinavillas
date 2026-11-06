@@ -5,7 +5,7 @@ import BookingForm from '../../components/BookingForm.vue'
 import Slider from '../../components/Slider.vue'
 import { getRoomByUrl, getSiteChrome, StrapiError } from '../../lib/strapi'
 import { getSetting } from '../../lib/settings'
-import { apiUrl, mediaUrl, googleDocUrl } from '../../lib/env'
+import { mediaUrl, googleDocUrl } from '../../lib/env'
 import { renderMarkdown } from '../../lib/markdown'
 
 const { id } = Astro.params
@@ -31,8 +31,16 @@ if (!room) return Astro.rewrite('/404')
 
 const notesHtml = await renderMarkdown(room.notes)
 const slides = [
-  { url: room.img.url, title: room.name },
-  ...(room.images ?? []).map((image, i) => ({ url: image.url, title: `${room.name} ${i + 1}` })),
+  {
+    url: mediaUrl(room.img.url, 'gallery'),
+    fullUrl: mediaUrl(room.img.url, 'hero'),
+    title: room.name,
+  },
+  ...(room.images ?? []).map((image, i) => ({
+    url: mediaUrl(image.url, 'gallery'),
+    fullUrl: mediaUrl(image.url, 'hero'),
+    title: `${room.name} ${i + 1}`,
+  })),
 ]
 ---
 
@@ -80,7 +88,7 @@ const slides = [
     </div>
 
     <div class="booking-room-slider">
-      <Slider client:visible images={slides} apiBase={apiUrl()} />
+      <Slider client:visible images={slides} />
     </div>
   </section>
 </Base>

@@ -61,6 +61,26 @@ Switching `SEO_URL`/`API_URL` in `.dev.vars` and restarting `wrangler dev` (no r
 
 Pages render without `RESEND_API_KEY`; `/api/email` returns an error until it is set.
 
+`yarn dev` serves Strapi images directly from `API_URL`. After `yarn build`, `wrangler dev` emits Cloudflare transform URLs in HTML; optimized bytes only appear on a custom domain with Transformations enabled (or `wrangler dev --remote`).
+
+## Strapi image optimization
+
+Strapi uploads stay on each resort API. At render time, `mediaUrl()` in `src/lib/env.ts` wraps CMS paths in Cloudflare Image Transformations on the public site zone (`SEO_URL` + `/cdn-cgi/image/…`). The adapter uses `imageService: 'cloudflare'`; authorized API hosts are listed in `astro.config.mjs` `image.remotePatterns`.
+
+Named widths (one unique transform per source image per month on the Free plan):
+
+| Size | Width | Used for |
+| --- | --- | --- |
+| `hero` | 1920 | Page heroes, `og:image`, PhotoSwipe |
+| `card` | 800 | Package, room, and facility cards |
+| `gallery` | 1200 | Slider thumbnails |
+
+Cloudflare Images Free includes **5,000 unique transformations per month**. Uniqueness is by source image and width (and similar layout params); changing `format` or `quality` does not create extra unique transforms.
+
+**Dashboard (once per zone, not in wrangler):** Cloudflare → **Images → Transformations** → enable on each resort apex zone. Default allowed sources include the same zone (e.g. `api.cristinavillasmountainresort.com` when the site is on `cristinavillasmountainresort.com`). If transforms return 403, add the API hostname under allowed origins. Enable Transformations before or with the Worker deploy; otherwise `/cdn-cgi/image/` may 404 until the feature is on.
+
+After code changes, push to `master` (or redeploy each Worker) so all three domains pick up the new HTML. No Images binding is required in `wrangler.jsonc`.
+
 ## Cloudflare Workers setup (recommended)
 
 Repeat these steps once per domain (three Workers, all from the same repo).

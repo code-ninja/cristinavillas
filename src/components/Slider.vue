@@ -6,8 +6,7 @@ import 'swiper/css/pagination'
 import 'photoswipe/style.css'
 
 const props = defineProps<{
-  images: { url: string; title?: string }[]
-  apiBase: string
+  images: { url: string; fullUrl?: string; title?: string }[]
 }>()
 
 const root = ref<HTMLElement | null>(null)
@@ -29,13 +28,14 @@ onMounted(() => {
   })
 
   for (const image of props.images) {
-    const item: (typeof imgs)[number] = { src: props.apiBase + image.url, alt: image.title || '' }
+    const src = image.fullUrl || image.url
+    const item: (typeof imgs)[number] = { src, alt: image.title || '' }
     const img = new Image()
     img.onload = () => {
       item.width = img.naturalWidth
       item.height = img.naturalHeight
     }
-    img.src = item.src
+    img.src = src
     imgs.push(item)
   }
 })
@@ -61,7 +61,7 @@ async function open(index: number) {
     <div class="swiper-wrapper">
       <div v-for="(image, index) in images" :key="index" class="swiper-slide preview-img-item">
         <img
-          :src="apiBase + image.url"
+          :src="image.url"
           :alt="image.title ? image.title : 'Slider Image' + (index ? ' ' + index : '')"
           loading="lazy"
           @click="open(index)"

@@ -5,7 +5,7 @@ import PackagesSection from '../components/PackagesSection.astro'
 import Slider from '../components/Slider.vue'
 import { getHomePage, getSiteChrome, StrapiError } from '../lib/strapi'
 import { getSetting } from '../lib/settings'
-import { mediaUrl, apiUrl } from '../lib/env'
+import { mediaUrl } from '../lib/env'
 
 let home
 let packages
@@ -27,7 +27,11 @@ const videoId = extras.videoID
 const videoSrc = videoId
   ? `//www.youtube-nocookie.com/embed/${videoId}?controls=1&autohide=1&showinfo=0&modestbranding=1&autoplay=0&rel=0`
   : ''
-const slides = facilities.map((f) => ({ url: f.img.url, title: f.name }))
+const slides = facilities.map((f) => ({
+  url: mediaUrl(f.img.url, 'gallery'),
+  fullUrl: mediaUrl(f.img.url, 'hero'),
+  title: f.name,
+}))
 ---
 
 <Base
@@ -82,6 +86,6 @@ const slides = facilities.map((f) => ({ url: f.img.url, title: f.name }))
         </div>
       </div>
     </div>
-    <Slider client:visible images={slides} apiBase={apiUrl()} />
+    <Slider client:visible images={slides} />
   </section>
 </Base>

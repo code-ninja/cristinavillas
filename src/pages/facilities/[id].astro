@@ -4,7 +4,7 @@ import Hero from '../../components/Hero.astro'
 import Slider from '../../components/Slider.vue'
 import { getFacilityById, getSiteChrome, StrapiError } from '../../lib/strapi'
 import { getSetting } from '../../lib/settings'
-import { apiUrl, mediaUrl } from '../../lib/env'
+import { mediaUrl } from '../../lib/env'
 import { renderMarkdown } from '../../lib/markdown'
 
 const { id } = Astro.params
@@ -23,8 +23,16 @@ if (!facility) return Astro.rewrite('/404')
 
 const html = await renderMarkdown(facility.bigdesc)
 const slides = [
-  { url: facility.img.url, title: facility.name },
-  ...(facility.gallery ?? []).map((g, i) => ({ url: g.url, title: `${facility.name} ${i + 1}` })),
+  {
+    url: mediaUrl(facility.img.url, 'gallery'),
+    fullUrl: mediaUrl(facility.img.url, 'hero'),
+    title: facility.name,
+  },
+  ...(facility.gallery ?? []).map((g, i) => ({
+    url: mediaUrl(g.url, 'gallery'),
+    fullUrl: mediaUrl(g.url, 'hero'),
+    title: `${facility.name} ${i + 1}`,
+  })),
 ]
 ---
 
@@ -52,7 +60,7 @@ const slides = [
     </div>
 
     <div class="booking-room-slider">
-      <Slider client:visible images={slides} apiBase={apiUrl()} />
+      <Slider client:visible images={slides} />
     </div>
   </section>
 </Base>

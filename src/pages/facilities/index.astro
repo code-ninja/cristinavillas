@@ -49,7 +49,7 @@ const extras = (page.extras ?? {}) as Record<string, string>
               class="room-wrapper col-12 col-md-6 col-lg-4 mb-4"
             >
               <div class="room-pic preview-img-item">
-                <div style={`background-image: url(${mediaUrl(item.img.url)})`} />
+                <div style={`background-image: url(${mediaUrl(item.img.url, 'card')})`} />
               </div>
               <div class="slider-caption">{item.name}</div>
             </a>

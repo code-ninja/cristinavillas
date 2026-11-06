@@ -47,7 +47,7 @@ const extras = (page.extras ?? {}) as Record<string, string>
           rooms.map((room) => (
             <div class="room-wrapper col-12 col-md-6 col-lg-4 mb-4">
               <a href={`/accommodations/${room.url}`} class="room-pic" aria-label={room.name}>
-                <div style={`background-image: url(${mediaUrl(room.img.url)})`} />
+                <div style={`background-image: url(${mediaUrl(room.img.url, 'card')})`} />
               </a>
               <div class="room-details">
                 <div class="room-name">{room.name}</div>

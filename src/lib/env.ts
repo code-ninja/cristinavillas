@@ -57,9 +57,38 @@ export function resendFromAddress(): string {
   return read('RESEND_FROM_ADDRESS') || 'noreply'
 }
 
-export function mediaUrl(path: string | undefined | null): string {
-  if (!path) return ''
-  if (path.startsWith('http')) return path
+/** Unique transforms = source × width only. format/quality do not add extras (CF Free 5k/month).
+ *  hero 1920 — heroes, OG, PhotoSwipe
+ *  card  800 — package / room / facility cards
+ *  gallery 1200 — slider thumbs
+ */
+export type MediaSize = 'hero' | 'card' | 'gallery'
+
+const MEDIA_WIDTH: Record<MediaSize, number> = {
+  hero: 1920,
+  card: 800,
+  gallery: 1200,
+}
+
+function resolveMediaOrigin(path: string): string {
+  if (/^https?:\/\//i.test(path)) return path
   const p = path.startsWith('/') ? path : `/${path}`
   return `${apiUrl()}${p}`
+}
+
+function cloudflareImageUrl(origin: string, size: MediaSize): string {
+  const w = MEDIA_WIDTH[size]
+  const params = `onerror=redirect,width=${w},quality=80,format=auto`
+  const base = seoUrl()
+  return `${base}/cdn-cgi/image/${params}/${origin}`
+}
+
+export function mediaUrl(
+  path: string | undefined | null,
+  size: MediaSize = 'hero',
+): string {
+  if (!path) return ''
+  const origin = resolveMediaOrigin(path)
+  if (import.meta.env.DEV) return origin
+  return cloudflareImageUrl(origin, size)
 }

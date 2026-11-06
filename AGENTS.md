@@ -24,6 +24,12 @@ Resort marketing site: **Astro** (SSR on Cloudflare Workers), **Vue 3 islands**,
 - One build serves three domains (one Worker each). Per-site values are runtime secrets read through `src/lib/env.ts` (`getSecret` from `astro:env/server`); declare new ones in the `env.schema` in `astro.config.mjs`.
 - Never use `import.meta.env` for site config, never set Astro `site`, and never hard-code a domain or favicon in `public/`. Build-time values get inlined and break the other domains. Per-site icons use `SEO_LOGO` (see `src/lib/env.ts`).
 
+## Strapi images
+
+- Resolve Strapi media with `mediaUrl(path, size?)` from `src/lib/env.ts` (`hero` | `card` | `gallery`). Do not hand-build `API_URL` + path for CMS images.
+- Production wraps URLs with `/cdn-cgi/image/` on `SEO_URL`; `astro dev` returns the raw origin URL. See README for Cloudflare Transformations setup and Free-tier unique-transform limits.
+- Slider islands receive pre-built `url` / `fullUrl` from `.astro` frontmatter; do not pass `apiBase`.
+
 ## Hydration
 
 - Prefer `client:interact` and `client:defer` over `client:load`.
